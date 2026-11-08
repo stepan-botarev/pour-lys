@@ -345,3 +345,8 @@ html.locked .wrap, html.locked .sparkles, html.locked dialog { display: none !im
 /* the two ways of adding: conjure / quill */
 .dlg-tabs { align-self: stretch; margin: 0 0 20px; }
 .dlg-tabs .tab { flex: 1; width: auto; height: 42px; }
+
+/* the key source stands out among the chips */
+a.gchip.key { background: #6050dc; color: #f4f1ff; box-shadow: 0 0 18px rgba(96,80,220,.55); }
+a.gchip.key:hover { background: #7366f0; }
+.key-note { color: #a99cff; }
