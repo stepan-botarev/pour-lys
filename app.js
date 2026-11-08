@@ -551,7 +551,7 @@
               title: fresh ? "Opened today at " + new Date(t).toTimeString().slice(0, 5) : null,
               onclick: (e) => { const m = seen(); m[e.currentTarget.href] = Date.now(); try { localStorage.setItem(SEEN_KEY, JSON.stringify(m)); } catch (x) {} e.currentTarget.classList.add("seen"); } }, it.label);
           });
-          const d = h("details", { class: "grp" }, h("summary", {}, `${g.emoji} ${g.title}`), h("div", { class: "gchips" }, chips));
+          const d = h("details", { class: "grp" }, h("summary", {}, h("span", { class: "emo" }, g.emoji), ` ${g.title}`), h("div", { class: "gchips" }, chips));
           if (sState.open.has(g.title)) d.open = true;
           d.addEventListener("toggle", () => (d.open ? sState.open.add(g.title) : sState.open.delete(g.title)));
           groupsEl.append(d);
