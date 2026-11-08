@@ -19,6 +19,7 @@
   ];
   const STATUS_DATE_LABEL = { "Awaiting response": "Sent", "No response": "Sent", "Rejected": "Rejected", "Invited": "Invited", "Offer": "Offer" };
   const STATUS_ORDER = ["Offer", "Invited", "Not yet sent", "Awaiting response", "No response", "Rejected"];
+  const JOB_CATEGORIES = new Set(["Academic Job", "Cozy Job"]); // interview prep only makes sense for jobs
   const SENT = new Set(["Awaiting response", "No response"]);
   const ICON_PATHS = {
     mic: '<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/>',
@@ -263,7 +264,7 @@
       h("div", { class: "card-head" }, h("span", { class: "card-num" }, String(n).padStart(2, "0")), h("h3", { class: "card-title" }, job.title)),
       h("div", { class: "meta" }, meta), dates,
       h("div", { class: "tools" },
-        h("button", { class: "tool" + (job.prep ? " done" : ""), title: "Interview prep", "aria-label": "Interview prep", onclick: () => prepDialog(job.id) }, icon("mic")),
+        (JOB_CATEGORIES.has(job.category) || job.prep) ? h("button", { class: "tool" + (job.prep ? " done" : ""), title: "Interview prep", "aria-label": "Interview prep", onclick: () => prepDialog(job.id) }, icon("mic")) : null,
         h("button", { class: "tool" + (job.letter ? " done" : ""), title: "Cover / motivation letter", "aria-label": "Letter", onclick: () => letterDialog(job.id) }, icon("letter")),
         h("button", { class: "tool fav" + (job.favorite ? " on" : ""), title: job.favorite ? "Remove from favorites" : "Add to favorites", onclick: () => { job.favorite = !job.favorite; save(); renderCards(); } }, heartIcon()),
         h("span", { class: "sp" }),
