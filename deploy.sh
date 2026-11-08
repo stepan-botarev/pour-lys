@@ -3,7 +3,7 @@
 # Bumps the ?v= cache-buster on css/js (GitHub Pages caches files for 10 min), commits and pushes.
 cd "$(dirname "$0")" || exit 1
 v=$(date +%s)
-sed -i '' -E "s/(styles\.css|config\.js|app\.js)\?v=[0-9]+/\1?v=$v/g" index.html
+sed -i '' -E "s/(styles\.css|config\.js|app\.js|gate\.js)\?v=[0-9]+/\1?v=$v/g" index.html
 git add -A
 git commit -q -m "${1:-Update}
 
