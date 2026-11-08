@@ -12,6 +12,46 @@ window.PL_CONFIG = {
     { id: "Residency",     hint: "Artist, writer, film and photography residencies in Berlin" },
   ],
 
+  // Starter entries, added once to every browser (checked 8 Nov 2026 on the official pages linked).
+  defaults: [
+    {
+      title: "PhD in literary studies (structured programme, start Oct 2027)",
+      org: "Friedrich Schlegel Graduate School of Literary Studies, Freie Universität Berlin",
+      url: "https://www.geisteswissenschaften.fu-berlin.de/en/friedrichschlegel/foerderung",
+      location: "Dahlem, Berlin",
+      funding: "Up to 5 nine-month scholarships of €1,103/month for admitted applicants without funding; otherwise external funding",
+      category: "PhD", deadline: "2026-11-15", score: 72, favorite: true,
+      notes: "Deadline 15 Nov 2026, 23:59 CET. Full-time, 3–4 years, German and English. Needs a Master's, research exposé, references, language certificate. Literature in a cultural-historical or intermedial frame: autofiction, fiction and images could make a literary-studies thesis. Check first: does Lys's Master's count (literature, comparative literature, philosophy)?",
+    },
+    {
+      title: "Graduate School fellowship for artists (24 months)",
+      org: "Berlin University of the Arts (UdK Berlin)",
+      url: "https://www.udk-berlin.de/en/research/graduate-school/application/faq/",
+      location: "Berlin",
+      funding: "€1,365/month + €103 materials, plus up to ~€4,000 project money per year",
+      category: "Residency", deadline: "", score: 82,
+      notes: "Not a PhD: a funded two-year fellowship for an artistic project; English working language, no age limit. Needs a Master's (or outstanding artistic aptitude), 3+ years of professional artistic practice and a project doable in two years. No call open right now: watch for the next one.",
+    },
+    {
+      title: "MA Spatial Strategies",
+      org: "weißensee kunsthochschule berlin",
+      url: "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
+      location: "Weißensee, Berlin",
+      funding: "Fee-based: €1,250 per semester + about €377 semester fee",
+      category: "Master", deadline: "", score: 85,
+      notes: "Two years, art about how spaces are lived in and made vulnerable: close to rented flats, temporary systems and rooms in transit. Needs portfolio, 3–4-page exposé with a project, 1 year of work experience after the first degree, language B1/B2 (C1 for admission). One round a year for the winter semester; in 2026 it ran 1 Mar–31 May, so expect spring 2027 (check the dates).",
+    },
+    {
+      title: "MA Photography",
+      org: "SRH University Berlin",
+      url: "https://www.srh-university.de/en/master/photography/v/",
+      location: "Berlin",
+      funding: "Private: €5,950 per semester (non-EU) or €830/month (EU), + one-off enrolment fee",
+      category: "Master", deadline: "", score: 66,
+      notes: "Taught in English, 3–4 semesters, starts 1 April or 1 October 2027. Personal photographic practice, history of photography, photography and space. Rolling applications: Bachelor's, motivation letter, CV, English. Expensive, so worth it only with a scholarship.",
+    },
+  ],
+
   // Google ignores words past ~32, so parts are added only while they fit.
   wordBudget: 30,
   // -word added to every query of a group with jobs:true.
