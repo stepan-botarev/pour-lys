@@ -339,4 +339,4 @@ html.locked .wrap, html.locked .sparkles, html.locked dialog { display: none !im
   75% { opacity: .9; }
   100% { opacity: 0; transform: translate(var(--x), var(--y)) rotate(var(--a)) translateX(var(--d)); }
 }
-.comets { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 50; }
+.comets { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
