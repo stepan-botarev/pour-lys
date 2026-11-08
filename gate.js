@@ -28,7 +28,7 @@
     const gate = document.createElement("form");
     gate.className = "gate";
     let stars = "";
-    for (let i = 0; i < 70; i++) {
+    for (let i = 0; i < 44; i++) {
       const s = Math.random() * 2.2 + 0.6;
       stars += `<i style="left:${Math.random() * 100}%;top:${Math.random() * 100}%;width:${s}px;height:${s}px;animation-delay:${-Math.random() * 6}s;animation-duration:${3 + Math.random() * 5}s"></i>`;
     }
@@ -44,6 +44,10 @@
       '<p class="gate-hint">touch the light</p>' +
       '<button type="submit" hidden></button>';
     document.body.append(gate);
+    // keep the words hidden until the font is in, so they do not swap size in front of you
+    gate.classList.add("wait");
+    const ready = () => gate.classList.remove("wait");
+    Promise.race([document.fonts.load('italic 500 34px "Cormorant Garamond"'), new Promise((r) => setTimeout(r, 1500))]).then(ready, ready);
     const whisper = gate.querySelector(".whisper"), orb = gate.querySelector(".orb"), input = gate.querySelector("input"), hint = gate.querySelector(".gate-hint");
     const open = () => {
       if (gate.classList.contains("open")) return;

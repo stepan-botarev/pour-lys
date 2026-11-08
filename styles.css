@@ -5,6 +5,14 @@
 @font-face { font-family: 'IBM Plex Mono'; font-weight: 500; font-display: swap; src: url(fonts/plexmono-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+1E00-1EFF, U+20A0-20C4; }
 @font-face { font-family: 'IBM Plex Mono'; font-weight: 500; font-display: swap; src: url(fonts/plexmono-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+2000-206F, U+20AC, U+2122; }
 
+/* fonts served from this site, so they arrive fast and do not jump when they load */
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 500; font-display: swap; src: url(fonts/cormorantgaramond-italic-500.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 600; font-display: swap; src: url(fonts/cormorantgaramond-italic-600.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 500; font-display: swap; src: url(fonts/cormorantgaramond-normal-500.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 600; font-display: swap; src: url(fonts/cormorantgaramond-normal-600.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Space Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/spacemono-normal-400.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Space Mono'; font-style: normal; font-weight: 700; font-display: swap; src: url(fonts/spacemono-normal-700.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
 :root {
   --bg: #0f1420;          /* ink navy */
   --bg-2: #151c2b;
@@ -266,14 +274,14 @@ html.locked .wrap, html.locked .sparkles, html.locked dialog { display: none !im
 .gate-stars { position: absolute; inset: 0; transition: transform 6s cubic-bezier(.16,.72,.14,1); }
 .gate.open .gate-stars { transform: scale(1.18); }
 .gate-stars i { position: absolute; border-radius: 50%; background: #f6ead0; opacity: .2; box-shadow: 0 0 6px rgba(246,234,208,.8); animation: twinkle 5s ease-in-out infinite; }
-@keyframes twinkle { 0%, 100% { opacity: .12; transform: scale(.8); } 50% { opacity: .9; transform: scale(1.25); } }
+@keyframes twinkle { 0%, 100% { opacity: .12; } 50% { opacity: .9; } }
 
 .orb-wrap { position: relative; width: 150px; height: 150px; display: grid; place-items: center; transition: width 3.6s cubic-bezier(.45,.05,.2,1), height 3.6s cubic-bezier(.45,.05,.2,1); }
 .gate.open .orb-wrap { width: min(400px, 82vw); height: min(400px, 82vw); }
 .orb-halo { position: absolute; inset: -55%; border-radius: 50%; pointer-events: none; filter: blur(30px); opacity: .8;
   background: conic-gradient(from 0deg, rgba(96,80,220,.9), rgba(70,60,200,.75), rgba(255,90,54,.35), rgba(96,80,220,.9), rgba(120,100,240,.8), rgba(232,154,107,.3), rgba(96,80,220,.9));
   -webkit-mask: radial-gradient(circle, #000 25%, transparent 64%); mask: radial-gradient(circle, #000 25%, transparent 64%);
-  animation: haloSpin 46s linear infinite, haloBreathe 8s ease-in-out infinite; transition: inset 3s cubic-bezier(.16,.72,.14,1); }
+  animation: haloBreathe 8s ease-in-out infinite; will-change: opacity; transition: inset 3s cubic-bezier(.16,.72,.14,1); }
 .gate.open .orb-halo { inset: -70%; }
 @keyframes haloSpin { to { transform: rotate(360deg); } }
 @keyframes haloBreathe { 0%, 100% { opacity: .55; } 50% { opacity: .9; } }
@@ -373,3 +381,4 @@ input.in[type="date"]::-webkit-calendar-picker-indicator { margin-right: 4px; cu
   .tools .tool.status { width: 168px; padding: 0 12px; }
   .tools .tool[title="Change category"] { width: 146px; padding: 0 12px; }
 }
+.gate.wait .gate-hint, .gate.wait .whisper { opacity: 0 !important; }
