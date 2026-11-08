@@ -674,5 +674,17 @@
     }, true);
   })();
 
+  // the veil that slides away when the page arrives (after the entrance light, if there is one)
+  function lift() {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches || document.querySelector(".veil")) return;
+    const veil = h("div", { class: "veil", "aria-hidden": "true" });
+    veil.addEventListener("animationend", () => veil.remove());
+    ($(".wrap") || document.body).append(veil); // inside the page layer, so the title can stay above it
+  }
+  if (document.documentElement.classList.contains("locked")) document.addEventListener("pourlys:unlocked", lift, { once: true });
+  else lift();
+  // coming back to the page from the browser's memory (back button, a restored tab) counts as opening it again
+  window.addEventListener("pageshow", (e) => { if (e.persisted && !document.documentElement.classList.contains("locked")) lift(); });
+
   render();
 })();
