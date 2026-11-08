@@ -51,7 +51,7 @@
     };
     input.addEventListener("input", () => { whisper.innerHTML = [...input.value].map((ch) => `<i>${ch === " " ? "&nbsp;" : ch.replace(/[&<>"]/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[m]))}</i>`).join(""); });
     orb.addEventListener("click", open);
-    orb.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
+    orb.addEventListener("keydown", (e) => { if (e.target === input) return; if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
     gate.addEventListener("submit", async (e) => {
       e.preventDefault();
       if (!gate.classList.contains("open")) return open();
