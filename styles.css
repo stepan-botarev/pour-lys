@@ -165,7 +165,7 @@ a { color: var(--resin); }
 .pop button.cur { background: var(--lumen); color: var(--ink); }
 
 /* ---------- dialogs ---------- */
-dialog { border: 1px solid var(--line); border-radius: 12px; padding: 0; background: var(--bg-2); color: var(--txt); width: min(720px, calc(100vw - 24px)); max-height: calc(100vh - 30px); box-shadow: 0 0 60px rgba(96,80,220,.45), 0 0 120px rgba(96,80,220,.25); }
+dialog { border: 1px solid var(--line); border-radius: 12px; padding: 0; background: var(--bg-2); color: var(--txt); width: min(720px, calc(100vw - 24px)); max-height: calc(100vh - 30px); box-shadow: 0 0 60px color-mix(in srgb, var(--dlg, #6050dc) 50%, transparent), 0 0 120px color-mix(in srgb, var(--dlg, #6050dc) 25%, transparent); }
 dialog.wide { width: min(860px, calc(100vw - 24px)); }
 dialog::backdrop { background: rgba(5,8,14,.72); backdrop-filter: blur(3px); }
 .dlg-head { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; border-bottom: 1px solid var(--line); background: var(--bg-2); position: sticky; top: 0; z-index: 2; }
@@ -321,4 +321,4 @@ html.locked .wrap, html.locked .sparkles, html.locked dialog { display: none !im
 .icon-btn svg { width: 22px; height: 22px; }
 .icon-btn[aria-label="Add"] svg { transform: scale(.9); }
 .icon-btn[aria-label="Music"] svg { transform: scale(1.06); }
-.icon-btn[aria-label="Save or restore a copy"] svg { transform: scale(1.12); }
+.icon-btn[aria-label="Save or restore a copy"] svg { transform: scale(.94); }

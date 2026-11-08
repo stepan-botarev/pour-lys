@@ -149,8 +149,9 @@
 
   /* ---------- modal ---------- */
   const modalEl = $("#modal");
-  function modal(title, build, wide) {
+  function modal(title, build, wide, glow) {
     modalEl.className = wide ? "wide" : "";
+    if (glow) modalEl.style.setProperty("--dlg", glow); else modalEl.style.removeProperty("--dlg");
     modalEl.innerHTML = "";
     const body = h("div", { class: "dlg-body" });
     modalEl.append(h("div", { class: "dlg-head" }, h("h2", {}, title), h("button", { class: "x", "aria-label": "Close", onclick: closeModal }, "✕")), body);
@@ -216,7 +217,7 @@
           h("button", { class: "icon-btn", title: "Find new listings on Google", "aria-label": "Find new listings", onclick: searchDialog, html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-3.6 3.8-3.6 14.2 0 18M12 3c3.6 3.8 3.6 14.2 0 18"/></svg>' }),
           h("button", { class: "icon-btn", title: "Add", "aria-label": "Add", onclick: () => addDialog(), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg>' }),
           h("button", { class: "icon-btn music-btn", title: "Our playlist", "aria-label": "Music", onclick: () => window.open(PLAYLIST_URL, "_blank", "noopener"), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.250 13.500V12a6.750 6.750 0 0 1 13.500 0v1.500"/><rect x="3.500" y="13.500" width="3.500" height="6.500" rx="1.750"/><rect x="17" y="13.500" width="3.500" height="6.500" rx="1.750"/></svg>' }),
-          h("button", { class: "icon-btn", title: "Save a copy of the list / restore from a copy", "aria-label": "Save or restore a copy", "data-pop": "1", onclick: (e) => popover(e.currentTarget, ["Download backup", "Restore from backup"], null, (v) => v === "Download backup" ? exportData() : importData()), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 19a4 4 0 0 1-.3-7.99 5.5 5.5 0 0 1 10.6 0A4 4 0 0 1 17 19z"/><path d="M12 10.5v6M9.4 14l2.6 2.6 2.6-2.6"/></svg>' }))),
+          h("button", { class: "icon-btn", title: "Save a copy of the list / restore from a copy", "aria-label": "Save or restore a copy", "data-pop": "1", onclick: (e) => popover(e.currentTarget, ["Download backup", "Restore from backup"], null, (v) => v === "Download backup" ? exportData() : importData()), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11.500L20 7.500V19a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z"/><path d="M8 4v4.500h7V4M7.500 20v-6.500h9V20"/></svg>' }))),
       h("div", { class: "divider" }),
       h("div", { class: "filter-row" }, chips,
         h("input", { class: "search-in", type: "search", placeholder: "Search your list…", value: ui.q, oninput: (e) => { ui.q = e.target.value; renderCards(); } })),
@@ -536,7 +537,7 @@
       if (!jobs.length) { body.append(h("div", { class: "empty-note" }, "Nothing here.")); return; }
       jobs.forEach((j) => body.append(h("button", { class: "job-pick", style: `--c:${STATUS_COLOR[status]}`, onclick: () => jumpTo(j.id) },
         h("div", { style: "font-weight:700" }, j.title), h("div", { style: "font-size:12px;opacity:.75" }, [j.org, j.category].filter(Boolean).join(" · ")))));
-    });
+    }, false, STATUS_COLOR[status]);
   }
   function jumpTo(id) {
     closeModal(); ui.section = "All"; ui.q = ""; setTab("list");
