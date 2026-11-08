@@ -82,22 +82,27 @@ a { color: var(--resin); }
 .hero p { margin: 40px 0 0; color: var(--muted); font-size: 14px; letter-spacing: 2px; font-weight: 700; }
 .hero p b { color: var(--love); text-shadow: 0 0 10px var(--hot); }
 /* the four swatches, bleeding light to the left like the reference */
-.swatches { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; width: min(100%, 460px); margin: 0 0 0 52px; flex: none; }
+.swatches { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; width: min(100%, 460px); margin: 0 0 0 52px; flex: none; }
 .swatches > * { position: relative; display: block; height: 40px; border: 0; border-radius: 0; margin: 0; }
 .swatches > :nth-child(1) { background: var(--lumen); --c: var(--hot); }
 .swatches > :nth-child(2) { background: var(--resin); --c: var(--hot); }
 .swatches > :nth-child(3) { background: var(--ember); --c: var(--hot); }
 .swatches > :nth-child(4) { background: var(--verdant); --c: transparent; }
-.swatches > *::after, .card::before, .legend button::before, .job-pick::before {
+.card::before, .legend button::before, .job-pick::before {
   content: ""; position: absolute; top: 0; bottom: 0; left: -46px; width: 60px; pointer-events: none; z-index: 0;
   background: linear-gradient(90deg, transparent 0%, rgba(96,80,220,.95) 26%, var(--c, var(--hot)) 76%, var(--c, var(--hot)) 100%);
   filter: blur(11px); opacity: 1;
 }
 
+/* halation: only the active tab bleeds light, to its left */
+.tab[aria-selected="true"]::after {
+  content: ""; position: absolute; top: 0; bottom: 0; left: -46px; width: 60px; pointer-events: none; z-index: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(96,80,220,.95) 26%, var(--hot) 76%, var(--hot) 100%); filter: blur(11px);
+}
 /* ---------- tabs (live inside the swatch bars) ---------- */
 .tab { cursor: pointer; font: 700 15px var(--font-body); letter-spacing: 5px; color: var(--ink); text-align: center; transition: .2s; }
 .tab:hover { filter: brightness(1.12); }
-.tab[aria-selected="true"] { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--lumen), 0 0 28px rgba(255,150,100,.5); }
+.tab[aria-selected="true"] { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--lumen); }
 .tab[aria-selected="false"] { opacity: .62; }
 
 /* ---------- panel ---------- */
