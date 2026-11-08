@@ -323,3 +323,20 @@ html.locked .wrap, html.locked .sparkles, html.locked dialog { display: none !im
 .icon-btn[aria-label="Music"] svg { transform: scale(1.06); }
 .icon-btn[aria-label="Save or restore a copy"] svg { transform: scale(.94); }
 .gate:not(.open) .orb-halo { pointer-events: auto; cursor: pointer; border-radius: 50%; }
+
+/* comets: a bright head with a long fading tail, crossing the sky now and then */
+.comet { position: absolute; left: 0; top: 0; width: 190px; height: 2px; pointer-events: none; opacity: 0; will-change: transform, opacity;
+  transform: translate(var(--x), var(--y)) rotate(var(--a));
+  animation: cometFly var(--t, 3s) cubic-bezier(.25,.1,.4,1) forwards; }
+.comet b { position: absolute; inset: 0; border-radius: 2px;
+  background: linear-gradient(90deg, rgba(143,132,255,0), rgba(160,170,255,.35) 55%, #e4e8ff 92%, #fff);
+  filter: blur(.4px); box-shadow: 0 0 10px rgba(143,132,255,.45); }
+.comet b::after { content: ""; position: absolute; right: -3px; top: 50%; width: 7px; height: 7px; margin-top: -3.5px; border-radius: 50%; background: #fff;
+  box-shadow: 0 0 8px 3px rgba(190,198,255,.95), 0 0 22px 8px rgba(110,100,240,.55); }
+@keyframes cometFly {
+  0% { opacity: 0; transform: translate(var(--x), var(--y)) rotate(var(--a)) translateX(0); }
+  8% { opacity: 1; }
+  75% { opacity: .9; }
+  100% { opacity: 0; transform: translate(var(--x), var(--y)) rotate(var(--a)) translateX(var(--d)); }
+}
+.comets { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 50; }
