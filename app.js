@@ -565,7 +565,7 @@
     for (let i = 0; i < 16; i++) {
       const s = h("i", {}, "✦");
       s.style.left = Math.random() * 100 + "%"; s.style.fontSize = 8 + Math.random() * 12 + "px";
-      s.style.animationDuration = 14 + Math.random() * 18 + "s"; s.style.animationDelay = -Math.random() * 30 + "s";
+      s.style.animationDuration = 17 + Math.random() * 22 + "s"; s.style.animationDelay = -Math.random() * 36 + "s";
       box.append(s);
     }
   })();
