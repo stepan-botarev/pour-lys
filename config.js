@@ -88,9 +88,9 @@ window.PL_CONFIG = {
   // "Format": adds a clause and/or limits which groups are shown.
   employment: [
     { label: "All" },
-    { label: "Study only", onlyGroups: ["PhD", "Master"] },
-    { label: "Werkstudent / Teilzeit", clause: '(Werkstudent OR Teilzeit OR "Working Student")', onlyGroups: ["Academic Job", "Cozy Job"] },
-    { label: "Minijob", clause: "(Minijob OR geringfügig OR Aushilfe)", onlyGroups: ["Academic Job", "Cozy Job"] },
+    { label: "Study only", onlyGroups: ["PhDs", "Masters"] },
+    { label: "Werkstudent / Teilzeit", clause: '(Werkstudent OR Teilzeit OR "Working Student")', onlyGroups: ["Academic Jobs", "Cozy Jobs"] },
+    { label: "Minijob", clause: "(Minijob OR geringfügig OR Aushilfe)", onlyGroups: ["Academic Jobs", "Cozy Jobs"] },
     { label: "Scholarships only", onlyGroups: ["Scholarships"] },
     { label: "Residencies only", onlyGroups: ["Residencies"] },
   ],
@@ -129,7 +129,7 @@ window.PL_CONFIG = {
   // jobs:true  → Format / District / exclusions apply.  plain:true (chip) → only the query, no filters.
   groups: [
     {
-      title: "PhD", emoji: "🎓", jobs: false,
+      title: "PhDs", emoji: "🎓", jobs: false,
       items: [
         { label: "Art", query: '("Promotion" OR PhD OR Doktorat) ("Bildende Kunst" OR "Künstlerische Forschung" OR "Artistic Research" OR Kunstwissenschaft) Berlin' },
         { label: "Film and media", query: '(PhD OR Promotion OR Doktorand) (Film OR Filmwissenschaft OR Medienwissenschaft OR "Film Studies") Berlin' },
@@ -142,7 +142,7 @@ window.PL_CONFIG = {
       ],
     },
     {
-      title: "Master", emoji: "🎬", jobs: false,
+      title: "Masters", emoji: "🎬", jobs: false,
       items: [
         { label: "Film / directing", query: '(Master OR MFA OR "M.A.") (Film OR Regie OR Filmregie OR "Film Directing") Berlin Bewerbung' },
         { label: "Screenwriting", query: '(Master OR MFA OR Studiengang) (Drehbuch OR Screenwriting OR Dramaturgie OR Stoffentwicklung) Berlin' },
@@ -155,7 +155,7 @@ window.PL_CONFIG = {
       ],
     },
     {
-      title: "Academic Job", emoji: "💼", jobs: true,
+      title: "Academic Jobs", emoji: "💼", jobs: true,
       items: [
         { label: "Hilfskraft and Mitarbeit", query: '("Wissenschaftliche Hilfskraft" OR "Studentische Hilfskraft" OR "wissenschaftliche Mitarbeit") (Kunst OR Film OR Literatur OR Medien OR Fotografie) Berlin' },
         { label: "Teaching", query: '(Lehrbeauftragte OR Dozent OR Tutor OR Lehrkraft) (Film OR Fotografie OR "Kreatives Schreiben" OR Drehbuch OR Medien) Berlin' },
@@ -170,7 +170,7 @@ window.PL_CONFIG = {
       ],
     },
     {
-      title: "Cozy Job", emoji: "☕", jobs: true,
+      title: "Cozy Jobs", emoji: "☕", jobs: true,
       items: [
         { label: "Barista", query: '(Barista OR Kaffeebar OR Café) (Aushilfe OR Servicekraft OR Mitarbeiter) Berlin' },
         { label: "Cafés and bookshops", query: '(Café OR Buchhandlung OR Bücherladen OR Antiquariat) (Aushilfe OR Verkauf OR Mitarbeit) Berlin -Supermarkt' },
