@@ -1,1 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><radialGradient id="g" cx="40%" cy="42%" r="75%"><stop offset="0" stop-color="#1c1f3d"/><stop offset="1" stop-color="#0b0e1c"/></radialGradient><linearGradient id="h" x1="12%" y1="8%" x2="88%" y2="92%"><stop offset="0" stop-color="#f0486a"/><stop offset=".28" stop-color="#9a45b8"/><stop offset=".6" stop-color="#6050dc"/><stop offset="1" stop-color="#4a3fd0"/></linearGradient><filter id="b" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="3.5"/></filter></defs><rect width="64" height="64" rx="14" fill="url(#g)"/><path d="M32 52C13 38 11 25 20.5 20c5.5-3 9.5 0 11.5 4 2-4 6-7 11.5-4C53 25 51 38 32 52z" fill="url(#h)" filter="url(#b)" opacity=".85"/><path d="M32 52C13 38 11 25 20.5 20c5.5-3 9.5 0 11.5 4 2-4 6-7 11.5-4C53 25 51 38 32 52z" fill="url(#h)"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <clipPath id="c"><rect width="64" height="64" rx="14"/></clipPath>
+    <radialGradient id="bg" cx="50%" cy="46%" r="70%"><stop offset="0" stop-color="#14183a"/><stop offset="1" stop-color="#070914"/></radialGradient>
+    <radialGradient id="orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#0a0c1a" stop-opacity="0"/><stop offset=".42" stop-color="#0d1030" stop-opacity=".85"/>
+      <stop offset=".72" stop-color="#4a3fd8" stop-opacity=".95"/><stop offset=".9" stop-color="#8f84ff" stop-opacity=".55"/><stop offset="1" stop-color="#8f84ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="h" x1="15%" y1="8%" x2="85%" y2="95%"><stop offset="0" stop-color="#ffd6e8"/><stop offset=".35" stop-color="#f08ab8"/><stop offset=".75" stop-color="#7d6cf0"/><stop offset="1" stop-color="#5b4be0"/></linearGradient>
+    <filter id="blur" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3.2"/></filter>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="1.4"/></filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="1.15" numOctaves="2" stitchTiles="stitch" result="n"/><feColorMatrix in="n" values="0 0 0 0 .95  0 0 0 0 .92  0 0 0 0 1  0 0 0 1.6 -.55"/></filter>
+  </defs>
+  <g clip-path="url(#c)">
+    <rect width="64" height="64" fill="url(#bg)"/>
+    <circle cx="32" cy="32" r="29" fill="url(#orb)"/>
+    <path d="M32 47C17 36 15.500 26 23 22c4.500-2.400 7.800.200 9 3.300 1.200-3.100 4.500-5.700 9-3.300 7.500 4 6 14-9 25z" fill="#ff8fc0" opacity=".75" filter="url(#blur)"/>
+    <path d="M32 47C17 36 15.500 26 23 22c4.500-2.400 7.800.200 9 3.300 1.200-3.100 4.500-5.700 9-3.300 7.500 4 6 14-9 25z" fill="url(#h)"/>
+    <path d="M48 12l1.300 3.700L53 17l-3.700 1.300L48 22l-1.300-3.700L43 17l3.700-1.300z" fill="#f6ead0" filter="url(#soft)"/>
+    <path d="M48 12l1.300 3.700L53 17l-3.700 1.300L48 22l-1.300-3.700L43 17l3.700-1.300z" fill="#fff6e0"/>
+    <circle cx="13" cy="46" r="1.100" fill="#f6ead0" opacity=".9"/><circle cx="17" cy="13" r=".8" fill="#f6ead0" opacity=".7"/><circle cx="52" cy="48" r=".9" fill="#f6ead0" opacity=".7"/>
+    <rect width="64" height="64" filter="url(#grain)" opacity=".45"/>
+  </g>
+</svg>
