@@ -12,24 +12,18 @@ window.PL_CONFIG = {
     { id: "Residency",     hint: "Artist, writer, film and photography residencies in Berlin" },
   ],
 
-  // Starter entries: only free or funded options (checked 8 Nov 2026; see each link).
-  // Bump defaultsVersion when this list changes: browsers then get the new entries once,
-  // and untouched entries listed in removedDefaults are taken out.
-  defaultsVersion: 2,
+  // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
+  // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
+  // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
+  defaultsVersion: 3,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
+    "https://www.geisteswissenschaften.fu-berlin.de/en/friedrichschlegel/foerderung",
+    "https://www.udk-berlin.de/en/research/graduate-school/application/faq/",
+    "https://www.filmuniversitaet.de/",
   ],
   defaults: [
-    {
-      title: "PhD in literary studies (structured programme, start Oct 2027)",
-      org: "Friedrich Schlegel Graduate School of Literary Studies, Freie Universität Berlin",
-      url: "https://www.geisteswissenschaften.fu-berlin.de/en/friedrichschlegel/foerderung",
-      location: "Dahlem, Berlin",
-      funding: "No tuition. Up to 5 nine-month scholarships of €1,103/month for admitted applicants without funding; otherwise external funding",
-      category: "PhD", deadline: "2026-11-15", favorite: true,
-      notes: "Deadline 15 Nov 2026, 23:59 CET. Theory only (literary studies, incl. intermediality); full-time, 3–4 years, German and English. Needs a Master's in literature or a related field, research exposé, references, language certificate; pick a supervisor among the school's PIs. Autofiction and image/text could be the topic.",
-    },
     {
       title: "Meisterschüler*in, Art and Media (2 semesters)",
       org: "Berlin University of the Arts (UdK Berlin)",
@@ -37,7 +31,34 @@ window.PL_CONFIG = {
       location: "Berlin",
       funding: "No tuition; €30 application fee",
       category: "Master", deadline: "2027-01-20", favorite: true,
-      notes: "Free postgraduate year after a Master's, in German or English (B2; B1 accepted when applying). Needs a Master's graded 'very good' and written confirmation from an Art and Media professor at least 4 weeks before the window: so by about 22 Nov 2026 for the window 20 Dec 2026 – 20 Jan 2027 (or by about 22 Apr for 20 May – 20 Jun 2027). Mentors to write to: Nina Fischer (photo/video on places and memory), Thomas Arslan (film). Afterwards it opens the Elsa-Neumann project grant.",
+      notes: "Free postgraduate year after a Master's, in English or German (B2; B1 accepted when applying). Needs a Master's graded 'very good' and written confirmation from an Art and Media professor at least 4 weeks before the window: by about 22 Nov 2026 for the window 20 Dec 2026 – 20 Jan 2027 (or by about 22 Apr for 20 May – 20 Jun 2027). Mentors to write to: Nina Fischer (photo/video on places and memory), Thomas Arslan (film).",
+    },
+    {
+      title: "Practice-based doctorate in Screenwriting/Dramaturgy (Dr. phil. in art.)",
+      org: "Filmuniversität Babelsberg KONRAD WOLF",
+      url: "https://www.filmuniversitaet.de/en/research-transfer/young-academic-talent/phd-programs/application-process",
+      location: "Potsdam-Babelsberg (near Berlin)",
+      funding: "No tuition; only the semester contribution (about €398) if enrolled; no stipend, funding found separately",
+      category: "PhD", deadline: "2027-01-15", favorite: true,
+      notes: "The only doctorate around Berlin where the artistic work counts: a dissertation plus a linked artistic research project of any form (autofiction, Polaroids, hybrid text/screen work). Dissertation in English or German. Deadlines 15 Jan and 15 Jun every year. Needs a relevant Master's, an 8–10-page exposé with timetable and bibliography, CV, documentation of works, and written commitments from two supervisors. Write first to Prof. Jens Becker or Prof. Timo Gößler (screenwriting).",
+    },
+    {
+      title: "PhD in photography theory with Prof. Eva Ehninger",
+      org: "Institute of Art and Visual History, Humboldt-Universität zu Berlin",
+      url: "https://www.kunstgeschichte.hu-berlin.de/studium/faq-promotion-phd-study/",
+      location: "Mitte, Berlin",
+      funding: "No tuition; no stipend, funding found separately (e.g. Böll)",
+      category: "PhD", deadline: "",
+      notes: "Theory-only doctorate, no deadline: send an exposé to the professor first. Ehninger works on the history and theory of photography and supervises a thesis on hotel rooms and isolation: very close to Lys's rented rooms and temporary dwelling. Needs a Master's graded at least 'good'. Check by email that the thesis can be in English.",
+    },
+    {
+      title: "Heinrich Böll Foundation doctoral scholarship",
+      org: "Heinrich-Böll-Stiftung",
+      url: "https://www.boell.de/de/promotionsfoerderung",
+      location: "Berlin",
+      funding: "About €1,500–1,650/month plus allowances, up to 3 years (amount depends on EU or non-EU)",
+      category: "PhD", deadline: "2027-03-01",
+      notes: "Window 15 Jan – 1 Mar 2027 (next 15 Jul – 1 Sep 2027). Open to international doctoral candidates of any field; no German level stated (info sheet in English, the form itself in German). Social and political engagement matters. Needs a supervisor's consent and a doctorate place first (Filmuniversität or HU above), exposé, expert report, reference on social engagement.",
     },
     {
       title: "DAAD Artists-in-Berlin Program, residency 2028 (literature or film)",
@@ -47,33 +68,6 @@ window.PL_CONFIG = {
       funding: "Monthly stipend, furnished flat, travel, insurance and German lessons",
       category: "Residency", deadline: "2026-12-15",
       notes: "Deadline 15 Dec 2026, 23:59 CET, for 2028. Direct applications only in literature, music & sound (12 months) and film (6 months); visual arts is by nomination. Meant for internationally recognised artists living abroad, so it needs published autofiction or screened films.",
-    },
-    {
-      title: "Graduate School fellowship for artists (24 months)",
-      org: "Berlin University of the Arts (UdK Berlin)",
-      url: "https://www.udk-berlin.de/en/research/graduate-school/application/faq/",
-      location: "Berlin",
-      funding: "€1,365/month + €103 materials, plus up to ~€4,000 project money per year",
-      category: "Residency", deadline: "",
-      notes: "Best fit: practice-based artistic research where research, photography and fiction stay one project; English working language. Not a PhD. Needs a Master's or 3+ years of professional practice. Calls come every two years (last: April 2023); the next is expected spring 2027, not confirmed yet. CV, letter (2 pages), project with timeline and budget (4 pages), up to 3 works.",
-    },
-    {
-      title: "Heinrich Böll Foundation doctoral scholarship (+ PhD with Prof. Kathrin Peters, UdK)",
-      org: "Heinrich-Böll-Stiftung",
-      url: "https://www.boell.de/de/promotionsfoerderung",
-      location: "Berlin",
-      funding: "About €1,540–1,650/month plus allowances, up to 3 years",
-      category: "PhD", deadline: "2027-03-01",
-      notes: "Window 15 Jan – 1 Mar 2027 (next: 1 Sep 2027). For doctoral candidates of any field at a German university, incl. international ones; social and political engagement matters. Needs a supervisor's consent, exposé and references. Pair it with a theory PhD at UdK with Kathrin Peters (photography, body, gender): write to her well before February.",
-    },
-    {
-      title: "Practice-based doctorate, Dr. phil. in art.",
-      org: "Filmuniversität Babelsberg KONRAD WOLF",
-      url: "https://www.filmuniversitaet.de/",
-      location: "Potsdam (near Berlin)",
-      funding: "No tuition; Brandenburg graduate scholarship possible (about €1,100/month, to check)",
-      category: "PhD", deadline: "",
-      notes: "The only doctorate in the region where the artistic work (Polaroids, texts) can be part of the thesis, not just its subject. Needs a Master's. No fixed deadline known: start by writing to the institute for artistic research or Prof. Michael Wedel (VP research). Details not yet checked on the official site.",
     },
     {
       title: "Québec Studio in Berlin (12 months at Künstlerhaus Bethanien)",
