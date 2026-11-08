@@ -20,6 +20,13 @@
   const STATUS_DATE_LABEL = { "Awaiting response": "Sent", "No response": "Sent", "Rejected": "Rejected", "Invited": "Invited", "Offer": "Offer" };
   const STATUS_ORDER = ["Offer", "Invited", "Not yet sent", "Awaiting response", "No response", "Rejected"];
   const SENT = new Set(["Awaiting response", "No response"]);
+  const ICON_PATHS = {
+    mic: '<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/>',
+    letter: '<rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/>',
+    pencil: '<path d="M4 20h4L19 9a2.1 2.1 0 0 0-3-3L5 17z"/><path d="M14 7l3 3"/>',
+    close: '<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>',
+  };
+  const icon = (name) => h("span", { class: "ico", html: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON_PATHS[name]}</svg>` });
   const heartIcon = () => h("span", { class: "heart-ico", html: '<svg viewBox="0 0 24 24" width="1.15em" height="1.15em" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20C5 15.500 3 12.500 3 9.300 3 6.600 5 4.800 7.600 4.800c1.800 0 3.400 1 4.400 2.600 1-1.600 2.600-2.600 4.400-2.600C19 4.800 21 6.600 21 9.300c0 3.200-2 6.200-9 10.700z"/></svg>' });
   const KEY = "pourlys.v1", SEEN_KEY = "pourlys.gsearchSeen";
 
@@ -231,18 +238,17 @@
     if (lab && lab !== "Sent" && job.statusChangedAt) dates.append(h("span", { class: "date-txt" }, `${lab} ${shortDate(job.statusChangedAt)}`));
 
     const el = h("article", { class: "card", id: "job-" + job.id, style: `--bar:${STATUS_COLOR[job.status] || STATUS_COLOR["Not yet sent"]}` },
-      job.score != null ? h("span", { class: `score ${scoreTier(job.score)}${ui.sort === "score" ? " on" : ""}`, title: job.notes || "Sort by rating", onclick: () => toggleSort("score") }, String(job.score)) : null,
       h("div", { class: "card-head" }, h("span", { class: "card-num" }, String(n).padStart(2, "0")), h("h3", { class: "card-title" }, job.title)),
       h("div", { class: "meta" }, meta), dates,
       h("div", { class: "tools" },
-        h("button", { class: "tool" + (job.prep ? " done" : ""), title: "Interview prep", onclick: () => prepDialog(job.id) }, "🎤"),
-        h("button", { class: "tool" + (job.letter ? " done" : ""), title: "Cover / motivation letter", onclick: () => letterDialog(job.id) }, "✉"),
+        h("button", { class: "tool" + (job.prep ? " done" : ""), title: "Interview prep", "aria-label": "Interview prep", onclick: () => prepDialog(job.id) }, icon("mic")),
+        h("button", { class: "tool" + (job.letter ? " done" : ""), title: "Cover / motivation letter", "aria-label": "Letter", onclick: () => letterDialog(job.id) }, icon("letter")),
         h("button", { class: "tool fav" + (job.favorite ? " on" : ""), title: job.favorite ? "Remove from favorites" : "Add to favorites", onclick: () => { job.favorite = !job.favorite; save(); renderCards(); } }, heartIcon()),
         h("span", { class: "sp" }),
         h("button", { class: "tool", "data-pop": "1", title: "Change category", onclick: (e) => popover(e.currentTarget, CATEGORIES, job.category, (c) => { job.category = c; save(); renderCards(); }) }, job.category),
         h("button", { class: "tool status", "data-pop": "1", title: "Change status", onclick: (e) => popover(e.currentTarget, STATUSES, job.status, (s) => { setStatus(job, s); renderCards(); }) }, SHORT[job.status] || job.status),
-        h("button", { class: "tool", title: "Edit", onclick: () => addDialog(job.id) }, "✎"),
-        h("button", { class: "tool del", title: "Remove", onclick: () => { if (confirm(`Remove “${job.title}”?`)) { db.jobs = db.jobs.filter((j) => j.id !== job.id); save(); renderCards(); } } }, "✕")));
+        h("button", { class: "tool", title: "Edit", "aria-label": "Edit", onclick: () => addDialog(job.id) }, icon("pencil")),
+        h("button", { class: "tool del", title: "Remove", onclick: () => { if (confirm(`Remove “${job.title}”?`)) { db.jobs = db.jobs.filter((j) => j.id !== job.id); save(); renderCards(); } }, "aria-label": "Remove" }, icon("close"))));
     return el;
   }
 
