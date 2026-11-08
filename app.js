@@ -39,16 +39,20 @@
     } catch (e) {}
     return seed({ seq: 1, jobs: [] });
   }
-  // Starter entries from config.js, added once per browser (never re-added after deleting).
+  // Starter entries from config.js. Each list version is applied once per browser:
+  // new entries are added, untouched entries that were dropped from the list are removed.
   function seed(d) {
-    if (d.seeded) return d;
+    const cfg = window.PL_CONFIG, version = cfg.defaultsVersion || 1;
+    if ((d.seeded || 0) >= version) return d;
+    const removed = new Set(cfg.removedDefaults || []);
+    d.jobs = d.jobs.filter((j) => !(removed.has(j.url) && j.status === "Not yet sent" && !j.prep && !j.letter));
     const have = new Set(d.jobs.map((j) => j.url));
     const t = new Date().toISOString();
-    (window.PL_CONFIG.defaults || []).forEach((x) => {
+    (cfg.defaults || []).forEach((x) => {
       if (have.has(x.url)) return;
       d.jobs.push({ id: d.seq++, status: "Not yet sent", prep: "", favorite: false, ...x, createdAt: t, statusChangedAt: t });
     });
-    d.seeded = 1;
+    d.seeded = version;
     try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {}
     return d;
   }
