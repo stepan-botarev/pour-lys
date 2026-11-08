@@ -51,7 +51,15 @@
       setTimeout(() => input.focus(), 350);
     };
     let done = false, timer = null;
-    const paint = () => { whisper.innerHTML = [...input.value].map((ch) => `<i>${ch === " " ? "&nbsp;" : ch.replace(/[&<>"]/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[m]))}</i>`).join(""); };
+    // Only the newly typed letter fades in; letters already there stay still (no flicker).
+    const letter = (ch, animate) => { const el = document.createElement("i"); el.textContent = ch === " " ? "\u00a0" : ch; if (!animate) el.style.animation = "none"; return el; };
+    const paint = () => {
+      const chars = [...input.value], cur = whisper.children;
+      let same = 0;
+      while (same < cur.length && same < chars.length && cur[same].textContent === (chars[same] === " " ? "\u00a0" : chars[same])) same++;
+      while (whisper.children.length > same) whisper.lastElementChild.remove();
+      chars.slice(same).forEach((ch, k, arr) => whisper.append(letter(ch, arr.length === 1)));
+    };
     const unlock = () => {
       done = true; remember(); hint.textContent = "";
       gate.classList.add("bloom");
