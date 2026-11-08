@@ -578,7 +578,7 @@
       const sum = h("summary", {}, sitesSummary());
       const siteBox = h("div", { class: "box" }, CFG.sites.map((s) => h("label", {}, h("input", { type: "checkbox", checked: sState.sites.includes(s.label), onchange: (e) => {
         sState.sites = e.target.checked ? [...sState.sites, s.label] : sState.sites.filter((x) => x !== s.label); sum.textContent = sitesSummary(); drawGroups();
-      } }), s.label)));
+      } }), s.label, s.key ? h("small", { class: "key-note" }, " · key source") : null)));
       const groupsEl = h("div");
       body.append(h("div", { class: "sf" },
         select("Format", CFG.employment.map((e) => e.label), sState.employment, "employment"),
@@ -600,9 +600,9 @@
         groups.forEach((g) => {
           const chips = g.items.map((it) => {
             const clauses = it.plain ? [] : g.jobs ? [emp.clause || "", siteClause, area] : [siteClause];
-            const href = googleUrl(it.query, sState.period, clauses, g.jobs && !it.plain ? CFG.exclude : [], CFG.wordBudget);
+            const href = it.url || googleUrl(it.query, sState.period, clauses, g.jobs && !it.plain ? CFG.exclude : [], CFG.wordBudget);
             const t = sn[href], fresh = t && new Date(t).toDateString() === today;
-            return h("a", { class: "gchip" + (fresh ? " seen" : ""), href, target: "_blank", rel: "noopener noreferrer",
+            return h("a", { class: "gchip" + (it.key ? " key" : "") + (fresh ? " seen" : ""), href, target: "_blank", rel: "noopener noreferrer",
               title: fresh ? "Opened today at " + new Date(t).toTimeString().slice(0, 5) : null,
               onclick: (e) => { const m = seen(); m[e.currentTarget.href] = Date.now(); try { localStorage.setItem(SEEN_KEY, JSON.stringify(m)); } catch (x) {} e.currentTarget.classList.add("seen"); } }, it.label);
           });

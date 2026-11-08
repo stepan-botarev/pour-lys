@@ -97,6 +97,7 @@ window.PL_CONFIG = {
 
   // "Site": site: limits the chips (not the ones marked plain) to a board or institution.
   sites: [
+    { label: "H-Soz-Kult", clause: "site:hsozkult.de/opportunity", key: true }, // the most important source
     { label: "Berlin.de",      clause: "site:karriereportal-stellen.berlin.de" },
     { label: "StepStone",      clause: "site:stepstone.de" },
     { label: "Indeed",         clause: "site:de.indeed.com" },
@@ -131,6 +132,7 @@ window.PL_CONFIG = {
     {
       title: "PhDs", emoji: "🎓", jobs: false,
       items: [
+        { label: "H-Soz-Kult: all opportunities", key: true, url: "https://www.hsozkult.de/opportunity/page" },
         { label: "Art", query: '("Promotion" OR PhD OR Doktorat) ("Bildende Kunst" OR "Künstlerische Forschung" OR "Artistic Research" OR Kunstwissenschaft) Berlin' },
         { label: "Film and media", query: '(PhD OR Promotion OR Doktorand) (Film OR Filmwissenschaft OR Medienwissenschaft OR "Film Studies") Berlin' },
         { label: "Writing", query: '(PhD OR Promotion OR Doktorand) ("Creative Writing" OR "Literarisches Schreiben" OR Literaturwissenschaft OR Komparatistik) Berlin' },
@@ -157,6 +159,7 @@ window.PL_CONFIG = {
     {
       title: "Academic Jobs", emoji: "💼", jobs: true,
       items: [
+        { label: "H-Soz-Kult: all opportunities", key: true, url: "https://www.hsozkult.de/opportunity/page" },
         { label: "Hilfskraft and Mitarbeit", query: '("Wissenschaftliche Hilfskraft" OR "Studentische Hilfskraft" OR "wissenschaftliche Mitarbeit") (Kunst OR Film OR Literatur OR Medien OR Fotografie) Berlin' },
         { label: "Teaching", query: '(Lehrbeauftragte OR Dozent OR Tutor OR Lehrkraft) (Film OR Fotografie OR "Kreatives Schreiben" OR Drehbuch OR Medien) Berlin' },
         { label: "Archives and collections", query: '(Archiv OR Sammlung OR Bibliothek OR Dokumentation) (Film OR Fotografie OR Literatur OR Kunst) (Assistenz OR Mitarbeit) Berlin' },
@@ -189,6 +192,7 @@ window.PL_CONFIG = {
     {
       title: "Scholarships", emoji: "💸", jobs: false,
       items: [
+        { label: "H-Soz-Kult: all opportunities", key: true, url: "https://www.hsozkult.de/opportunity/page" },
         { label: "For a PhD", query: '(Promotionsstipendium OR "PhD scholarship" OR Doktorandenstipendium) (Kunst OR Film OR Kultur OR Geisteswissenschaften) Berlin' },
         { label: "NaFöG Berlin", query: 'NaFöG Stipendium "Land Berlin" Nachwuchsförderung Promotion' },
         { label: "DAAD", plain: true, query: 'site:daad.de (Stipendium OR scholarship) (Kunst OR Film OR Fotografie OR Writing OR "Fine Arts")' },
