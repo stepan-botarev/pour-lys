@@ -35,7 +35,11 @@
   function load() {
     try {
       const d = JSON.parse(localStorage.getItem(KEY));
-      if (d && Array.isArray(d.jobs)) return seed(d);
+      if (d && Array.isArray(d.jobs)) {
+        const rename = { "Academic Jobs": "Academic Job", "Cozy Jobs": "Cozy Job" };
+        d.jobs.forEach((j) => { if (rename[j.category]) j.category = rename[j.category]; });
+        return seed(d);
+      }
     } catch (e) {}
     return seed({ seq: 1, jobs: [] });
   }
