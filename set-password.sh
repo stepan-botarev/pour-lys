@@ -3,6 +3,7 @@
 cd "$(dirname "$0")" || exit 1
 printf "New password: "; stty -echo; read -r pw; stty echo; printf "\n"
 [ -z "$pw" ] && { echo "Empty password, nothing changed."; exit 1; }
+pw=$(printf '%s' "$pw" | tr '[:upper:]' '[:lower:]' | sed 's/^ *//;s/ *$//')
 h=$(printf 'pourlys:%s' "$pw" | shasum -a 256 | cut -d' ' -f1)
 sed -i '' -E "s/const HASH = \"[0-9a-f]*\";/const HASH = \"$h\";/" gate.js
 ./deploy.sh "Update access password"

@@ -1,8 +1,9 @@
 /* Soft password gate. Keeps casual visitors out; it is not real security (the code is public).
    Set the password with ./set-password.sh — only a hash is stored here. */
 (function () {
-  const HASH = "144230b8ead74aff99f14406fff8f9039215c9bc61be49e4d2ed09fcf2de1e33";
+  const HASH = "47487c35e280bc66312e33a9373d4c23c7ec8c8e5e1e36ea0a112eed67812d27";
   const KEY = "pourlys.gate";
+  const QUESTION = "what is your cat's name?";
   // Ask the browser not to evict our storage (the list and the unlock live there).
   try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch (e) {}
   if (!HASH) return;
@@ -19,7 +20,7 @@
   document.documentElement.classList.add("locked");
 
   const sha = async (text) => {
-    const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode("pourlys:" + text));
+    const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode("pourlys:" + text.trim().toLowerCase()));
     return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
   };
 
@@ -46,26 +47,34 @@
     const whisper = gate.querySelector(".whisper"), orb = gate.querySelector(".orb"), input = gate.querySelector("input"), hint = gate.querySelector(".gate-hint");
     const open = () => {
       if (gate.classList.contains("open")) return;
-      gate.classList.add("open"); input.tabIndex = 0; hint.textContent = "then press Enter";
+      gate.classList.add("open"); input.tabIndex = 0; hint.textContent = QUESTION;
       setTimeout(() => input.focus(), 350);
     };
-    input.addEventListener("input", () => { whisper.innerHTML = [...input.value].map((ch) => `<i>${ch === " " ? "&nbsp;" : ch.replace(/[&<>"]/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[m]))}</i>`).join(""); });
+    let done = false, timer = null;
+    const paint = () => { whisper.innerHTML = [...input.value].map((ch) => `<i>${ch === " " ? "&nbsp;" : ch.replace(/[&<>"]/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[m]))}</i>`).join(""); };
+    const unlock = () => {
+      done = true; remember(); hint.textContent = "";
+      gate.classList.add("bloom");
+      setTimeout(() => { document.documentElement.classList.remove("locked"); }, 500);
+      setTimeout(() => gate.remove(), 1700);
+    };
+    const wrong = () => {
+      hint.textContent = "Are you sure you are Lys?";
+      orb.classList.remove("wrong"); void orb.offsetWidth; orb.classList.add("wrong");
+      input.value = ""; whisper.innerHTML = ""; input.focus();
+    };
+    // No Enter needed: the moment the right answer is typed, the light opens.
+    // A wrong answer is judged a moment after you stop typing (or on Enter).
+    const check = async (final) => {
+      if (done || !input.value.trim()) return;
+      if ((await sha(input.value)) === HASH) unlock(); else if (final) wrong();
+    };
+    input.addEventListener("input", () => {
+      if (hint.textContent !== QUESTION) hint.textContent = QUESTION;
+      paint(); clearTimeout(timer); check(false); timer = setTimeout(() => check(true), 1600);
+    });
     orb.addEventListener("click", open);
     orb.addEventListener("keydown", (e) => { if (e.target === input) return; if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
-    gate.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      if (!gate.classList.contains("open")) return open();
-      if ((await sha(input.value)) === HASH) {
-        remember();
-        hint.textContent = "";
-        gate.classList.add("bloom");
-        setTimeout(() => { document.documentElement.classList.remove("locked"); }, 500);
-        setTimeout(() => gate.remove(), 1700);
-      } else {
-        hint.textContent = "Are you sure you are Lys?";
-        orb.classList.remove("wrong"); void orb.offsetWidth; orb.classList.add("wrong");
-        input.value = ""; whisper.innerHTML = ""; input.focus();
-      }
-    });
+    gate.addEventListener("submit", (e) => { e.preventDefault(); if (!gate.classList.contains("open")) return open(); clearTimeout(timer); check(true); });
   });
 })();
