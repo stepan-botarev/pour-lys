@@ -20,6 +20,7 @@
   const STATUS_DATE_LABEL = { "Awaiting response": "Sent", "No response": "Sent", "Rejected": "Rejected", "Invited": "Invited", "Offer": "Offer" };
   const STATUS_ORDER = ["Offer", "Invited", "Not yet sent", "Awaiting response", "No response", "Rejected"];
   const SENT = new Set(["Awaiting response", "No response"]);
+  const heartIcon = () => h("span", { class: "heart-ico", html: '<svg viewBox="0 0 24 24" width="1.15em" height="1.15em" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20C5 15.500 3 12.500 3 9.300 3 6.600 5 4.800 7.600 4.800c1.800 0 3.400 1 4.400 2.600 1-1.600 2.600-2.600 4.400-2.600C19 4.800 21 6.600 21 9.300c0 3.200-2 6.200-9 10.700z"/></svg>' });
   const KEY = "pourlys.v1", SEEN_KEY = "pourlys.gsearchSeen";
 
   /* ---------- storage ---------- */
@@ -166,7 +167,7 @@
     const chipEls = [];
     const paintChips = () => chipEls.forEach(([name, el]) => el.setAttribute("aria-pressed", String(ui.section === name)));
     ["All", ...CATEGORIES, FAVORITES].forEach((name) => {
-      const el = h("button", { class: "chip", "aria-pressed": "false", onclick: () => { ui.section = name; paintChips(); renderCards(); } }, name === FAVORITES ? "♥ Favorites" : name);
+      const el = h("button", { class: "chip", "aria-pressed": "false", onclick: () => { ui.section = name; paintChips(); renderCards(); } }, name === FAVORITES ? [heartIcon(), " Favorites"] : name);
       chipEls.push([name, el]); chips.append(el);
     });
     paintChips();
@@ -177,8 +178,8 @@
         h("div", { class: "actions" },
           h("button", { class: "icon-btn", title: "Find new listings on Google", "aria-label": "Find new listings", onclick: searchDialog, html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-3.6 3.8-3.6 14.2 0 18M12 3c3.6 3.8 3.6 14.2 0 18"/></svg>' }),
           h("button", { class: "icon-btn", title: "Add", "aria-label": "Add", onclick: () => addDialog(), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg>' }),
-          h("button", { class: "icon-btn", title: "Save a copy of the list / restore from a copy", "aria-label": "Save or restore a copy", "data-pop": "1", onclick: (e) => popover(e.currentTarget, ["Download backup", "Restore from backup"], null, (v) => v === "Download backup" ? exportData() : importData()), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 19a4 4 0 0 1-.3-7.99 5.5 5.5 0 0 1 10.6 0A4 4 0 0 1 17 19z"/><path d="M12 10.5v6M9.4 14l2.6 2.6 2.6-2.6"/></svg>' }),
-          h("button", { class: "icon-btn music-btn", title: "Our playlist on Spotify", "aria-label": "Music", onclick: () => window.open(PLAYLIST_URL, "_blank", "noopener"), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg>' }))),
+          h("button", { class: "icon-btn music-btn", title: "Our playlist on Spotify", "aria-label": "Music", onclick: () => window.open(PLAYLIST_URL, "_blank", "noopener"), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg>' }),
+          h("button", { class: "icon-btn", title: "Save a copy of the list / restore from a copy", "aria-label": "Save or restore a copy", "data-pop": "1", onclick: (e) => popover(e.currentTarget, ["Download backup", "Restore from backup"], null, (v) => v === "Download backup" ? exportData() : importData()), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 19a4 4 0 0 1-.3-7.99 5.5 5.5 0 0 1 10.6 0A4 4 0 0 1 17 19z"/><path d="M12 10.5v6M9.4 14l2.6 2.6 2.6-2.6"/></svg>' }))),
       h("div", { class: "divider" }),
       h("div", { class: "filter-row" }, chips,
         h("input", { class: "search-in", type: "search", placeholder: "Search your list…", value: ui.q, oninput: (e) => { ui.q = e.target.value; renderCards(); } })),
@@ -223,7 +224,7 @@
       h("div", { class: "tools" },
         h("button", { class: "tool" + (job.prep ? " done" : ""), title: "Interview prep", onclick: () => prepDialog(job.id) }, "🎤"),
         h("button", { class: "tool" + (job.letter ? " done" : ""), title: "Cover / motivation letter", onclick: () => letterDialog(job.id) }, "✉"),
-        h("button", { class: "tool fav" + (job.favorite ? " on" : ""), title: job.favorite ? "Remove from favorites" : "Add to favorites", onclick: () => { job.favorite = !job.favorite; save(); renderCards(); } }, "♥"),
+        h("button", { class: "tool fav" + (job.favorite ? " on" : ""), title: job.favorite ? "Remove from favorites" : "Add to favorites", onclick: () => { job.favorite = !job.favorite; save(); renderCards(); } }, heartIcon()),
         h("span", { class: "sp" }),
         h("button", { class: "tool", "data-pop": "1", title: "Change category", onclick: (e) => popover(e.currentTarget, CATEGORIES, job.category, (c) => { job.category = c; save(); renderCards(); }) }, job.category),
         h("button", { class: "tool status", "data-pop": "1", title: "Change status", onclick: (e) => popover(e.currentTarget, STATUSES, job.status, (s) => { setStatus(job, s); renderCards(); }) }, SHORT[job.status] || job.status),
@@ -381,7 +382,7 @@
               if (!editing) { db.jobs.push(rec); rec.status = "Not yet sent"; }
               if (rec.status !== v.status) setStatus(rec, v.status);
               save(); closeModal(); renderCards();
-              toast(editing ? "Saved" : "Added ♥");
+              toast(editing ? "Saved" : "Added");
             } }, "SAVE"),
             !editing ? h("button", { class: "btn ghost", onclick: showMagic }, "← BACK") : null), msg);
       };

@@ -300,3 +300,9 @@ html.locked .wrap, html.locked .sparkles, html.locked dialog { display: none !im
 
 .inl-ico { display: inline-block; vertical-align: -0.2em; margin: 0 2px; color: var(--lumen); }
 .donut-c > div { transform: translateY(-7px); }
+
+.heart-ico { display: inline-block; vertical-align: -0.2em; line-height: 0; }
+.heart-ico svg { display: block; }
+.tool.fav .heart-ico svg { width: 1.2em; height: 1.2em; }
+.tool.fav.on svg path { fill: currentColor; }
+.chip .heart-ico { margin-right: 2px; }
