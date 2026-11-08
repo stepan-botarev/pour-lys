@@ -1,4 +1,4 @@
-# Pour Lys
+# pour Lys
 
 A tracker for Berlin: PhDs, practice-oriented masters, jobs you can take with an unfinished PhD, cozy jobs (barista, café, cinema, theatre), and scholarships to fund it all. Art, film, writing, photography.
 
