@@ -5,11 +5,11 @@
 window.PL_CONFIG = {
   // The five things Pour Lys tracks (replaces Quick Wins / Targets / Wild Cards).
   categories: [
-    { id: "PhD",           hint: "PhD in art, film, writing, photography" },
-    { id: "Master",        hint: "Practice-oriented master: film, screenwriting, photography, creative writing" },
+    { id: "PhD",          hint: "PhD in art, film, writing, photography" },
+    { id: "Master",       hint: "Practice-oriented master: film, screenwriting, photography, creative writing" },
+    { id: "Residency",    hint: "Artist, writer, film and photography residencies in Berlin" },
     { id: "Academic Job", hint: "Jobs you can take with an unfinished PhD" },
     { id: "Cozy Job",     hint: "Simple, pleasant jobs: barista, café, cinema, theatre" },
-    { id: "Residency",     hint: "Artist, writer, film and photography residencies in Berlin" },
   ],
 
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
