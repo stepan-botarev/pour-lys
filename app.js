@@ -177,7 +177,7 @@
         h("div", { class: "actions" },
           h("button", { class: "icon-btn", title: "Find new listings on Google", "aria-label": "Find new listings", onclick: searchDialog, html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-3.6 3.8-3.6 14.2 0 18M12 3c3.6 3.8 3.6 14.2 0 18"/></svg>' }),
           h("button", { class: "icon-btn", title: "Add", "aria-label": "Add", onclick: () => addDialog(), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg>' }),
-          h("button", { class: "icon-btn", title: "Save a copy of the list / restore from a copy", "aria-label": "Save or restore a copy", "data-pop": "1", onclick: (e) => popover(e.currentTarget, ["Download backup", "Restore from backup"], null, (v) => v === "Download backup" ? exportData() : importData()), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4.5 4.5 0 0 1-.6-8.96A6 6 0 0 1 18 8.5a4.75 4.75 0 0 1-.5 9.5H7z"/><path d="M12 11v5M9.8 13.8L12 16l2.2-2.2" stroke-width="1.7"/></svg>' }))),
+          h("button", { class: "icon-btn", title: "Save a copy of the list / restore from a copy", "aria-label": "Save or restore a copy", "data-pop": "1", onclick: (e) => popover(e.currentTarget, ["Download backup", "Restore from backup"], null, (v) => v === "Download backup" ? exportData() : importData()), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H7a5 5 0 0 1-.6-9.96A6.5 6.5 0 0 1 18.9 9.6 4.7 4.7 0 0 1 17.5 19z" transform="translate(.5 -.5)"/><path d="M12 10.5v6.5M9 14l3 3 3-3"/></svg>' }))),
       h("div", { class: "divider" }),
       h("div", { class: "filter-row" }, chips,
         h("input", { class: "search-in", type: "search", placeholder: "Search your list…", value: ui.q, oninput: (e) => { ui.q = e.target.value; renderCards(); } })),
@@ -303,7 +303,7 @@
       "Reply with one block: first the fields, then a line of three equals signs (===), then the filled-in prep template.\n\n" +
       "Fields (each on one line, as in the sample):\n" +
       "Title: <as in the listing>\nOrganization: <university, studio, café, foundation>\nLink: <link>\nPlace: <district or address in Berlin, or Remote>\n" +
-      `Category: <one of: ${cats}; choose what it is: PhD; practice-oriented master; a job you can apply for with an unfinished PhD; a simple, pleasant job>\n` +
+      `Category: <one of: ${cats}; choose what it is: PhD; practice-oriented master; a job you can apply for with an unfinished PhD; a simple, pleasant job; an artist/writer residency>\n` +
       "Funding: <scholarship, salary or rate; if none, leave empty>\nDeadline: <application deadline as DD.MM.YYYY; if none, leave empty>\nScore: <number 0–100, how well this fits me; if you don't know, leave empty>\n\n" +
       promptRules() + "\nSample answer:\n<fields>\n===\n" + PREP_TEMPLATE + "\n\nLink or text:\n" + (source || "");
   }

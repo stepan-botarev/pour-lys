@@ -3,12 +3,13 @@
    Same idea as Heaven Knows' config/google_searches.yaml. */
 
 window.PL_CONFIG = {
-  // The four things Pour Lys tracks (replaces Quick Wins / Targets / Wild Cards).
+  // The five things Pour Lys tracks (replaces Quick Wins / Targets / Wild Cards).
   categories: [
     { id: "PhD",           hint: "PhD in art, film, writing, photography" },
     { id: "Master",        hint: "Practice-oriented master: film, screenwriting, photography, creative writing" },
     { id: "Academic Jobs", hint: "Jobs you can take with an unfinished PhD" },
     { id: "Cozy Jobs",     hint: "Simple, pleasant jobs: barista, café, cinema, theatre" },
+    { id: "Residency",     hint: "Artist, writer, film and photography residencies in Berlin" },
   ],
 
   // Google ignores words past ~32, so parts are added only while they fit.
@@ -23,6 +24,7 @@ window.PL_CONFIG = {
     { label: "Werkstudent / Teilzeit", clause: '(Werkstudent OR Teilzeit OR "Working Student")', onlyGroups: ["Jobs with an unfinished PhD", "Simple, pleasant jobs"] },
     { label: "Minijob", clause: "(Minijob OR geringfügig OR Aushilfe)", onlyGroups: ["Jobs with an unfinished PhD", "Simple, pleasant jobs"] },
     { label: "Scholarships only", onlyGroups: ["Scholarships"] },
+    { label: "Residencies only", onlyGroups: ["Residencies"] },
   ],
 
   // "Site": site: limits the chips (not the ones marked plain) to a board or institution.
@@ -127,6 +129,22 @@ window.PL_CONFIG = {
         { label: "For international students", query: '(Stipendium OR scholarship) ("international students" OR Ausländische OR Internationale) (Kunst OR Geisteswissenschaften) Berlin' },
         { label: "Stipendienlotse", plain: true, query: 'site:stipendienlotse.de (Film OR Fotografie OR Kunst OR Literatur)' },
         { label: "Medienboard", plain: true, query: 'site:medienboard.de (Förderung OR Stipendium OR Drehbuch)' },
+      ],
+    },
+    {
+      title: "Residencies", emoji: "🏡", jobs: false,
+      items: [
+        { label: "Art", query: '(Residency OR Residenz OR "Artist in Residence" OR Atelierstipendium) (Bildende Kunst OR "visual art" OR Kunst) Berlin "open call"' },
+        { label: "Film", query: '(Residency OR Residenz OR "Artist in Residence") (Film OR Regie OR Drehbuch OR Filmemacher) Berlin "open call"' },
+        { label: "Writing", query: '(Residency OR Aufenthaltsstipendium OR "Writer in Residence" OR Schreibresidenz) (Literatur OR "Creative Writing" OR Autoren) Berlin' },
+        { label: "Photography", query: '(Residency OR Residenz OR "Artist in Residence") (Fotografie OR Photography) Berlin "open call"' },
+        { label: "Open calls", query: '("open call" OR Ausschreibung OR Bewerbung) (Residency OR Residenz OR Aufenthaltsstipendium) Berlin (Kunst OR Film OR Literatur OR Fotografie)' },
+        { label: "Funded", query: '(Residency OR Residenz) (Stipendium OR funded OR "with stipend" OR Honorar OR Unterkunft) Berlin (Kunst OR Film OR Literatur)' },
+        { label: "Künstlerhaus Bethanien", plain: true, query: 'site:bethanien.de (Residency OR Stipendium OR "open call")' },
+        { label: "Akademie der Künste", plain: true, query: 'site:adk.de (Stipendium OR Residency OR Ausschreibung)' },
+        { label: "LCB", plain: true, query: 'site:lcb.de (Stipendium OR Residenz OR Ausschreibung OR Aufenthalt)' },
+        { label: "Berlin Senate programs", plain: true, query: 'site:berlin.de (Arbeitsstipendium OR Atelierprogramm OR Residency OR Ausschreibung) Kultur' },
+        { label: "Residency directories", plain: true, query: '(site:transartists.org OR site:resartis.org OR site:artconnect.com) Berlin residency "open call"' },
       ],
     },
   ],
