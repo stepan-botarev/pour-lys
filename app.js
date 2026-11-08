@@ -173,7 +173,7 @@
       h("div", { class: "panel-head" },
         h("div", { class: "section-title" }, "LIST"),
         h("div", { class: "actions" },
-          h("button", { class: "icon-btn", title: "Find new listings on Google", "aria-label": "Find new listings", onclick: searchDialog }, "🧭"),
+          h("button", { class: "icon-btn", title: "Find new listings on Google", "aria-label": "Find new listings", onclick: searchDialog, html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M3 10h14M10 3c-3.2 3.6-3.2 10.4 0 14M10 3c3.2 3.6 3.2 10.4 0 14"/><path d="M15.2 15.2L21 21" stroke-width="2.6"/></svg>' }),
           h("button", { class: "icon-btn", title: "Backup / restore", "aria-label": "Backup", "data-pop": "1", onclick: (e) => popover(e.currentTarget, ["Download backup", "Restore from backup"], null, (v) => v === "Download backup" ? exportData() : importData()) }, "⇅"),
           h("button", { class: "icon-btn", title: "Add", "aria-label": "Add", onclick: () => addDialog() }, "+"))),
       h("div", { class: "divider" }),
@@ -191,7 +191,7 @@
     const jobs = filtered();
     if (!jobs.length) {
       cardsEl.append(h("div", { class: "empty-note" }, db.jobs.length ? "Nothing matches." : "Nothing on the desk yet.",
-        h("small", {}, db.jobs.length ? "Try another section or clear the search." : "Press 🧭 to find listings in Berlin, + to add what you found.")));
+        h("small", {}, db.jobs.length ? "Try another section or clear the search." : "Press the globe to find listings in Berlin, + to add what you found.")));
       return;
     }
     jobs.forEach((job, i) => cardsEl.append(card(job, i + 1)));
