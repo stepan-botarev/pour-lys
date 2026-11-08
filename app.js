@@ -178,7 +178,7 @@
           h("button", { class: "icon-btn", title: "Find new listings on Google", "aria-label": "Find new listings", onclick: searchDialog, html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-3.6 3.8-3.6 14.2 0 18M12 3c3.6 3.8 3.6 14.2 0 18"/></svg>' }),
           h("button", { class: "icon-btn", title: "Add", "aria-label": "Add", onclick: () => addDialog(), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg>' }),
           h("button", { class: "icon-btn", title: "Save a copy of the list / restore from a copy", "aria-label": "Save or restore a copy", "data-pop": "1", onclick: (e) => popover(e.currentTarget, ["Download backup", "Restore from backup"], null, (v) => v === "Download backup" ? exportData() : importData()), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 19a4 4 0 0 1-.3-7.99 5.5 5.5 0 0 1 10.6 0A4 4 0 0 1 17 19z"/><path d="M12 10.5v6M9.4 14l2.6 2.6 2.6-2.6"/></svg>' }),
-          h("button", { class: "icon-btn music-btn" + (musicEl && musicEl.classList.contains("open") ? " on" : ""), title: "Music", "aria-label": "Music", onclick: (e) => toggleMusic(e.currentTarget), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg>' }))),
+          h("button", { class: "icon-btn music-btn", title: "Our playlist on Spotify", "aria-label": "Music", onclick: () => window.open(PLAYLIST_URL, "_blank", "noopener"), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg>' }))),
       h("div", { class: "divider" }),
       h("div", { class: "filter-row" }, chips,
         h("input", { class: "search-in", type: "search", placeholder: "Search your list…", value: ui.q, oninput: (e) => { ui.q = e.target.value; renderCards(); } })),
@@ -232,20 +232,8 @@
     return el;
   }
 
-  /* ---------- music: one Spotify playlist ---------- */
-  const PLAYLIST_ID = "1lVq4bdrm1FERFqT3tJnCm";
-  let musicEl = null;
-  function toggleMusic(btn) {
-    if (!musicEl) {
-      musicEl = h("div", { class: "music" }, h("iframe", {
-        src: `https://open.spotify.com/embed/playlist/${PLAYLIST_ID}?utm_source=generator&theme=0`, width: "100%", height: "152", frameborder: "0",
-        allow: "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture", title: "Spotify playlist",
-      }));
-      document.body.append(musicEl);
-    }
-    const on = !musicEl.classList.contains("open");
-    musicEl.classList.toggle("open", on); btn.classList.toggle("on", on);
-  }
+  /* ---------- music: our Spotify playlist (private, so it opens in Spotify instead of an embedded player) ---------- */
+  const PLAYLIST_URL = "https://open.spotify.com/playlist/1lVq4bdrm1FERFqT3tJnCm";
 
   /* ---------- add / edit ---------- */
   const PREP_TEMPLATE = `🎯 The point:
@@ -597,12 +585,12 @@
     document.addEventListener("click", (e) => {
       const b = e.target.closest("button, a.gchip, .opt");
       if (!b || b.disabled || b.classList.contains("sweeping")) return;
-      const dir = Math.random() < 0.5 ? 1 : -1, dur = rnd(2.4, 3.6);
+      const dir = Math.random() < 0.5 ? 1 : -1, dur = rnd(6, 8.5);
       const sw = document.createElement("span"); sw.className = "sweep";
       const st = sw.style;
       st.setProperty("--c1", pick()); st.setProperty("--c2", pick()); st.setProperty("--y1", rnd(25, 75) + "%"); st.setProperty("--y2", rnd(20, 80) + "%");
       st.setProperty("--from", dir > 0 ? "-45%" : "145%"); st.setProperty("--to", dir > 0 ? "145%" : "-45%");
-      st.setProperty("--w", rnd(34, 58) + "%"); st.setProperty("--dur", dur + "s");
+      st.setProperty("--w", rnd(60, 90) + "%"); st.setProperty("--from2", dir > 0 ? "-85%" : "185%"); st.setProperty("--to2", dir > 0 ? "105%" : "-5%"); st.setProperty("--dur", dur + "s");
       b.style.setProperty("--halo", pick());
       if (getComputedStyle(b).position === "static") b.style.position = "relative";
       b.classList.add("sweeping"); b.append(sw);

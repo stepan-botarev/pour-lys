@@ -242,9 +242,9 @@ footer { text-align: center; margin-top: 34px; font: italic 500 22px var(--font-
     radial-gradient(ellipse var(--w) 170% at var(--sx) var(--y1), var(--c1), transparent 72%),
     radial-gradient(ellipse calc(var(--w) * .7) 140% at var(--sx2) var(--y2), var(--c2), transparent 72%);
   opacity: 0; filter: blur(6px);
-  animation: sweepMove var(--dur) cubic-bezier(.45,.05,.3,1) forwards, sweepFade var(--dur) ease-in-out forwards; }
-@keyframes sweepMove { from { --sx: var(--from); --sx2: var(--from); } 55% { --sx2: var(--from); } to { --sx: var(--to); --sx2: var(--to); } }
-@keyframes sweepFade { 0% { opacity: 0; } 25% { opacity: .85; } 70% { opacity: .75; } 100% { opacity: 0; } }
+  animation: sweepMove var(--dur) ease-in-out forwards, sweepFade var(--dur) ease-in-out forwards; }
+@keyframes sweepMove { from { --sx: var(--from); --sx2: var(--from2); } to { --sx: var(--to); --sx2: var(--to2); } }
+@keyframes sweepFade { 0% { opacity: 0; } 35% { opacity: .6; } 65% { opacity: .55; } 100% { opacity: 0; } }
 .sweeping { animation: halo var(--dur, 3s) ease-in-out; }
 @keyframes halo { 0%, 100% { filter: drop-shadow(0 0 0 transparent); } 40% { filter: drop-shadow(0 0 14px var(--halo)); } }
 
@@ -299,12 +299,3 @@ html.locked .wrap, html.locked .sparkles, html.locked dialog { display: none !im
 .gate.bloom .gate-hint { opacity: 0; }
 
 .inl-ico { display: inline-block; vertical-align: -0.2em; margin: 0 2px; color: var(--lumen); }
-
-/* ---------- music player (Spotify embed; stays loaded so it keeps playing when closed) ---------- */
-.music { position: fixed; right: 18px; bottom: 18px; z-index: 40; width: min(360px, calc(100vw - 36px)); border-radius: 14px; overflow: hidden; background: #121212;
-  box-shadow: 0 0 0 1px rgba(124,111,242,.45), 0 12px 40px rgba(0,0,0,.55), 0 0 50px rgba(96,80,220,.35);
-  opacity: 0; visibility: hidden; transform: translateY(14px) scale(.98); transition: opacity .45s ease, transform .45s ease, visibility 0s linear .45s; }
-.music.open { opacity: 1; visibility: visible; transform: none; transition: opacity .45s ease, transform .45s ease; }
-.music iframe { display: block; border: 0; }
-.icon-btn.on { background: var(--lumen); color: var(--ink); border-color: var(--lumen); }
-html.locked .music { display: none; }
