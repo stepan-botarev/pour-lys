@@ -267,8 +267,8 @@
         h("button", { class: "tool" + (job.letter ? " done" : ""), title: "Cover / motivation letter", "aria-label": "Letter", onclick: () => letterDialog(job.id) }, icon("letter")),
         h("button", { class: "tool fav" + (job.favorite ? " on" : ""), title: job.favorite ? "Remove from favorites" : "Add to favorites", onclick: () => { job.favorite = !job.favorite; save(); renderCards(); } }, heartIcon()),
         h("span", { class: "sp" }),
-        h("button", { class: "tool", "data-pop": "1", title: "Change category", onclick: (e) => popover(e.currentTarget, CATEGORIES, job.category, (c) => { job.category = c; save(); renderCards(); }) }, job.category),
         h("button", { class: "tool status", "data-pop": "1", title: "Change status", onclick: (e) => popover(e.currentTarget, STATUSES, job.status, (s) => { setStatus(job, s); renderCards(); }) }, SHORT[job.status] || job.status),
+        h("button", { class: "tool", "data-pop": "1", title: "Change category", onclick: (e) => popover(e.currentTarget, CATEGORIES, job.category, (c) => { job.category = c; save(); renderCards(); }) }, job.category),
         h("button", { class: "tool", title: "Edit", "aria-label": "Edit", onclick: () => addDialog(job.id) }, icon("pencil")),
         h("button", { class: "tool del", title: "Delete", onclick: () => { if (confirm(`Remove “${job.title}”?`)) { db.jobs = db.jobs.filter((j) => j.id !== job.id); save(); renderCards(); } }, "aria-label": "Remove" }, icon("close"))));
     return el;
