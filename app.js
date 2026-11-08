@@ -230,81 +230,80 @@
   }
 
   /* ---------- add / edit ---------- */
-  const PREP_TEMPLATE = `🎯 Суть:
-- <одной фразой: что это и почему подходит мне>
+  const PREP_TEMPLATE = `🎯 The point:
+- <one sentence: what this is and why it suits me>
 
-📮 Адрес и контакт:
-- <адрес в Берлине> — https://www.google.com/maps/search/?api=1&query=<адрес+через+плюсы>
-- Контакт: <имя, e-mail или телефон из объявления>
+📮 Address and contact:
+- <address in Berlin> — https://www.google.com/maps/search/?api=1&query=<address+with+plus+signs>
+- Contact: <name, e-mail or phone from the listing>
 
-🏛️ Об организации:
-- <чем занимается, размер, чем известна; без названия в начале: оно уже указано в карточке>
+🏛️ About the organization:
+- <what they do, size, what they are known for; no name at the start: it is already on the card>
 
-📚 Программа / роль:
-- <ключевые задачи или структура программы>
-- <что требуют: портфолио, язык, степень, проект>
+📚 Programme / role:
+- <key tasks or structure of the programme>
+- <what they require: portfolio, language, degree, project>
 
-🕰️ Условия и сроки:
-- <срок подачи, этапы отбора, длительность, формат>
+🕰️ Terms and deadlines:
+- <application deadline, selection stages, duration, format>
 
-💸 Финансирование / ставка:
-- <стипендия, зарплата, ставка в час; если нет данных — «нет данных»>
-- <как спросить об этом вежливо>
+💸 Funding / pay:
+- <scholarship, salary, hourly rate; if unknown, write "no data">
+- <how to ask about it politely>
 
-🧑🏻‍🎨 Почему я:
-- > <сильная сторона>: <короткий аргумент, с опорой на мой опыт>
-- > <сильная сторона>: <короткий аргумент>
-- > <сильная сторона>: <короткий аргумент>
+🧑🏻‍🎨 Why me:
+- > <strength>: <short argument, based on my experience>
+- > <strength>: <short argument>
+- > <strength>: <short argument>
 
-🤔 Вероятные вопросы:
-- > <тема вопроса>: <короткий ответ, с опорой на мой опыт>
-- > <тема вопроса>: <короткий ответ>
-- > <тема вопроса>: <короткий ответ>
+🤔 Likely questions:
+- > <question topic>: <short answer, based on my experience>
+- > <question topic>: <short answer>
+- > <question topic>: <short answer>
 
-🙈 Слабые места:
-- > <слабое место>: <как честно и уверенно ответить>
-- > <слабое место>: <как честно и уверенно ответить>
+🙈 Weak spots:
+- > <weak spot>: <how to answer honestly and confidently>
+- > <weak spot>: <how to answer honestly and confidently>
 
-🙋🏻 Мои вопросы:
-- > <тема>: <вопрос организации>
-- > <тема>: <вопрос организации>
+🙋🏻 My questions:
+- > <topic>: <question for the organization>
+- > <topic>: <question for the organization>
 
-🩼 Фразы-костыли:
-- > Повторить: <реплика>
-- > Не понял: <реплика>
-- > Медленнее: <реплика>
-- > Подумать: <реплика>
-- > Письмом: <реплика>
+🩼 Crutch phrases:
+- > Repeat: <line>
+- > Didn't understand: <line>
+- > Slower: <line>
+- > Think: <line>
+- > In writing: <line>
 
-📝 Заметки:
-- <что важно не забыть>`;
+📝 Notes:
+- <what is important not to forget>`;
 
   function promptRules() {
-    return "Правила:\n" +
-      "- Всё происходит в Берлине. Сохрани строки-разделы с эмодзи и двоеточием, пункты пиши через «- ».\n" +
-      "- Варианты на выбор (если собеседник ответит по-разному) пиши через «- > Подпись: фраза», минимум два подряд. Обычные шаги и факты — просто через «- ».\n" +
-      "- Пояснения пиши по-русски, а реплики, которые я скажу вслух, — на языке программы или работы (немецкий или английский, как в объявлении), вежливо. Подпись кнопки до двоеточия — по-русски, а фраза в кнопке — целиком, 2–4 связных предложения.\n" +
-      "- Можно **жирный** и *курсив*. Другой разметки не используй.\n" +
-      "- Я мужчина: пиши обо мне в мужском роде и в немецких фразах используй мужские формы. Названия должностей с gender-формами пиши в мужской форме.\n" +
-      "- Не добавляй пункты про новости и отзывы об организации.\n" +
-      "- Ничего не выдумывай. Если данных нет, пиши «нет данных» или «уточнить». Если можешь открыть ссылку, возьми факты оттуда.\n" +
-      "- Если сайт защищён от ботов и открыть страницу не получается, не гадай и не заполняй шаблон по названию. Вместо шаблона коротко попроси меня вручную вставить сюда содержимое страницы и дождись его.\n";
+    return "Rules:\n" +
+      "- Everything happens in Berlin. Keep the section lines with the emoji and the colon; write items with \"- \".\n" +
+      "- Options to choose from (if the other person may answer in different ways) go as \"- > Label: phrase\", at least two in a row. Ordinary steps and facts are just \"- \".\n" +
+      "- Write explanations in English, and the lines I will say aloud in the language of the programme or job (German or English, as in the listing), politely. The button label before the colon is in English; the phrase in the button is complete, 2–4 connected sentences.\n" +
+      "- You may use **bold** and *italic*. No other markup.\n" +
+      "- Do not add items about news or reviews of the organization.\n" +
+      "- Do not invent anything. If there is no data, write \"no data\" or \"to check\". If you can open the link, take the facts from it.\n" +
+      "- If the site is protected from bots and you cannot open the page, do not guess and do not fill in the template from the title. Instead of the template, briefly ask me to paste the page content here by hand, and wait for it.\n";
   }
   function prepPrompt(job) {
-    const facts = [["Название", job.title], ["Организация", job.org], ["Место", job.location], ["Финансирование", job.funding], ["Категория", job.category], ["Ссылка", job.url], ["Заметки", job.notes]]
+    const facts = [["Title", job.title], ["Organization", job.org], ["Place", job.location], ["Funding", job.funding], ["Category", job.category], ["Link", job.url], ["Notes", job.notes]]
       .filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join("\n");
-    return "Помоги мне подготовиться к заявке, звонку и собеседованию по варианту ниже. Заполни шаблон под ЭТОТ вариант и верни его в точно таком же формате, одним блоком, без вступления и пояснений.\n\n" +
-      promptRules() + `\nВариант:\n${facts}\n\nШаблон:\n${PREP_TEMPLATE}`;
+    return "Help me prepare for the application, the call and the interview for the option below. Fill in the template for THIS option and return it in exactly the same format, as one block, with no introduction and no commentary.\n\n" +
+      promptRules() + `\nOption:\n${facts}\n\nTemplate:\n${PREP_TEMPLATE}`;
   }
   function addPrompt(source) {
-    const cats = CATEGORIES.map((c) => `«${c}»`).join(", ");
-    return "Помоги мне добавить новую запись в мой трекер (PhD, мастер, работа и стипендии в Берлине в сфере искусства, кино, письма и фотографии) и подготовиться к заявке. Ссылка или текст — в конце сообщения. " +
-      "Ответь одним блоком: сначала поля, потом строка из трёх знаков равно (===), потом заполненный шаблон подготовки.\n\n" +
-      "Поля (каждое одной строкой, как в образце):\n" +
-      "Название: <как в объявлении>\nОрганизация: <университет, студия, кафе, фонд>\nСсылка: <ссылка>\nМесто: <район или адрес в Берлине, либо Remote>\n" +
-      `Категория: <одна из: ${cats}; выбери, к чему относится: PhD; практический мастер; работа, на которую можно податься с неоконченным PhD; простая приятная работа>\n` +
-      "Финансирование: <стипендия, зарплата или ставка; если нет — пусто>\nДедлайн: <срок подачи в формате ДД.ММ.ГГГГ; если нет — пусто>\nОценка: <число 0–100, насколько это подходит мне; если не знаешь — пусто>\n\n" +
-      promptRules() + "\nОбразец ответа:\n<поля>\n===\n" + PREP_TEMPLATE + "\n\nСсылка или текст:\n" + (source || "");
+    const cats = CATEGORIES.map((c) => `"${c}"`).join(", ");
+    return "Help me add a new entry to my tracker (PhDs, masters, jobs and scholarships in Berlin in art, film, writing and photography) and prepare for the application. The link or text is at the end of the message. " +
+      "Reply with one block: first the fields, then a line of three equals signs (===), then the filled-in prep template.\n\n" +
+      "Fields (each on one line, as in the sample):\n" +
+      "Title: <as in the listing>\nOrganization: <university, studio, café, foundation>\nLink: <link>\nPlace: <district or address in Berlin, or Remote>\n" +
+      `Category: <one of: ${cats}; choose what it is: PhD; practice-oriented master; a job you can apply for with an unfinished PhD; a simple, pleasant job>\n` +
+      "Funding: <scholarship, salary or rate; if none, leave empty>\nDeadline: <application deadline as DD.MM.YYYY; if none, leave empty>\nScore: <number 0–100, how well this fits me; if you don't know, leave empty>\n\n" +
+      promptRules() + "\nSample answer:\n<fields>\n===\n" + PREP_TEMPLATE + "\n\nLink or text:\n" + (source || "");
   }
   function pickChoice(value, options) {
     const v = (value || "").toLowerCase().replace(/[«»"']/g, "").trim();
@@ -316,11 +315,11 @@
     head.split("\n").forEach((line) => { const m = line.match(/^\s*([^:]{2,24}):\s*(.*)$/); if (m) fields[m[1].trim().toLowerCase()] = m[2].trim(); });
     const prep = (parts.length > 1 ? parts.slice(1).join("\n===\n") : text).trim();
     const f = (...k) => k.map((x) => fields[x]).find(Boolean) || "";
-    const score = parseInt(f("оценка", "score"), 10);
+    const score = parseInt(f("score"), 10);
     return {
-      title: f("название", "title"), org: f("организация", "компания", "org"), url: f("ссылка", "url", "link"),
-      location: f("место", "location"), funding: f("финансирование", "зарплата", "funding"),
-      category: pickChoice(f("категория", "category"), CATEGORIES), deadline: toISODate(f("дедлайн", "deadline")),
+      title: f("title"), org: f("organization", "org"), url: f("link", "url"),
+      location: f("place", "location"), funding: f("funding", "salary"),
+      category: pickChoice(f("category"), CATEGORIES), deadline: toISODate(f("deadline")),
       score: isNaN(score) ? null : Math.max(0, Math.min(100, score)), prep: /(^|\n)\s*-\s/.test(prep) ? prep : "",
     };
   }
@@ -502,8 +501,8 @@
   }
 
   /* ---------- web search (Google links, no scraping) ---------- */
-  const PERIODS = { "Сутки": "qdr:d", "Неделя": "qdr:w", "Месяц": "qdr:m", "Год": "qdr:y", "Любой": "" };
-  const sState = { employment: CFG.employment[0].label, period: "Месяц", area: CFG.areas[0].label, sites: [], open: new Set([CFG.groups[0].title]) };
+  const PERIODS = { "Day": "qdr:d", "Week": "qdr:w", "Month": "qdr:m", "Year": "qdr:y", "Any": "" };
+  const sState = { employment: CFG.employment[0].label, period: "Month", area: CFG.areas[0].label, sites: [], open: new Set([CFG.groups[0].title]) };
   const seen = () => { try { return JSON.parse(localStorage.getItem(SEEN_KEY) || "{}"); } catch (e) { return {}; } };
 
   function googleUrl(query, period, clauses, exclude, budget) {
@@ -518,17 +517,17 @@
     modal("Search in Google", (body) => {
       const select = (label, items, cur, key) => h("div", {}, h("label", { class: "f" }, label),
         h("select", { class: "in", onchange: (e) => { sState[key] = e.target.value; drawGroups(); } }, items.map((x) => h("option", { selected: x === cur }, x))));
-      const sitesSummary = () => (sState.sites.length ? sState.sites.join(", ") : "Все сайты");
+      const sitesSummary = () => (sState.sites.length ? sState.sites.join(", ") : "All sites");
       const sum = h("summary", {}, sitesSummary());
       const siteBox = h("div", { class: "box" }, CFG.sites.map((s) => h("label", {}, h("input", { type: "checkbox", checked: sState.sites.includes(s.label), onchange: (e) => {
         sState.sites = e.target.checked ? [...sState.sites, s.label] : sState.sites.filter((x) => x !== s.label); sum.textContent = sitesSummary(); drawGroups();
       } }), s.label)));
       const groupsEl = h("div");
       body.append(h("div", { class: "sf" },
-        select("Формат", CFG.employment.map((e) => e.label), sState.employment, "employment"),
-        select("Период", Object.keys(PERIODS), sState.period, "period"),
-        select("Район", CFG.areas.map((a) => a.label), sState.area, "area"),
-        h("div", {}, h("label", { class: "f" }, "Сайт"), h("details", { class: "multi" }, sum, siteBox))),
+        select("Format", CFG.employment.map((e) => e.label), sState.employment, "employment"),
+        select("Period", Object.keys(PERIODS), sState.period, "period"),
+        select("District", CFG.areas.map((a) => a.label), sState.area, "area"),
+        h("div", {}, h("label", { class: "f" }, "Site"), h("details", { class: "multi" }, sum, siteBox))),
         h("div", { class: "divider" }), groupsEl,
         h("p", { class: "hint" }, "Chips open a Google search in a new tab. Chips you opened today turn green."));
 
