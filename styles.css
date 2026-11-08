@@ -382,3 +382,9 @@ input.in[type="date"]::-webkit-calendar-picker-indicator { margin-right: 4px; cu
   .tools .tool[title="Change category"] { width: 146px; padding: 0 12px; }
 }
 .gate.wait .gate-hint, .gate.wait .whisper { opacity: 0 !important; }
+
+/* arrival: first only "pour Lys" rises out of the dark, then everything else slowly emerges */
+.hero h1 { animation: titleRise 2.4s cubic-bezier(.3,.6,.2,1) backwards; }
+#view, footer { animation: emerge 3.6s cubic-bezier(.25,.6,.2,1) 2.2s backwards; }
+@keyframes titleRise { from { opacity: 0; filter: blur(8px); transform: translateY(8px); } to { opacity: 1; filter: none; transform: none; } }
+@keyframes emerge { from { opacity: 0; filter: brightness(.35) blur(6px); transform: translateY(14px); } to { opacity: 1; filter: none; transform: none; } }

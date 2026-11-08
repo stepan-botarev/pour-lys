@@ -52,7 +52,7 @@
     d.jobs = d.jobs.filter((j) => !(removed.has(j.url) && j.status === "Not yet sent" && !j.prep && !j.letter));
     const untouched = (j) => j.status === "Not yet sent" && !j.prep && !j.letter;
     const fresh = new Map((cfg.defaults || []).map((x) => [x.url, x]));
-    d.jobs.forEach((j) => { const x = fresh.get(j.url); if (x && untouched(j)) { const fav = j.favorite; Object.assign(j, x); j.favorite = fav; } });
+    d.jobs.forEach((j) => { const x = fresh.get(j.url); if (x && untouched(j)) { Object.assign(j, x); j.favorite = !!x.favorite; } });
     const have = new Set(d.jobs.map((j) => j.url));
     const t = new Date().toISOString();
     (cfg.defaults || []).forEach((x) => {
