@@ -51,7 +51,7 @@
     const whisper = gate.querySelector(".whisper"), orb = gate.querySelector(".orb"), input = gate.querySelector("input"), hint = gate.querySelector(".gate-hint");
     const open = () => {
       if (gate.classList.contains("open")) return;
-      gate.classList.add("open"); input.tabIndex = 0; wrap.style.translate = "0 0";
+      gate.classList.add("open"); input.tabIndex = 0;
       // the light drifts closer first; only then does the question appear
       hint.style.opacity = "0";
       setTimeout(() => { hint.textContent = QUESTION; hint.style.opacity = "1"; }, 2200);
@@ -70,7 +70,7 @@
     const unlock = () => {
       done = true; remember(); hint.textContent = "";
       gate.classList.add("bloom");
-      setTimeout(() => { document.documentElement.classList.remove("locked"); }, 500);
+      setTimeout(() => { document.documentElement.classList.remove("locked"); document.dispatchEvent(new Event("pourlys:unlocked")); }, 500);
       setTimeout(() => gate.remove(), 1700);
     };
     const wrong = () => {
@@ -88,21 +88,6 @@
       if (hint.textContent !== QUESTION) hint.textContent = QUESTION;
       paint(); clearTimeout(timer); check(false); timer = setTimeout(() => check(true), 1600);
     });
-    // alive before it opens: it leans toward the pointer and shivers when touched
-    const wrap = gate.querySelector(".orb-wrap");
-    gate.addEventListener("pointermove", (e) => {
-      if (gate.classList.contains("open")) return;
-      const r = wrap.getBoundingClientRect(), dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2), reach = 320, d = Math.hypot(dx, dy);
-      if (d > reach) { wrap.style.translate = "0 0"; return; }
-      const k = Math.min(1, dx === 0 && dy === 0 ? 0 : 1), pull = 22;
-      wrap.style.translate = `${(dx / reach) * pull * k}px ${(dy / reach) * pull * k}px`;
-    });
-    gate.addEventListener("pointerleave", () => { if (!gate.classList.contains("open")) wrap.style.translate = "0 0"; });
-    orb.addEventListener("pointerenter", () => {
-      if (gate.classList.contains("open")) return;
-      wrap.classList.remove("stir"); void wrap.offsetWidth; wrap.classList.add("stir");
-    });
-    wrap.addEventListener("animationend", (e) => { if (e.animationName === "orbStir") wrap.classList.remove("stir"); });
     orb.addEventListener("click", open);
     gate.querySelector(".orb-halo").addEventListener("click", open);
     orb.addEventListener("keydown", (e) => { if (e.target === input) return; if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
