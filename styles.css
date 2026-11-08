@@ -322,3 +322,4 @@ html.locked .wrap, html.locked .sparkles, html.locked dialog { display: none !im
 .icon-btn[aria-label="Add"] svg { transform: scale(.9); }
 .icon-btn[aria-label="Music"] svg { transform: scale(1.06); }
 .icon-btn[aria-label="Save or restore a copy"] svg { transform: scale(.94); }
+.gate:not(.open) .orb-halo { pointer-events: auto; cursor: pointer; border-radius: 50%; }

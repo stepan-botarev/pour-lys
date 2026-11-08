@@ -82,6 +82,7 @@
       paint(); clearTimeout(timer); check(false); timer = setTimeout(() => check(true), 1600);
     });
     orb.addEventListener("click", open);
+    gate.querySelector(".orb-halo").addEventListener("click", open);
     orb.addEventListener("keydown", (e) => { if (e.target === input) return; if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
     gate.addEventListener("submit", (e) => { e.preventDefault(); if (!gate.classList.contains("open")) return open(); clearTimeout(timer); check(true); });
   });
