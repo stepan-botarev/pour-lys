@@ -177,7 +177,8 @@
         h("div", { class: "actions" },
           h("button", { class: "icon-btn", title: "Find new listings on Google", "aria-label": "Find new listings", onclick: searchDialog, html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-3.6 3.8-3.6 14.2 0 18M12 3c3.6 3.8 3.6 14.2 0 18"/></svg>' }),
           h("button", { class: "icon-btn", title: "Add", "aria-label": "Add", onclick: () => addDialog(), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg>' }),
-          h("button", { class: "icon-btn", title: "Save a copy of the list / restore from a copy", "aria-label": "Save or restore a copy", "data-pop": "1", onclick: (e) => popover(e.currentTarget, ["Download backup", "Restore from backup"], null, (v) => v === "Download backup" ? exportData() : importData()), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 19a4 4 0 0 1-.3-7.99 5.5 5.5 0 0 1 10.6 0A4 4 0 0 1 17 19z"/><path d="M12 10.5v6M9.4 14l2.6 2.6 2.6-2.6"/></svg>' }))),
+          h("button", { class: "icon-btn", title: "Save a copy of the list / restore from a copy", "aria-label": "Save or restore a copy", "data-pop": "1", onclick: (e) => popover(e.currentTarget, ["Download backup", "Restore from backup"], null, (v) => v === "Download backup" ? exportData() : importData()), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 19a4 4 0 0 1-.3-7.99 5.5 5.5 0 0 1 10.6 0A4 4 0 0 1 17 19z"/><path d="M12 10.5v6M9.4 14l2.6 2.6 2.6-2.6"/></svg>' }),
+          h("button", { class: "icon-btn music-btn" + (musicEl && musicEl.classList.contains("open") ? " on" : ""), title: "Music", "aria-label": "Music", onclick: (e) => toggleMusic(e.currentTarget), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg>' }))),
       h("div", { class: "divider" }),
       h("div", { class: "filter-row" }, chips,
         h("input", { class: "search-in", type: "search", placeholder: "Search your list…", value: ui.q, oninput: (e) => { ui.q = e.target.value; renderCards(); } })),
@@ -229,6 +230,21 @@
         h("button", { class: "tool", title: "Edit", onclick: () => addDialog(job.id) }, "✎"),
         h("button", { class: "tool del", title: "Remove", onclick: () => { if (confirm(`Remove “${job.title}”?`)) { db.jobs = db.jobs.filter((j) => j.id !== job.id); save(); renderCards(); } } }, "✕")));
     return el;
+  }
+
+  /* ---------- music: one Spotify playlist ---------- */
+  const PLAYLIST_ID = "1lVq4bdrm1FERFqT3tJnCm";
+  let musicEl = null;
+  function toggleMusic(btn) {
+    if (!musicEl) {
+      musicEl = h("div", { class: "music" }, h("iframe", {
+        src: `https://open.spotify.com/embed/playlist/${PLAYLIST_ID}?utm_source=generator&theme=0`, width: "100%", height: "152", frameborder: "0",
+        allow: "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture", title: "Spotify playlist",
+      }));
+      document.body.append(musicEl);
+    }
+    const on = !musicEl.classList.contains("open");
+    musicEl.classList.toggle("open", on); btn.classList.toggle("on", on);
   }
 
   /* ---------- add / edit ---------- */
