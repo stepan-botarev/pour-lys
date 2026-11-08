@@ -276,7 +276,7 @@ html.locked .wrap, html.locked .sparkles, html.locked dialog { display: none !im
 .gate-stars i { position: absolute; border-radius: 50%; background: #f6ead0; opacity: .2; box-shadow: 0 0 6px rgba(246,234,208,.8); animation: twinkle 5s ease-in-out infinite; }
 @keyframes twinkle { 0%, 100% { opacity: .12; } 50% { opacity: .9; } }
 
-.orb-wrap { position: relative; width: 150px; height: 150px; display: grid; place-items: center; transition: width 3.6s cubic-bezier(.45,.05,.2,1), height 3.6s cubic-bezier(.45,.05,.2,1); }
+.orb-wrap { position: relative; width: 150px; height: 150px; display: grid; place-items: center; translate: 0 0; transition: width 3.6s cubic-bezier(.45,.05,.2,1), height 3.6s cubic-bezier(.45,.05,.2,1), translate .8s cubic-bezier(.2,.8,.2,1); }
 .gate.open .orb-wrap { width: min(400px, 82vw); height: min(400px, 82vw); }
 .orb-halo { position: absolute; inset: -55%; border-radius: 50%; pointer-events: none; filter: blur(30px); opacity: .8;
   background: conic-gradient(from 0deg, rgba(96,80,220,.9), rgba(70,60,200,.75), rgba(255,90,54,.35), rgba(96,80,220,.9), rgba(120,100,240,.8), rgba(232,154,107,.3), rgba(96,80,220,.9));
@@ -387,4 +387,9 @@ input.in[type="date"]::-webkit-calendar-picker-indicator { margin-right: 4px; cu
 .hero h1 { animation: titleRise 2.4s cubic-bezier(.3,.6,.2,1) backwards; }
 #view, footer { animation: emerge 3.6s cubic-bezier(.25,.6,.2,1) 2.2s backwards; }
 @keyframes titleRise { from { opacity: 0; filter: blur(8px); transform: translateY(8px); } to { opacity: 1; filter: none; transform: none; } }
-@keyframes emerge { from { opacity: 0; filter: brightness(.35) blur(6px); transform: translateY(14px); } to { opacity: 1; filter: none; transform: none; } }
+@keyframes emerge { 0% { opacity: 0; filter: brightness(.35) blur(6px); transform: translateY(14px); pointer-events: none; } 99% { pointer-events: none; } 100% { opacity: 1; filter: none; transform: none; pointer-events: auto; } }
+
+/* the light stirs when you come near: it leans toward you and gives a small shiver */
+.orb-wrap.stir { animation: orbStir 1.1s cubic-bezier(.3,.6,.3,1); }
+@keyframes orbStir { 0% { transform: scale(1); } 28% { transform: scale(1.15); } 52% { transform: scale(.96); } 76% { transform: scale(1.06); } 100% { transform: scale(1); } }
+.gate:not(.open) .orb:hover { filter: brightness(1.25) saturate(1.15); }
