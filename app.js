@@ -579,7 +579,7 @@
   /* a slow, ever-different wash of light across whatever you press */
   (function clickGlow() {
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const COLORS = ["#ff5a36", "#e89a6b", "#6050dc", "#e6d7a8", "#d93a1f", "#ff8fa3"];
+    const COLORS = ["#8f84ff", "#b7adff", "#ff9ec4", "#f6c9e2", "#efe3c2", "#9db4ff"];
     const rnd = (a, b) => a + Math.random() * (b - a);
     const pick = () => COLORS[Math.floor(Math.random() * COLORS.length)];
     document.addEventListener("click", (e) => {
