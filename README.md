@@ -6,7 +6,7 @@ No server, no accounts. The list lives in the browser's `localStorage`; "Downloa
 
 ## What it does
 
-- **LIST**: cards with status, category, deadline, funding, favorite ♥, interview prep 🎤, letter ✉. Filter by category, search, sort by date added / sent / fit score. "Awaiting response" turns into "No response" after 10 days.
+- **TROVE**: cards with status, category, deadline, funding, favorite ♥, interview prep 🎤, letter ✉. Filter by category, search, sort by date added / sent / fit score. "Awaiting response" turns into "No response" after 10 days.
 - **Categories** (instead of Quick Wins / Targets / Wild Cards): `PhD`, `Master`, `Academic Jobs`, `Cozy Jobs`.
 - **PROGRESS**: donut by status per category. No rounds.
 - **+ Add**: paste a listing, copy the generated instructions into any chatbot, paste its answer back; fields and prep notes fill themselves. Or fill by hand.
