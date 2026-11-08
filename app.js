@@ -111,7 +111,7 @@
     const d = parseDeadline(raw);
     if (!d) return { text: raw, past: false };
     const t = new Date(); t.setHours(0, 0, 0, 0);
-    return { text: `${String(d.getDate()).padStart(2, "0")}.${String(d.getMonth() + 1).padStart(2, "0")}.${d.getFullYear()}`, past: d < t };
+    return { text: `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`, past: d < t };
   }
   function toISODate(text) { const d = parseDeadline(text); return d ? `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}` : ""; }
   function scoreTier(s) { return s == null ? "" : s > 85 ? "top" : s >= 70 ? "good" : s >= 60 ? "mid" : s >= 50 ? "low" : "bad"; }
