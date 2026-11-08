@@ -24,7 +24,7 @@
     mic: '<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/>',
     letter: '<rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3.5 7l8.5 6 8.5-6"/>',
     pencil: '<path d="M20 3.5C13 4 7.500 8.500 6.500 16.500c7.500-1 12.500-5.500 13.500-13z"/><path d="M3.500 20.500L15 9"/><path d="M9.500 13.500l3.200.600M12.500 10.500l3 .400"/>',
-    close: '<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>',
+    close: '<path d="M4 7h16M9.500 7V4.500h5V7M6 7l1 13h10l1-13M10 11v5.500M14 11v5.500"/>',
   };
   const icon = (name) => h("span", { class: "ico", html: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON_PATHS[name]}</svg>` });
   const heartIcon = () => h("span", { class: "heart-ico", html: '<svg viewBox="0 0 24 24" width="1.15em" height="1.15em" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20C5 15.500 3 12.500 3 9.300 3 6.600 5 4.800 7.600 4.800c1.800 0 3.400 1 4.400 2.600 1-1.600 2.600-2.600 4.400-2.600C19 4.800 21 6.600 21 9.300c0 3.200-2 6.200-9 10.700z"/></svg>' });
@@ -255,7 +255,7 @@
         h("button", { class: "tool", "data-pop": "1", title: "Change category", onclick: (e) => popover(e.currentTarget, CATEGORIES, job.category, (c) => { job.category = c; save(); renderCards(); }) }, job.category),
         h("button", { class: "tool status", "data-pop": "1", title: "Change status", onclick: (e) => popover(e.currentTarget, STATUSES, job.status, (s) => { setStatus(job, s); renderCards(); }) }, SHORT[job.status] || job.status),
         h("button", { class: "tool", title: "Edit", "aria-label": "Edit", onclick: () => addDialog(job.id) }, icon("pencil")),
-        h("button", { class: "tool del", title: "Remove", onclick: () => { if (confirm(`Remove “${job.title}”?`)) { db.jobs = db.jobs.filter((j) => j.id !== job.id); save(); renderCards(); } }, "aria-label": "Remove" }, icon("close"))));
+        h("button", { class: "tool del", title: "Delete", onclick: () => { if (confirm(`Remove “${job.title}”?`)) { db.jobs = db.jobs.filter((j) => j.id !== job.id); save(); renderCards(); } }, "aria-label": "Remove" }, icon("close"))));
     return el;
   }
 
