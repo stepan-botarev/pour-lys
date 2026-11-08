@@ -47,8 +47,11 @@
     const whisper = gate.querySelector(".whisper"), orb = gate.querySelector(".orb"), input = gate.querySelector("input"), hint = gate.querySelector(".gate-hint");
     const open = () => {
       if (gate.classList.contains("open")) return;
-      gate.classList.add("open"); input.tabIndex = 0; hint.textContent = QUESTION;
-      setTimeout(() => input.focus(), 350);
+      gate.classList.add("open"); input.tabIndex = 0;
+      // the light drifts closer first; only then does the question appear
+      hint.style.opacity = "0";
+      setTimeout(() => { hint.textContent = QUESTION; hint.style.opacity = "1"; }, 2200);
+      setTimeout(() => input.focus(), 900);
     };
     let done = false, timer = null;
     // Only the newly typed letter fades in; letters already there stay still (no flicker).
