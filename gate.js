@@ -1,7 +1,7 @@
 /* Soft password gate. Keeps casual visitors out; it is not real security (the code is public).
    Set the password with ./set-password.sh — only a hash is stored here. */
 (function () {
-  const HASH = "abde23e0d94b1cf6617eb1ed0dd7b8a2c2fc7d0e2e1ebc96964e5ff55f06394d";
+  const HASH = "144230b8ead74aff99f14406fff8f9039215c9bc61be49e4d2ed09fcf2de1e33";
   const KEY = "pourlys.gate";
   // Ask the browser not to evict our storage (the list and the unlock live there).
   try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch (e) {}
@@ -62,7 +62,7 @@
         setTimeout(() => { document.documentElement.classList.remove("locked"); }, 500);
         setTimeout(() => gate.remove(), 1700);
       } else {
-        hint.textContent = "not quite";
+        hint.textContent = "Are you sure you are Lys?";
         orb.classList.remove("wrong"); void orb.offsetWidth; orb.classList.add("wrong");
         input.value = ""; whisper.innerHTML = ""; input.focus();
       }
