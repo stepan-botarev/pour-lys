@@ -68,7 +68,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 a { color: var(--resin); }
 
 .sparkles { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
-.sparkles i { position: absolute; bottom: -30px; font-style: normal; color: var(--hot); opacity: 0; text-shadow: 0 0 8px var(--hot); will-change: transform, opacity; animation: drift linear infinite; }
+.sparkles i { position: absolute; bottom: -30px; font-style: normal; color: #e4e8ff; opacity: 0; text-shadow: 0 0 6px rgba(160,170,255,.9), 0 0 14px rgba(110,100,240,.6); will-change: transform, opacity; animation: drift linear infinite; }
 
 .wrap { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 26px 18px 70px; }
 
