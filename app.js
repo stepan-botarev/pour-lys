@@ -599,9 +599,10 @@
   /* ---------- ambient embers ---------- */
   (function sparkles() {
     const box = $("#sparkles"); if (!box || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    for (let i = 0; i < 10; i++) {
+    const N = 18;
+    for (let i = 0; i < N; i++) {
       const s = h("i", {}, "✦");
-      s.style.left = Math.random() * 100 + "%"; s.style.fontSize = 8 + Math.random() * 12 + "px";
+      s.style.left = ((i + Math.random()) / N) * 100 + "%"; // spread evenly, so the sides get stars too s.style.fontSize = 8 + Math.random() * 12 + "px";
       s.style.animationDuration = 17 + Math.random() * 22 + "s"; s.style.animationDelay = -Math.random() * 36 + "s";
       box.append(s);
     }
