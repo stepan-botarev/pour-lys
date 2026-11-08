@@ -145,7 +145,7 @@ a { color: var(--resin); }
 .dates { border-top: 1px dashed rgba(230,215,168,.14); margin-top: 12px; padding-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; min-height: 30px; align-items: center; }
 .date-btn { cursor: pointer; background: transparent; border: 1px solid rgba(230,215,168,.2); border-radius: 999px; padding: 1px 10px; font-size: 11px; color: var(--muted); }
 .date-btn.on { background: var(--lumen); color: var(--ink); border-color: var(--lumen); }
-.date-txt { font-size: 11px; color: var(--muted); }
+.date-txt { border: 1px solid rgba(230,215,168,.2); border-radius: 999px; padding: 1px 10px; font-size: 11px; color: var(--muted); }
 .tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 8px; }
 .tools .sp { flex: 1; }
 .tool { cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: transparent; border: 1px solid rgba(230,215,168,.2); color: var(--lumen);
