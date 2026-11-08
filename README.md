@@ -10,7 +10,7 @@ No server, no accounts. The list lives in the browser's `localStorage`; "Downloa
 - **Categories** (instead of Quick Wins / Targets / Wild Cards): `PhD`, `Master`, `Academic Jobs`, `Cozy Jobs`.
 - **STATS**: donut by status per category. No rounds.
 - **+ Add**: paste a listing, copy the generated instructions into any chatbot, paste its answer back; fields and prep notes fill themselves. Or fill by hand.
-- **🧭 Find**: Google searches for Berlin in five groups: PhD · Master · Jobs with an unfinished PhD · Simple, pleasant jobs · Scholarships. Filters: format, period, district, site. Chips opened today turn green.
+- **Find (globe icon)**: Google searches for Berlin in five groups: PhD · Master · Jobs with an unfinished PhD · Simple, pleasant jobs · Scholarships. Filters: format, period, district, site. Chips opened today turn green.
 
 Search chips, sites, districts and categories are in `config.js`.
 
