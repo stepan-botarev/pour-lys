@@ -285,7 +285,7 @@ html.locked .wrap, html.locked .sparkles, html.locked dialog { display: none !im
 @keyframes letterIn { from { opacity: 0; transform: translateY(6px) scale(1.5); filter: blur(4px); } to { opacity: 1; transform: none; filter: none; } }
 .whisper:not(:empty)::after { content: ""; display: inline-block; width: 2px; height: 1.05em; margin-left: 3px; vertical-align: -0.15em; background: var(--lumen); box-shadow: 0 0 10px var(--hot); animation: caretBlink 1.2s ease-in-out infinite; }
 @keyframes caretBlink { 0%, 100% { opacity: .15; } 50% { opacity: 1; } }
-.whisper:empty::before { content: "say the word"; font: italic 500 23px var(--font-head); color: rgba(230,215,168,.62); letter-spacing: 1px; text-shadow: 0 0 16px rgba(96,80,220,.9); animation: whisperPulse 4.5s ease-in-out infinite; }
+.whisper:empty::before { content: "start typing"; font: italic 500 23px var(--font-head); color: rgba(230,215,168,.62); letter-spacing: 1px; text-shadow: 0 0 16px rgba(96,80,220,.9); animation: whisperPulse 4.5s ease-in-out infinite; }
 @keyframes whisperPulse { 0%, 100% { opacity: .45; } 50% { opacity: 1; } }
 .orb.wrong { animation: orbWrong .7s ease; }
 @keyframes orbWrong { 0%, 100% { transform: translateX(0); filter: none; } 20% { transform: translateX(-10px); filter: hue-rotate(140deg) saturate(1.8); } 45% { transform: translateX(9px); } 70% { transform: translateX(-5px); } }
