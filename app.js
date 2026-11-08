@@ -165,10 +165,16 @@
   const view = $("#view");
 
   document.querySelectorAll(".tab").forEach((b) => b.addEventListener("click", () => setTab(b.dataset.tab)));
-  // The FINDS / PROGRESS switch lives inside the panel, in place of its title.
-  const titleSwitch = () => h("div", { class: "swatches", role: "tablist" },
-    [["list", "FINDS"], ["stats", "PROGRESS"]].map(([tab, label]) =>
-      h("button", { class: "tab", role: "tab", "aria-selected": String(ui.tab === tab), onclick: () => { if (ui.tab !== tab) setTab(tab); } }, label)));
+  // The FINDS / PROGRESS switch lives inside the panel, in place of its title. It is built once and
+  // moved into each new panel, so the light that runs over a pressed button is not wiped by the re-render.
+  let switchEl = null;
+  const titleSwitch = () => {
+    if (!switchEl) switchEl = h("div", { class: "swatches", role: "tablist" },
+      [["list", "FINDS"], ["stats", "PROGRESS"]].map(([tab, label]) =>
+        h("button", { class: "tab", role: "tab", "data-tab": tab, onclick: () => { if (ui.tab !== tab) setTab(tab); } }, label)));
+    switchEl.querySelectorAll(".tab").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === ui.tab)));
+    return switchEl;
+  };
   function setTab(tab) {
     ui.tab = tab;
     document.querySelectorAll(".tab").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === tab)));
