@@ -177,8 +177,8 @@ dialog::backdrop { background: rgba(5,8,14,.72); backdrop-filter: blur(3px); }
 .btn { cursor: pointer; background: var(--lumen); color: var(--ink); border: 0; border-radius: 7px; padding: 9px 18px; font-weight: 700; font-size: 12px; letter-spacing: 1.5px; transition: .15s;  }
 .btn:hover { background: var(--resin); }
 .btn:active { transform: translateY(1px); }
-.btn.primary { background: var(--ember); color: #fff2d8; }
-.btn.primary:hover { background: var(--hot); }
+.btn.primary { background: #6050dc; color: #f4f1ff; }
+.btn.primary:hover { background: #7366f0; box-shadow: 0 0 22px rgba(96,80,220,.5); }
 .btn.ghost { background: transparent; color: var(--txt); border: 1px solid var(--line); box-shadow: none; }
 .btn.ghost:hover { border-color: var(--resin); color: var(--resin); }
 .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
