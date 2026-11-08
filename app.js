@@ -28,9 +28,22 @@
   function load() {
     try {
       const d = JSON.parse(localStorage.getItem(KEY));
-      if (d && Array.isArray(d.jobs)) return d;
+      if (d && Array.isArray(d.jobs)) return seed(d);
     } catch (e) {}
-    return { seq: 1, jobs: [] };
+    return seed({ seq: 1, jobs: [] });
+  }
+  // Starter entries from config.js, added once per browser (never re-added after deleting).
+  function seed(d) {
+    if (d.seeded) return d;
+    const have = new Set(d.jobs.map((j) => j.url));
+    const t = new Date().toISOString();
+    (window.PL_CONFIG.defaults || []).forEach((x) => {
+      if (have.has(x.url)) return;
+      d.jobs.push({ id: d.seq++, status: "Not yet sent", prep: "", favorite: false, ...x, createdAt: t, statusChangedAt: t });
+    });
+    d.seeded = 1;
+    try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {}
+    return d;
   }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(db)); } catch (e) { toast("Could not save: browser storage is blocked"); } }
   const now = () => new Date().toISOString();
