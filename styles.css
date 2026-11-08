@@ -235,7 +235,7 @@ a.gchip { text-decoration: none; color: var(--ink); background: var(--lumen); bo
 a.gchip:hover { background: var(--resin); }
 a.gchip.seen { background: #2f6b55; color: #dff5e6; }
 
-footer { text-align: center; margin-top: 34px; font: italic 500 22px var(--font-head); color: var(--resin); text-shadow: 0 0 20px var(--glow); }
+footer { text-align: center; margin-top: 34px; font: italic 500 22px var(--font-head); color: #f0a982; text-shadow: -1px 0 rgba(96,80,220,.55), 1px 0 rgba(217,58,31,.4), 0 0 12px rgba(255,160,110,.55), 0 0 30px rgba(143,132,255,.35); }
 
 @media (max-width: 680px) {
   .hero { } .swatches { width: 100%; margin-left: 0; gap: 10px; } .swatches > * { flex: 1; width: auto; }
