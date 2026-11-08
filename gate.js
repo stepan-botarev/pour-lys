@@ -1,7 +1,7 @@
 /* Soft password gate. Keeps casual visitors out; it is not real security (the code is public).
    Set the password with ./set-password.sh — only a hash is stored here. */
 (function () {
-  const HASH = "7f396988c8ec587c09b245243b80207f9a7516ba8b7f58013b99a8d00d2758f3";
+  const HASH = "abde23e0d94b1cf6617eb1ed0dd7b8a2c2fc7d0e2e1ebc96964e5ff55f06394d";
   const KEY = "pourlys.gate";
   // Ask the browser not to evict our storage (the list and the unlock live there).
   try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch (e) {}
