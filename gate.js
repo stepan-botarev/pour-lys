@@ -3,8 +3,19 @@
 (function () {
   const HASH = "80011ec064ebc596d956aed033e2f62171695e6228ab4f7bc6f711635199b5e0";
   const KEY = "pourlys.gate";
+  // Ask the browser not to evict our storage (the list and the unlock live there).
+  try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch (e) {}
   if (!HASH) return;
-  try { if (localStorage.getItem(KEY) === HASH) return; } catch (e) {}
+  const COOKIE = "pourlys_gate=" + HASH.slice(0, 24);
+  const unlocked = () => {
+    try { if (localStorage.getItem(KEY) === HASH) return true; } catch (e) {}
+    return document.cookie.split("; ").includes(COOKIE);
+  };
+  const remember = () => {
+    try { localStorage.setItem(KEY, HASH); } catch (e) {}
+    document.cookie = COOKIE + "; max-age=31536000; path=/; SameSite=Lax";
+  };
+  if (unlocked()) { remember(); return; }
   document.documentElement.classList.add("locked");
 
   const sha = async (text) => {
@@ -25,25 +36,27 @@
       '<div class="orb-wrap">' +
         '<div class="orb-halo" aria-hidden="true"></div>' +
         '<div class="orb" role="button" tabindex="0" aria-label="Open">' +
+          '<div class="whisper" aria-hidden="true"></div>' +
           '<input type="password" autocomplete="current-password" aria-label="Password" tabindex="-1">' +
         '</div>' +
       '</div>' +
       '<p class="gate-hint">touch the light</p>' +
       '<button type="submit" hidden></button>';
     document.body.append(gate);
-    const orb = gate.querySelector(".orb"), input = gate.querySelector("input"), hint = gate.querySelector(".gate-hint");
+    const whisper = gate.querySelector(".whisper"), orb = gate.querySelector(".orb"), input = gate.querySelector("input"), hint = gate.querySelector(".gate-hint");
     const open = () => {
       if (gate.classList.contains("open")) return;
-      gate.classList.add("open"); input.tabIndex = 0; hint.textContent = "whisper the word, then press Enter";
+      gate.classList.add("open"); input.tabIndex = 0; hint.textContent = "then press Enter";
       setTimeout(() => input.focus(), 350);
     };
+    input.addEventListener("input", () => { whisper.innerHTML = [...input.value].map(() => "<i>✦</i>").join(""); });
     orb.addEventListener("click", open);
     orb.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
     gate.addEventListener("submit", async (e) => {
       e.preventDefault();
       if (!gate.classList.contains("open")) return open();
       if ((await sha(input.value)) === HASH) {
-        try { localStorage.setItem(KEY, HASH); } catch (err) {}
+        remember();
         hint.textContent = "";
         gate.classList.add("bloom");
         setTimeout(() => { document.documentElement.classList.remove("locked"); }, 500);
@@ -51,7 +64,7 @@
       } else {
         hint.textContent = "not quite";
         orb.classList.remove("wrong"); void orb.offsetWidth; orb.classList.add("wrong");
-        input.value = ""; input.focus();
+        input.value = ""; whisper.innerHTML = ""; input.focus();
       }
     });
   });
