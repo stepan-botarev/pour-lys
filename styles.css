@@ -367,3 +367,9 @@ input.in[type="date"]::-webkit-calendar-picker-indicator { margin-right: 4px; cu
   .tools .tool[title="Change category"] { order: -2; }
   .tools .sp { order: -1; flex: 0 0 100%; height: 0; margin: 0; }
 }
+
+/* desktop: both badges have one fixed width, so they line up from card to card */
+@media (min-width: 681px) {
+  .tools .tool.status { width: 168px; padding: 0 12px; }
+  .tools .tool[title="Change category"] { width: 146px; padding: 0 12px; }
+}
