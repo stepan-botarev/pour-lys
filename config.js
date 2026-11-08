@@ -15,7 +15,7 @@ window.PL_CONFIG = {
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
   // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
   // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
-  defaultsVersion: 3,
+  defaultsVersion: 4,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
@@ -30,7 +30,7 @@ window.PL_CONFIG = {
       url: "https://www.udk-berlin.de/en/application/applicationguide/art-and-media-meisterschuelerin",
       location: "Berlin",
       funding: "No tuition; €30 application fee",
-      category: "Master", deadline: "2027-01-20", favorite: true,
+      category: "Master", deadline: "2027-01-20",
       notes: "Free postgraduate year after a Master's, in English or German (B2; B1 accepted when applying). Needs a Master's graded 'very good' and written confirmation from an Art and Media professor at least 4 weeks before the window: by about 22 Nov 2026 for the window 20 Dec 2026 – 20 Jan 2027 (or by about 22 Apr for 20 May – 20 Jun 2027). Mentors to write to: Nina Fischer (photo/video on places and memory), Thomas Arslan (film).",
     },
     {
@@ -39,7 +39,7 @@ window.PL_CONFIG = {
       url: "https://www.filmuniversitaet.de/en/research-transfer/young-academic-talent/phd-programs/application-process",
       location: "Potsdam-Babelsberg (near Berlin)",
       funding: "No tuition; only the semester contribution (about €398) if enrolled; no stipend, funding found separately",
-      category: "PhD", deadline: "2027-01-15", favorite: true,
+      category: "PhD", deadline: "2027-01-15",
       notes: "The only doctorate around Berlin where the artistic work counts: a dissertation plus a linked artistic research project of any form (autofiction, Polaroids, hybrid text/screen work). Dissertation in English or German. Deadlines 15 Jan and 15 Jun every year. Needs a relevant Master's, an 8–10-page exposé with timetable and bibliography, CV, documentation of works, and written commitments from two supervisors. Write first to Prof. Jens Becker or Prof. Timo Gößler (screenwriting).",
     },
     {
