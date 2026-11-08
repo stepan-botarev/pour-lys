@@ -7,5 +7,5 @@ sed -i '' -E "s/((styles\.css|config\.js|app\.js|gate\.js|favicon\.svg))\?v=[0-9
 git add -A
 git commit -q -m "${1:-Update}
 
-Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>"
 GIT_TERMINAL_PROMPT=0 git push
