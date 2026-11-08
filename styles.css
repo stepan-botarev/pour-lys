@@ -220,6 +220,7 @@ details.grp { border-top: 1px dashed var(--line); padding: 12px 0; }
 details.grp:first-of-type { border-top: 0; }
 details.grp summary { cursor: pointer; font: italic 600 26px var(--font-head); color: var(--lumen); list-style: none; }
 details.grp summary::-webkit-details-marker { display: none; }
+details.grp summary .emo { font-style: normal; display: inline-block; margin-right: 2px; }
 details.grp summary::after { content: " ▾"; font: 400 14px var(--font-body); color: var(--hot); }
 .gchips { display: flex; flex-wrap: wrap; gap: 9px; margin: 12px 0 4px; }
 a.gchip { text-decoration: none; color: var(--ink); background: var(--lumen); border-radius: 1px; padding: 5px 14px; font-size: 12px; font-weight: 700; transition: .15s; }

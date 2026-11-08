@@ -113,7 +113,7 @@ window.PL_CONFIG = {
       ],
     },
     {
-      title: "Scholarships", emoji: "💶", jobs: false,
+      title: "Scholarships", emoji: "💸", jobs: false,
       items: [
         { label: "For a PhD", query: '(Promotionsstipendium OR "PhD scholarship" OR Doktorandenstipendium) (Kunst OR Film OR Kultur OR Geisteswissenschaften) Berlin' },
         { label: "NaFöG Berlin", query: 'NaFöG Stipendium "Land Berlin" Nachwuchsförderung Promotion' },
