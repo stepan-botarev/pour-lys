@@ -248,7 +248,7 @@ footer { text-align: center; margin-top: 34px; font: italic 500 22px var(--font-
 /* ---------- click glow: a slow wash of light, different every time ---------- */
 @property --sx { syntax: "<percentage>"; inherits: false; initial-value: 0%; }
 @property --sx2 { syntax: "<percentage>"; inherits: false; initial-value: 0%; }
-.sweep { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; pointer-events: none; z-index: 2; mix-blend-mode: normal;
+.sweep { position: absolute !important; inset: 0; z-index: 2 !important; border-radius: inherit; overflow: hidden; pointer-events: none; z-index: 2; mix-blend-mode: normal;
   background:
     radial-gradient(ellipse var(--w) 170% at var(--sx) var(--y1), var(--c1), transparent 72%),
     radial-gradient(ellipse calc(var(--w) * .7) 140% at var(--sx2) var(--y2), var(--c2), transparent 72%);
@@ -341,3 +341,7 @@ html.locked .wrap, html.locked .sparkles, html.locked dialog { display: none !im
   100% { opacity: 0; transform: translate(var(--x), var(--y)) rotate(var(--a)) translateX(var(--d)); }
 }
 .comets { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+
+/* the two ways of adding: conjure / quill */
+.dlg-tabs { align-self: stretch; margin: 0 0 20px; }
+.dlg-tabs .tab { flex: 1; width: auto; height: 42px; }

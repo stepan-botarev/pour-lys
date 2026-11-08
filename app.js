@@ -376,13 +376,23 @@
     const editing = editId ? byId(editId) : null;
     const draft = editing ? { ...editing } : { title: "", org: "", url: "", location: "Berlin", funding: "", category: ui.section !== "All" && CATEGORIES.includes(ui.section) ? ui.section : CATEGORIES[0], deadline: "", score: null, status: "Not yet sent", prep: "", notes: "" };
     modal(editing ? "Edit" : "Add", (body) => {
+      // Adding has two ways in: CONJURE (a chatbot fills it in) and QUILL (write it by hand).
+      const pane = editing ? body : h("div");
+      let tabs = null;
+      if (!editing) {
+        tabs = h("div", { class: "swatches dlg-tabs", role: "tablist" },
+          [["magic", "CONJURE"], ["hand", "QUILL"]].map(([k, label]) => h("button", { class: "tab", role: "tab", "data-mode": k, onclick: () => (k === "magic" ? showMagic() : showForm()) }, label)));
+        body.append(tabs, pane);
+      }
+      const mark = (mode) => tabs && tabs.querySelectorAll(".tab").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.mode === mode)));
       const showMagic = () => {
-        body.innerHTML = "";
+        mark("magic");
+        pane.innerHTML = "";
         const src = h("textarea", { class: "in", placeholder: "Paste the link or the full text of the listing…" });
         const ans = h("textarea", { class: "in", placeholder: "Paste the chatbot's answer here…" });
         const msg = h("div", { class: "msg" });
         const copyBtn = h("button", { class: "btn primary", onclick: () => copy(addPrompt(src.value.trim()), copyBtn, "COPY INSTRUCTIONS") }, "COPY INSTRUCTIONS");
-        body.append(
+        pane.append(
           h("p", { class: "hint" }, "1 · Paste the listing. 2 · Copy the instructions into any chatbot. 3 · Paste its answer back — the fields and the prep notes fill themselves."),
           h("label", { class: "f" }, "Link or text"), src,
           h("div", { class: "btn-row" }, copyBtn),
@@ -394,23 +404,23 @@
               Object.entries(p).forEach(([k, v]) => { if (v != null && v !== "") draft[k] = v; });
               if (!draft.url && validUrl(src.value.trim())) draft.url = src.value.trim();
               showForm();
-            } }, "APPLY"),
-            h("button", { class: "btn ghost", onclick: showForm }, "FILL FIELDS MYSELF")), msg);
+            } }, "APPLY")), msg);
       };
       const showForm = () => {
-        body.innerHTML = "";
+        mark("hand");
+        pane.innerHTML = "";
         const f = {};
         const field = (key, label, el) => { f[key] = el; return h("div", {}, h("label", { class: "f" }, label), el); };
         const txt = (key, ph) => h("input", { class: "in", value: draft[key] ?? "", placeholder: ph || "" });
         const sel = (items, cur) => { const s = h("select", { class: "in" }, items.map((x) => h("option", { value: x, selected: x === cur }, x))); return s; };
         const msg = h("div", { class: "msg" });
-        body.append(
+        pane.append(
           field("title", "Title", txt("title", "e.g. Doctoral position, Film Studies")),
           field("org", "Where (university, studio, café…)", txt("org")),
           h("div", { class: "grid2" }, field("category", "Category", sel(CATEGORIES, draft.category)), field("status", "Status", sel(STATUSES, draft.status))),
           field("url", "Link", txt("url", "https://…")),
           h("div", { class: "grid2" }, field("location", "Location", txt("location")), field("funding", "Funding / pay", txt("funding", "e.g. 1,400 €/month"))),
-          h("div", { class: "grid2" }, field("deadline", "Deadline", h("input", { class: "in", type: "date", value: draft.deadline || "" })), field("score", "Fit score (0–100, optional)", h("input", { class: "in", type: "number", min: 0, max: 100, value: draft.score ?? "" }))),
+          field("deadline", "Deadline", h("input", { class: "in", type: "date", value: draft.deadline || "" })),
           field("notes", "Notes", h("textarea", { class: "in", style: "min-height:80px" }, draft.notes || "")),
           h("div", { class: "btn-row" },
             h("button", { class: "btn primary", onclick: () => {
@@ -419,13 +429,12 @@
               if (v.url && !validUrl(v.url)) { msg.textContent = "The link should start with https://"; return; }
               if (v.url && db.jobs.some((j) => j.url === v.url && j.id !== editId)) { msg.textContent = "This link is already on the list."; return; }
               const rec = editing || { id: db.seq++, createdAt: now(), favorite: false, letter: "" };
-              Object.assign(rec, { title: v.title, org: v.org, category: v.category, url: v.url, location: v.location, funding: v.funding, deadline: v.deadline, notes: v.notes, score: v.score === "" ? null : Math.max(0, Math.min(100, +v.score)), prep: draft.prep || rec.prep || "" });
+              Object.assign(rec, { title: v.title, org: v.org, category: v.category, url: v.url, location: v.location, funding: v.funding, deadline: v.deadline, notes: v.notes, prep: draft.prep || rec.prep || "" });
               if (!editing) { db.jobs.push(rec); rec.status = "Not yet sent"; }
               if (rec.status !== v.status) setStatus(rec, v.status);
               save(); closeModal(); renderCards();
               toast(editing ? "Saved" : "Added");
-            } }, "SAVE"),
-            !editing ? h("button", { class: "btn ghost", onclick: showMagic }, "← BACK") : null), msg);
+            } }, "SAVE")), msg);
       };
       editing ? showForm() : showMagic();
     });
