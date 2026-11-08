@@ -621,7 +621,7 @@
 
     // A comet crosses the sky once in every ten minutes, at a random moment of that window.
     const WINDOW = 10 * 60 * 1000;
-    const sky = h("div", { class: "comets", "aria-hidden": "true" }); // in front of the page, so the comet is never hidden by the panel
+    const sky = h("div", { class: "comets", "aria-hidden": "true" }); // behind the page, like the stars
     document.body.append(sky);
     function comet() {
       const c = h("div", { class: "comet" }, h("b"));
