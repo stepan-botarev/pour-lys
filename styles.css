@@ -73,7 +73,7 @@ a { color: var(--resin); }
 .wrap { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 26px 18px 70px; }
 
 /* ---------- hero ---------- */
-.hero { position: relative; padding: 18px 6px 26px; margin-bottom: 34px; display: flex; flex-direction: column; align-items: flex-start; gap: 30px; }
+.hero { position: relative; padding: 18px 0 26px; margin-bottom: 34px; display: flex; flex-direction: column; align-items: flex-start; gap: 30px; }
 .hero h1 {
   margin: 0; font: italic 600 clamp(54px, 11vw, 108px)/1.1 var(--font-head); color: var(--lumen); letter-spacing: -1px;
   text-shadow: -2px 0 rgba(96,80,220,.85), 2px 0 rgba(217,58,31,.85), 0 0 18px rgba(255,90,54,.7), 0 0 50px rgba(255,90,54,.45);
@@ -82,7 +82,7 @@ a { color: var(--resin); }
 .hero p { margin: 40px 0 0; color: var(--muted); font-size: 14px; letter-spacing: 2px; font-weight: 700; }
 .hero p b { color: var(--love); text-shadow: 0 0 10px var(--hot); }
 /* the four swatches, bleeding light to the left like the reference */
-.swatches { display: flex; gap: 14px; margin: 0 0 0 8px; flex: none; }
+.swatches { display: flex; gap: 14px; margin: 0; flex: none; }
 .swatches > * { position: relative; display: block; width: 190px; height: 44px; border-radius: 2px; margin: 0; }
 .swatches > :nth-child(1) { --t: var(--lumen); }
 .swatches > :nth-child(2) { --t: var(--resin); }
@@ -228,7 +228,7 @@ a.gchip.seen { background: #2f6b55; color: #dff5e6; }
 footer { text-align: center; margin-top: 34px; font: italic 500 22px var(--font-head); color: var(--resin); text-shadow: 0 0 20px var(--glow); }
 
 @media (max-width: 680px) {
-  .hero { } .swatches { width: calc(100% - 16px); margin-left: 8px; gap: 10px; } .swatches > * { flex: 1; width: auto; }
+  .hero { } .swatches { width: 100%; margin-left: 0; gap: 10px; } .swatches > * { flex: 1; width: auto; }
   .stats-grid { grid-template-columns: 1fr; justify-items: center; } .legend { width: calc(100% - 30px); }
   .grid2, .sf { grid-template-columns: 1fr; }
   .panel { padding: 16px 14px 20px; } .card { margin-left: 24px; padding: 14px 14px 10px; } .card-title { font-size: 24px; }
@@ -299,3 +299,12 @@ html.locked .wrap, html.locked .sparkles, html.locked dialog { display: none !im
 .gate.bloom .gate-hint { opacity: 0; }
 
 .inl-ico { display: inline-block; vertical-align: -0.2em; margin: 0 2px; color: var(--lumen); }
+
+/* ---------- music player (Spotify embed; stays loaded so it keeps playing when closed) ---------- */
+.music { position: fixed; right: 18px; bottom: 18px; z-index: 40; width: min(360px, calc(100vw - 36px)); border-radius: 14px; overflow: hidden; background: #121212;
+  box-shadow: 0 0 0 1px rgba(124,111,242,.45), 0 12px 40px rgba(0,0,0,.55), 0 0 50px rgba(96,80,220,.35);
+  opacity: 0; visibility: hidden; transform: translateY(14px) scale(.98); transition: opacity .45s ease, transform .45s ease, visibility 0s linear .45s; }
+.music.open { opacity: 1; visibility: visible; transform: none; transition: opacity .45s ease, transform .45s ease; }
+.music iframe { display: block; border: 0; }
+.icon-btn.on { background: var(--lumen); color: var(--ink); border-color: var(--lumen); }
+html.locked .music { display: none; }
