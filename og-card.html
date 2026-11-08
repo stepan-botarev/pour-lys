@@ -12,7 +12,7 @@ body { position: relative; font-family: 'Cormorant Garamond', Georgia, serif;
     #0f1420; }
 .grain { position: absolute; inset: 0; opacity: .22; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .95  0 0 0 0 .93  0 0 0 0 .85  0 0 0 .9 -.25'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>"); }
 .stars i { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: #e4e8ff; box-shadow: 0 0 8px rgba(160,170,255,.9); opacity: .7; }
-.title { position: absolute; left: 0; right: 0; top: 150px; text-align: center; font-style: italic; font-weight: 600; font-size: 230px; line-height: 1; color: #e6d7a8;
+.title { position: absolute; left: 0; right: 0; top: 190px; text-align: center; font-style: italic; font-weight: 600; font-size: 230px; line-height: 1; color: #e6d7a8;
   text-shadow: -3px 0 rgba(96,80,220,.9), 3px 0 rgba(217,58,31,.85), 0 0 34px rgba(255,90,54,.7), 0 0 90px rgba(255,90,54,.45); }
 .title span { color: #e89a6b; }
 .tag { position: absolute; left: 0; right: 0; top: 440px; text-align: center; font-style: italic; font-weight: 500; font-size: 52px; color: #f0a982;
@@ -21,7 +21,6 @@ body { position: relative; font-family: 'Cormorant Garamond', Georgia, serif;
 <body>
 <div class="stars" id="s"></div>
 <div class="title">pour <span>Lys</span></div>
-<div class="tag">a tender little tracker for you</div>
 <div class="grain"></div>
 <script>
 const s=document.getElementById('s'); let seed=7; const rnd=()=>{seed=(seed*16807)%2147483647; return seed/2147483647;};
