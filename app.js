@@ -484,7 +484,7 @@
     const legend = h("div", { class: "legend" }, counts.map(([label, status, n]) =>
       h("button", { style: `--c:${STATUS_COLOR[status]}`, onclick: () => statusDialog(label, status) }, h("span", {}, label), h("span", {}, String(n)))));
     view.append(h("section", { class: "panel" },
-      h("div", { class: "section-title" }, "STATS"), h("div", { class: "divider" }), chips, h("div", { class: "divider" }),
+      h("div", { class: "section-title" }, "PROGRESS"), h("div", { class: "divider" }), chips, h("div", { class: "divider" }),
       h("div", { class: "stats-grid" },
         h("div", { class: "donut", style: `background: conic-gradient(${segs})` }, h("div", { class: "donut-c" }, h("div", {}, String(total), h("small", {}, total === 1 ? "ITEM" : "ITEMS")))),
         legend)));
