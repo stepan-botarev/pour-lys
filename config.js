@@ -110,8 +110,12 @@ window.PL_CONFIG = {
         { label: "Theatre", query: '(Theater OR Oper OR Bühne) (Einlass OR Abenddienst OR Kasse OR Garderobe OR Aushilfe OR Service) Berlin' },
         { label: "Museums and galleries", query: '(Museum OR Ausstellung OR Galerie) (Aufsicht OR Besucherservice OR Kasse OR Aushilfe) Berlin' },
         { label: "Library", query: '(Bibliothek OR Bücherei OR Mediathek) (Aushilfe OR Hilfskraft OR Mitarbeit) Berlin' },
-        { label: "Quiet office", query: '(Bürohilfe OR Datenerfassung OR Assistenz) (Kultur OR Verlag OR Galerie OR Kino) Berlin' },
         { label: "One-off shifts", query: '(Festival OR Event) (Helfer OR Aushilfe OR Einlass OR Betreuung) Berlin Kultur' },
+        { label: "Freelance photography", query: '(Fotograf OR Fotografin OR Photographer) (freiberuflich OR Freelance OR Auftrag OR Honorar) Berlin' },
+        { label: "Event photography", query: '(Eventfotograf OR "Event Photographer" OR Veranstaltungsfotografie OR Hochzeitsfotograf) (freiberuflich OR Freelance OR Aushilfe) Berlin' },
+        { label: "Photo assistant", query: '(Fotoassistenz OR "Photo Assistant" OR Fotografenassistent OR Studioassistenz) (Berlin) (freiberuflich OR Freelance OR Aushilfe OR Teilzeit)' },
+        { label: "Product and food shoots", query: '(Produktfotograf OR Produktfotografie OR Foodfotograf OR "Product Photographer") (freiberuflich OR Freelance OR Auftrag) Berlin' },
+        { label: "Photo editing remote", query: '(Bildbearbeitung OR Retusche OR "Photo Retoucher" OR Bildbearbeiter) (freiberuflich OR Freelance OR Remote) Berlin' },
       ],
     },
     {
