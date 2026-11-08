@@ -68,7 +68,7 @@ window.PL_CONFIG = {
         { label: "Writing", query: '(PhD OR Promotion OR Doktorand) ("Creative Writing" OR "Literarisches Schreiben" OR Literaturwissenschaft OR Komparatistik) Berlin' },
         { label: "Photography", query: '(PhD OR Promotion OR Doktorand) (Fotografie OR Photography OR "Visual Culture" OR Bildwissenschaft) Berlin' },
         { label: "Doktorand positions", query: '(Doktorand OR "Promotionsstelle" OR "PhD position" OR "Wissenschaftliche Mitarbeit") (Kunst OR Film OR Literatur OR Fotografie) Berlin -Informatik' },
-        { label: "Graduiertenkollegs", query: '(Graduiertenkolleg OR "Graduate School" OR Promotionskolleg) (Kunst OR Film OR Kultur OR Medien) Berlin' },
+        { label: "Structured PhD programmes", query: '(Graduiertenkolleg OR "Graduate School" OR Promotionskolleg) (Kunst OR Film OR Kultur OR Medien) Berlin' },
         { label: "Artistic Research", query: '("Artistic Research" OR "Practice-based PhD" OR "künstlerische Promotion") Berlin', },
         { label: "On university sites", plain: true, query: '(site:udk-berlin.de OR site:hu-berlin.de OR site:fu-berlin.de OR site:kh-berlin.de) (Promotion OR PhD OR Doctoral) (Kunst OR Film OR Medien)' },
       ],
