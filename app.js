@@ -193,7 +193,7 @@
     const jobs = filtered();
     if (!jobs.length) {
       cardsEl.append(h("div", { class: "empty-note" }, db.jobs.length ? "Nothing matches." : "Nothing on the desk yet.",
-        h("small", {}, db.jobs.length ? "Try another section or clear the search." : "Press the globe to find listings in Berlin, + to add what you found.")));
+        h("small", {}, ...(db.jobs.length ? ["Try another section or clear the search."] : [ "Press ", h("span", { class: "inl-ico", html: '<svg viewBox="0 0 24 24" width="1.25em" height="1.25em" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-3.6 3.8-3.6 14.2 0 18M12 3c3.6 3.8 3.6 14.2 0 18"/></svg>' }), " to find listings in Berlin, ", h("span", { class: "inl-ico", html: '<svg viewBox="0 0 24 24" width="1.25em" height="1.25em" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg>' }), " to add what you found." ]))));
       return;
     }
     jobs.forEach((job, i) => cardsEl.append(card(job, i + 1)));
