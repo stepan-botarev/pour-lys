@@ -90,7 +90,7 @@ a { color: var(--resin); }
 .swatches > :nth-child(4) { background: var(--verdant); --c: transparent; }
 .card::before, .legend button::before, .job-pick::before {
   content: ""; position: absolute; top: 0; bottom: 0; left: -46px; width: 60px; pointer-events: none; z-index: 0;
-  background: linear-gradient(90deg, transparent 0%, rgba(96,80,220,.95) 26%, var(--c, var(--hot)) 76%, var(--c, var(--hot)) 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(96,80,220,.18) 22%, var(--c, var(--hot)) 70%, var(--c, var(--hot)) 100%);
   filter: blur(11px); opacity: 1;
 }
 
