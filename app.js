@@ -9,7 +9,7 @@
   const STATUSES = ["Not yet sent", "Awaiting response", "Rejected", "No response", "Invited", "Offer"];
   const SHORT = { "Awaiting response": "Awaiting" };
   const STATUS_COLOR = {
-    "Not yet sent": "#e6d7a8", "Awaiting response": "#f3a9c9", "Rejected": "#d93a1f",
+    "Not yet sent": "#e9b53c", "Awaiting response": "#f3a9c9", "Rejected": "#d93a1f",
     "No response": "#e89a6b", "Invited": "#8f84ff", "Offer": "#5b4be0",
   };
   const STATUS_COUNTS = [
