@@ -163,19 +163,21 @@
   function renderList() {
     view.innerHTML = "";
     const chips = h("div", { class: "chips" });
-    const paintChips = () => {
-      chips.innerHTML = "";
-      ["All", ...CATEGORIES, FAVORITES].forEach((s) => chips.append(h("button", { class: "chip", "aria-pressed": String(ui.section === s), onclick: () => { ui.section = s; paintChips(); renderCards(); } }, s === FAVORITES ? "♥ Favorites" : s)));
-    };
+    const chipEls = [];
+    const paintChips = () => chipEls.forEach(([name, el]) => el.setAttribute("aria-pressed", String(ui.section === name)));
+    ["All", ...CATEGORIES, FAVORITES].forEach((name) => {
+      const el = h("button", { class: "chip", "aria-pressed": "false", onclick: () => { ui.section = name; paintChips(); renderCards(); } }, name === FAVORITES ? "♥ Favorites" : name);
+      chipEls.push([name, el]); chips.append(el);
+    });
     paintChips();
     cardsEl = h("div", { class: "cards" });
     view.append(h("section", { class: "panel" },
       h("div", { class: "panel-head" },
         h("div", { class: "section-title" }, "LIST"),
         h("div", { class: "actions" },
-          h("button", { class: "icon-btn", title: "Find new listings on Google", "aria-label": "Find new listings", onclick: searchDialog, html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M3 10h14M10 3c-3.2 3.6-3.2 10.4 0 14M10 3c3.2 3.6 3.2 10.4 0 14"/><path d="M15.2 15.2L21 21" stroke-width="2.6"/></svg>' }),
-          h("button", { class: "icon-btn", title: "Backup / restore", "aria-label": "Backup", "data-pop": "1", onclick: (e) => popover(e.currentTarget, ["Download backup", "Restore from backup"], null, (v) => v === "Download backup" ? exportData() : importData()) }, "⇅"),
-          h("button", { class: "icon-btn", title: "Add", "aria-label": "Add", onclick: () => addDialog() }, "+"))),
+          h("button", { class: "icon-btn", title: "Find new listings on Google", "aria-label": "Find new listings", onclick: searchDialog, html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-3.6 3.8-3.6 14.2 0 18M12 3c3.6 3.8 3.6 14.2 0 18"/></svg>' }),
+          h("button", { class: "icon-btn", title: "Backup / restore", "aria-label": "Backup", "data-pop": "1", onclick: (e) => popover(e.currentTarget, ["Download backup", "Restore from backup"], null, (v) => v === "Download backup" ? exportData() : importData()), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 20V5M4 9l4-4 4 4M16 4v15M12 15l4 4 4-4"/></svg>' }),
+          h("button", { class: "icon-btn", title: "Add", "aria-label": "Add", onclick: () => addDialog(), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg>' }))),
       h("div", { class: "divider" }),
       h("div", { class: "filter-row" }, chips,
         h("input", { class: "search-in", type: "search", placeholder: "Search your list…", value: ui.q, oninput: (e) => { ui.q = e.target.value; renderCards(); } })),
@@ -568,6 +570,28 @@
       s.style.animationDuration = 17 + Math.random() * 22 + "s"; s.style.animationDelay = -Math.random() * 36 + "s";
       box.append(s);
     }
+  })();
+
+  /* a slow, ever-different wash of light across whatever you press */
+  (function clickGlow() {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const COLORS = ["#ff5a36", "#e89a6b", "#6050dc", "#e6d7a8", "#d93a1f", "#ff8fa3"];
+    const rnd = (a, b) => a + Math.random() * (b - a);
+    const pick = () => COLORS[Math.floor(Math.random() * COLORS.length)];
+    document.addEventListener("click", (e) => {
+      const b = e.target.closest("button, a.gchip, .opt");
+      if (!b || b.disabled || b.classList.contains("sweeping")) return;
+      const dir = Math.random() < 0.5 ? 1 : -1, dur = rnd(2.4, 3.6);
+      const sw = document.createElement("span"); sw.className = "sweep";
+      const st = sw.style;
+      st.setProperty("--c1", pick()); st.setProperty("--c2", pick()); st.setProperty("--y1", rnd(25, 75) + "%"); st.setProperty("--y2", rnd(20, 80) + "%");
+      st.setProperty("--from", dir > 0 ? "-45%" : "145%"); st.setProperty("--to", dir > 0 ? "145%" : "-45%");
+      st.setProperty("--w", rnd(34, 58) + "%"); st.setProperty("--dur", dur + "s");
+      b.style.setProperty("--halo", pick());
+      if (getComputedStyle(b).position === "static") b.style.position = "relative";
+      b.classList.add("sweeping"); b.append(sw);
+      setTimeout(() => { sw.remove(); b.classList.remove("sweeping"); }, dur * 1000 + 250);
+    }, true);
   })();
 
   render();
