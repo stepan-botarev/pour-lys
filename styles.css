@@ -299,3 +299,4 @@ html.locked .wrap, html.locked .sparkles, html.locked dialog { display: none !im
 .gate.bloom .gate-hint { opacity: 0; }
 
 .inl-ico { display: inline-block; vertical-align: -0.2em; margin: 0 2px; color: var(--lumen); }
+.donut-c > div { transform: translateY(-7px); }
