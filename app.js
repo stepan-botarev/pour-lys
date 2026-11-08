@@ -564,7 +564,7 @@
   /* ---------- ambient embers ---------- */
   (function sparkles() {
     const box = $("#sparkles"); if (!box || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < 10; i++) {
       const s = h("i", {}, "✦");
       s.style.left = Math.random() * 100 + "%"; s.style.fontSize = 8 + Math.random() * 12 + "px";
       s.style.animationDuration = 17 + Math.random() * 22 + "s"; s.style.animationDelay = -Math.random() * 36 + "s";
