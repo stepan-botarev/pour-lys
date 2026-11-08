@@ -165,6 +165,10 @@
   const view = $("#view");
 
   document.querySelectorAll(".tab").forEach((b) => b.addEventListener("click", () => setTab(b.dataset.tab)));
+  // The FINDS / PROGRESS switch lives inside the panel, in place of its title.
+  const titleSwitch = () => h("div", { class: "swatches", role: "tablist" },
+    [["list", "FINDS"], ["stats", "PROGRESS"]].map(([tab, label]) =>
+      h("button", { class: "tab", role: "tab", "aria-selected": String(ui.tab === tab), onclick: () => { if (ui.tab !== tab) setTab(tab); } }, label)));
   function setTab(tab) {
     ui.tab = tab;
     document.querySelectorAll(".tab").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === tab)));
@@ -201,7 +205,7 @@
     cardsEl = h("div", { class: "cards" });
     view.append(h("section", { class: "panel" },
       h("div", { class: "panel-head" },
-        h("div", { class: "section-title" }, "FINDS"),
+        titleSwitch(),
         h("div", { class: "actions" },
           h("button", { class: "icon-btn", title: "Find new listings on Google", "aria-label": "Find new listings", onclick: searchDialog, html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c-3.6 3.8-3.6 14.2 0 18M12 3c3.6 3.8 3.6 14.2 0 18"/></svg>' }),
           h("button", { class: "icon-btn", title: "Add", "aria-label": "Add", onclick: () => addDialog(), html: '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg>' }),
@@ -515,7 +519,7 @@
     const legend = h("div", { class: "legend" }, counts.map(([label, status, n]) =>
       h("button", { style: `--c:${STATUS_COLOR[status]}`, onclick: () => statusDialog(label, status) }, h("span", {}, label), h("span", {}, String(n)))));
     view.append(h("section", { class: "panel" },
-      h("div", { class: "section-title" }, "PROGRESS"), h("div", { class: "divider" }), chips, h("div", { class: "divider" }),
+      titleSwitch(), h("div", { class: "divider" }), chips, h("div", { class: "divider" }),
       h("div", { class: "stats-grid" },
         h("div", { class: "donut", style: `background: conic-gradient(${segs})` }, h("div", { class: "donut-c" }, h("div", {}, String(total)))),
         legend)));
