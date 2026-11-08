@@ -299,3 +299,5 @@ html.locked .wrap, html.locked .sparkles, html.locked dialog { display: none !im
 .gate.bloom .orb-wrap { transform: scale(7); transition: transform 1.4s ease-in, width .9s, height .9s; }
 .gate.bloom .orb { box-shadow: 0 0 120px 60px rgba(150,140,255,.8); }
 .gate.bloom .gate-hint { opacity: 0; }
+
+.inl-ico { display: inline-block; vertical-align: -0.2em; margin: 0 2px; color: var(--lumen); }
