@@ -37,7 +37,7 @@
         '<div class="orb-halo" aria-hidden="true"></div>' +
         '<div class="orb" role="button" tabindex="0" aria-label="Open">' +
           '<div class="whisper" aria-hidden="true"></div>' +
-          '<input type="password" autocomplete="current-password" aria-label="Password" tabindex="-1">' +
+          '<input type="text" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" aria-label="Password" tabindex="-1">' +
         '</div>' +
       '</div>' +
       '<p class="gate-hint">touch the light</p>' +
@@ -49,7 +49,7 @@
       gate.classList.add("open"); input.tabIndex = 0; hint.textContent = "then press Enter";
       setTimeout(() => input.focus(), 350);
     };
-    input.addEventListener("input", () => { whisper.innerHTML = [...input.value].map(() => "<i>✦</i>").join(""); });
+    input.addEventListener("input", () => { whisper.innerHTML = [...input.value].map((ch) => `<i>${ch === " " ? "&nbsp;" : ch.replace(/[&<>"]/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[m]))}</i>`).join(""); });
     orb.addEventListener("click", open);
     orb.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
     gate.addEventListener("submit", async (e) => {
