@@ -173,12 +173,12 @@
       h("div", { class: "panel-head" },
         h("div", { class: "section-title" }, "LIST"),
         h("div", { class: "actions" },
-          h("button", { class: "icon-btn", title: "Search the web", "aria-label": "Search", onclick: searchDialog }, "⌕"),
+          h("button", { class: "icon-btn", title: "Find new listings on Google", "aria-label": "Find new listings", onclick: searchDialog }, "🧭"),
           h("button", { class: "icon-btn", title: "Backup / restore", "aria-label": "Backup", "data-pop": "1", onclick: (e) => popover(e.currentTarget, ["Download backup", "Restore from backup"], null, (v) => v === "Download backup" ? exportData() : importData()) }, "⇅"),
           h("button", { class: "icon-btn", title: "Add", "aria-label": "Add", onclick: () => addDialog() }, "+"))),
       h("div", { class: "divider" }),
       h("div", { class: "filter-row" }, chips,
-        h("input", { class: "search-in", type: "search", placeholder: "Search…", value: ui.q, oninput: (e) => { ui.q = e.target.value; renderCards(); } })),
+        h("input", { class: "search-in", type: "search", placeholder: "Search your list…", value: ui.q, oninput: (e) => { ui.q = e.target.value; renderCards(); } })),
       h("div", { class: "divider" }),
       cardsEl));
     renderCards();
@@ -191,7 +191,7 @@
     const jobs = filtered();
     if (!jobs.length) {
       cardsEl.append(h("div", { class: "empty-note" }, db.jobs.length ? "Nothing matches." : "Nothing on the desk yet.",
-        h("small", {}, db.jobs.length ? "Try another section or clear the search." : "Press ⌕ to search Berlin, + to add what you found.")));
+        h("small", {}, db.jobs.length ? "Try another section or clear the search." : "Press 🧭 to find listings in Berlin, + to add what you found.")));
       return;
     }
     jobs.forEach((job, i) => cardsEl.append(card(job, i + 1)));
