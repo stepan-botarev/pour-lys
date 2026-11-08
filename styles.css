@@ -359,3 +359,11 @@ select.in { -webkit-appearance: none; appearance: none; padding-right: 46px; bor
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23e6d7a8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>"); background-repeat: no-repeat; background-position: right 20px center; background-size: 14px 14px; }
 input.in[type="date"] { padding-right: 20px; }
 input.in[type="date"]::-webkit-calendar-picker-indicator { margin-right: 4px; cursor: pointer; opacity: .8; }
+
+/* phones: the category and status badges get their own row, the icon buttons sit neatly under them */
+@media (max-width: 680px) {
+  .tools { row-gap: 10px; }
+  .tools .tool[title="Change category"] { order: -3; }
+  .tools .tool.status { order: -2; }
+  .tools .sp { order: -1; flex: 0 0 100%; height: 0; margin: 0; }
+}
