@@ -325,14 +325,14 @@ html.locked .wrap, html.locked .sparkles, html.locked dialog { display: none !im
 .gate:not(.open) .orb-halo { pointer-events: auto; cursor: pointer; border-radius: 50%; }
 
 /* comets: a bright head with a long fading tail, crossing the sky now and then */
-.comet { position: absolute; left: 0; top: 0; width: 190px; height: 2px; pointer-events: none; opacity: 0; will-change: transform, opacity;
+.comet { position: absolute; left: 0; top: 0; width: 230px; height: 3px; pointer-events: none; opacity: 0; will-change: transform, opacity;
   transform: translate(var(--x), var(--y)) rotate(var(--a));
   animation: cometFly var(--t, 3s) cubic-bezier(.25,.1,.4,1) forwards; }
-.comet b { position: absolute; inset: 0; border-radius: 2px;
-  background: linear-gradient(90deg, rgba(143,132,255,0), rgba(160,170,255,.35) 55%, #e4e8ff 92%, #fff);
-  filter: blur(.4px); box-shadow: 0 0 10px rgba(143,132,255,.45); }
-.comet b::after { content: ""; position: absolute; right: -3px; top: 50%; width: 7px; height: 7px; margin-top: -3.5px; border-radius: 50%; background: #fff;
-  box-shadow: 0 0 8px 3px rgba(190,198,255,.95), 0 0 22px 8px rgba(110,100,240,.55); }
+.comet b { position: absolute; inset: 0; border-radius: 3px;
+  background: linear-gradient(90deg, rgba(143,132,255,0), rgba(170,180,255,.6) 50%, #eef0ff 90%, #fff);
+  box-shadow: 0 0 14px rgba(143,132,255,.75), 0 0 34px rgba(110,100,240,.35); }
+.comet b::after { content: ""; position: absolute; right: -4px; top: 50%; width: 9px; height: 9px; margin-top: -4.5px; border-radius: 50%; background: #fff;
+  box-shadow: 0 0 10px 4px rgba(215,220,255,1), 0 0 28px 11px rgba(120,110,245,.75); }
 @keyframes cometFly {
   0% { opacity: 0; transform: translate(var(--x), var(--y)) rotate(var(--a)) translateX(0); }
   8% { opacity: 1; }
