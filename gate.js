@@ -1,6 +1,8 @@
 /* Soft password gate. Keeps casual visitors out; it is not real security (the code is public).
    Set the password with ./set-password.sh — only a hash is stored here. */
 (function () {
+  // a tab that already had its arrival (reload, back, coming back to it) skips the veil and the title rise
+  try { if (sessionStorage.getItem("pourlys.seen")) document.documentElement.classList.add("seen"); } catch (e) {}
   const HASH = "47487c35e280bc66312e33a9373d4c23c7ec8c8e5e1e36ea0a112eed67812d27";
   const KEY = "pourlys.gate";
   const QUESTION = "what is your cat's name?";
