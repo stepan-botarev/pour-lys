@@ -73,7 +73,7 @@ a { color: var(--resin); }
 .wrap { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 26px 18px 70px; animation: flick 9s infinite; }
 
 /* ---------- hero ---------- */
-.hero { position: relative; padding: 18px 6px 26px; margin-bottom: 34px; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
+.hero { position: relative; padding: 18px 6px 26px; margin-bottom: 34px; display: flex; flex-direction: column; align-items: flex-start; gap: 30px; }
 .hero h1 {
   margin: 0; font: italic 600 clamp(54px, 11vw, 108px)/1.1 var(--font-head); color: var(--lumen); letter-spacing: -1px;
   text-shadow: -2px 0 rgba(96,80,220,.85), 2px 0 rgba(217,58,31,.85), 0 0 18px rgba(255,90,54,.7), 0 0 50px rgba(255,90,54,.45);
@@ -82,7 +82,7 @@ a { color: var(--resin); }
 .hero p { margin: 40px 0 0; color: var(--muted); font-size: 14px; letter-spacing: 2px; font-weight: 700; }
 .hero p b { color: var(--love); text-shadow: 0 0 10px var(--hot); }
 /* the four swatches, bleeding light to the left like the reference */
-.swatches { display: grid; gap: 10px; width: 230px; flex: none; margin-bottom: 4px; }
+.swatches { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; width: min(100%, 460px); margin: 0 0 0 52px; flex: none; }
 .swatches > * { position: relative; display: block; height: 40px; border: 0; border-radius: 0; margin: 0; }
 .swatches > :nth-child(1) { background: var(--lumen); --c: var(--hot); }
 .swatches > :nth-child(2) { background: var(--resin); --c: var(--hot); }
@@ -229,7 +229,7 @@ a.gchip.seen { background: #2f6b55; color: #dff5e6; box-shadow: -9px 0 14px -5px
 footer { text-align: center; margin-top: 34px; font: italic 500 22px var(--font-head); color: var(--resin); text-shadow: 0 0 20px var(--glow); }
 
 @media (max-width: 680px) {
-  .hero { flex-direction: column; align-items: flex-start; } .swatches { width: 200px; margin-left: 24px; }
+  .hero { } .swatches { width: calc(100% - 24px); margin-left: 24px; gap: 12px; }
   .stats-grid { grid-template-columns: 1fr; justify-items: center; } .legend { width: calc(100% - 30px); }
   .grid2, .sf { grid-template-columns: 1fr; }
   .panel { padding: 16px 14px 20px; } .card { margin-left: 24px; padding: 14px 14px 10px; } .card-title { font-size: 24px; }
