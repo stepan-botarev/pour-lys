@@ -8,7 +8,7 @@ window.PL_CONFIG = {
     { id: "PhD",           hint: "PhD in art, film, writing, photography" },
     { id: "Master",        hint: "Practice-oriented master: film, screenwriting, photography, creative writing" },
     { id: "Academic Jobs", hint: "Jobs you can take with an unfinished PhD" },
-    { id: "Cozy Jobs",     hint: "Simple, pleasant jobs: barista, café, cinema, theatre" },
+    { id: "Cozy Jobs",     hint: "Cozy Jobs: barista, café, cinema, theatre" },
     { id: "Residency",     hint: "Artist, writer, film and photography residencies in Berlin" },
   ],
 
@@ -21,8 +21,8 @@ window.PL_CONFIG = {
   employment: [
     { label: "All" },
     { label: "Study only", onlyGroups: ["PhD", "Master"] },
-    { label: "Werkstudent / Teilzeit", clause: '(Werkstudent OR Teilzeit OR "Working Student")', onlyGroups: ["Jobs with an unfinished PhD", "Simple, pleasant jobs"] },
-    { label: "Minijob", clause: "(Minijob OR geringfügig OR Aushilfe)", onlyGroups: ["Jobs with an unfinished PhD", "Simple, pleasant jobs"] },
+    { label: "Werkstudent / Teilzeit", clause: '(Werkstudent OR Teilzeit OR "Working Student")', onlyGroups: ["Academic Jobs", "Cozy Jobs"] },
+    { label: "Minijob", clause: "(Minijob OR geringfügig OR Aushilfe)", onlyGroups: ["Academic Jobs", "Cozy Jobs"] },
     { label: "Scholarships only", onlyGroups: ["Scholarships"] },
     { label: "Residencies only", onlyGroups: ["Residencies"] },
   ],
@@ -87,7 +87,7 @@ window.PL_CONFIG = {
       ],
     },
     {
-      title: "Jobs with an unfinished PhD", emoji: "💼", jobs: true,
+      title: "Academic Jobs", emoji: "💼", jobs: true,
       items: [
         { label: "Hilfskraft and Mitarbeit", query: '("Wissenschaftliche Hilfskraft" OR "Studentische Hilfskraft" OR "wissenschaftliche Mitarbeit") (Kunst OR Film OR Literatur OR Medien OR Fotografie) Berlin' },
         { label: "Teaching", query: '(Lehrbeauftragte OR Dozent OR Tutor OR Lehrkraft) (Film OR Fotografie OR "Kreatives Schreiben" OR Drehbuch OR Medien) Berlin' },
@@ -102,7 +102,7 @@ window.PL_CONFIG = {
       ],
     },
     {
-      title: "Simple, pleasant jobs", emoji: "☕", jobs: true,
+      title: "Cozy Jobs", emoji: "☕", jobs: true,
       items: [
         { label: "Barista", query: '(Barista OR Kaffeebar OR Café) (Aushilfe OR Servicekraft OR Mitarbeiter) Berlin' },
         { label: "Cafés and bookshops", query: '(Café OR Buchhandlung OR Bücherladen OR Antiquariat) (Aushilfe OR Verkauf OR Mitarbeit) Berlin -Supermarkt' },
