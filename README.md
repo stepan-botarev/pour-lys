@@ -1,4 +1,4 @@
-# Pour Lys
+# pour Lys
 
 A web version of Heaven Knows, for Berlin: PhDs, practice-oriented masters, jobs you can take with an unfinished PhD, cozy jobs (barista, café, cinema, theatre), and scholarships to fund it all. Art, film, writing, photography.
 
