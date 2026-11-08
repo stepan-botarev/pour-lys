@@ -79,7 +79,7 @@ a { color: var(--resin); }
   text-shadow: -2px 0 rgba(96,80,220,.85), 2px 0 rgba(217,58,31,.85), 0 0 18px rgba(255,90,54,.7), 0 0 50px rgba(255,90,54,.45);
 }
 .hero h1 span { color: var(--resin); }
-.hero p { margin: 18px 0 0; color: var(--muted); font-size: 11px; letter-spacing: 2px; font-weight: 700; }
+.hero p { margin: 40px 0 0; color: var(--muted); font-size: 14px; letter-spacing: 2px; font-weight: 700; }
 .hero p b { color: var(--love); text-shadow: 0 0 10px var(--hot); }
 /* the four swatches, bleeding light to the left like the reference */
 .swatches { display: grid; gap: 10px; width: 230px; flex: none; margin-bottom: 4px; }
