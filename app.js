@@ -613,10 +613,34 @@
     const N = 18;
     for (let i = 0; i < N; i++) {
       const s = h("i", {}, "✦");
-      s.style.left = ((i + Math.random()) / N) * 100 + "%"; // spread evenly, so the sides get stars too s.style.fontSize = 8 + Math.random() * 12 + "px";
-      s.style.animationDuration = 17 + Math.random() * 22 + "s"; s.style.animationDelay = -Math.random() * 36 + "s";
+      s.style.left = ((i + Math.random()) / N) * 100 + "%"; // spread evenly, so the sides get stars too
+      s.style.fontSize = 8 + Math.random() * 12 + "px";
+      s.style.animationDuration = 24 + Math.random() * 26 + "s"; s.style.animationDelay = -Math.random() * 50 + "s";
       box.append(s);
     }
+
+    // A comet crosses the sky once in every ten minutes, at a random moment of that window.
+    const WINDOW = 10 * 60 * 1000;
+    const sky = h("div", { class: "comets", "aria-hidden": "true" }); // in front of the page, so the comet is never hidden by the panel
+    document.body.append(sky);
+    function comet() {
+      const c = h("div", { class: "comet" }, h("b"));
+      const fromLeft = Math.random() < 0.5, vw = innerWidth, vh = innerHeight;
+      const dist = Math.hypot(vw, vh) * (0.7 + Math.random() * 0.3);
+      const angle = 18 + Math.random() * 22; // degrees below the horizontal
+      c.style.setProperty("--x", (fromLeft ? -0.1 * vw : 1.1 * vw) + "px");
+      c.style.setProperty("--y", Math.random() * vh * 0.45 + "px");
+      c.style.setProperty("--a", (fromLeft ? angle : 180 - angle) + "deg");
+      c.style.setProperty("--d", dist + "px");
+      c.style.setProperty("--t", 2.2 + Math.random() * 1.4 + "s");
+      c.addEventListener("animationend", () => c.remove());
+      sky.append(c);
+    }
+    document.addEventListener("pourlys:comet", comet); // lets us summon one on demand
+    (function schedule() {
+      const wait = Math.random() * WINDOW;
+      setTimeout(() => { comet(); setTimeout(schedule, WINDOW - wait); }, wait);
+    })();
   })();
 
   /* a slow, ever-different wash of light across whatever you press */
