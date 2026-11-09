@@ -389,7 +389,8 @@ input.in[type="date"]::-webkit-calendar-picker-indicator { margin-right: 4px; cu
 .hero h1 { animation: titleRise 2.8s ease-in-out backwards; }
 html.seen .hero h1 { animation: none; }
 @keyframes titleRise { from { opacity: 0; } to { opacity: 1; } }
-.veil { position: absolute; left: calc(50% - 50vw); width: 100vw; top: -30vh; height: 175vh; z-index: 40; pointer-events: auto; will-change: transform;
+.veil-box { position: absolute; left: calc(50% - 50vw); width: 100vw; top: 0; bottom: 0; z-index: 40; overflow: clip; pointer-events: none; }
+.veil { position: absolute; left: 0; width: 100%; top: -30vh; height: 175vh; pointer-events: auto; will-change: transform;
   /* lies on the page itself (phone browsers paint page content under their bars, where fixed layers do not reach), just tall enough for that.
      A solid block plus a small soft edge keeps the moving layer cheap, which is what keeps the slide smooth. */
   animation: veilSlip 8s linear forwards; }
