@@ -240,7 +240,7 @@ window.PL_CONFIG = {
       ],
     },
     {
-      title: "Culture Jobs", emoji: "💼", jobs: true,
+      title: "Culture Jobs", emoji: "🎞️", jobs: true,
       items: [
         { label: "University assistant jobs", query: '("Wissenschaftliche Hilfskraft" OR "Studentische Hilfskraft" OR "wissenschaftliche Mitarbeit") (Kunst OR Film OR Literatur OR Medien OR Fotografie) Berlin' },
         { label: "Teaching", query: '(Lehrbeauftragte OR Dozent OR Tutor OR Lehrkraft) (Film OR Fotografie OR "Kreatives Schreiben" OR Drehbuch OR Medien) Berlin' },

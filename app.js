@@ -39,7 +39,9 @@
       const d = JSON.parse(localStorage.getItem(KEY));
       if (d && Array.isArray(d.jobs)) {
         const rename = { "Academic Jobs": "Culture Job", "Academic Job": "Culture Job", "Cozy Jobs": "Cozy Job" };
-        d.jobs.forEach((j) => { if (rename[j.category]) j.category = rename[j.category]; });
+        let renamed = false;
+        d.jobs.forEach((j) => { if (rename[j.category]) { j.category = rename[j.category]; renamed = true; } });
+        if (renamed) { try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {} } // keep the new names on disk
         return seed(d);
       }
     } catch (e) {}
