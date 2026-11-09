@@ -5,6 +5,7 @@
   "use strict";
   const CFG = window.PL_CONFIG;
   const CATEGORIES = CFG.categories.map((c) => c.id);
+  const PLURAL = Object.fromEntries(CFG.categories.map((c) => [c.id, c.plural || c.id])); // the filter chips speak in plural
   const FAVORITES = "Favorites";
   const STATUSES = ["Not yet sent", "Awaiting response", "Rejected", "No response", "Invited", "Offer"];
   const SHORT = { "Awaiting response": "Awaiting" };
@@ -210,7 +211,7 @@
     const chipEls = [];
     const paintChips = () => chipEls.forEach(([name, el]) => el.setAttribute("aria-pressed", String(ui.section === name)));
     ["All", ...CATEGORIES, FAVORITES].forEach((name) => {
-      const el = h("button", { class: "chip", "aria-pressed": "false", onclick: () => { ui.section = name; paintChips(); renderCards(); } }, name === FAVORITES ? [heartIcon(), " Favorites"] : name);
+      const el = h("button", { class: "chip", "aria-pressed": "false", onclick: () => { ui.section = name; paintChips(); renderCards(); } }, name === FAVORITES ? [heartIcon(), " Favorites"] : (PLURAL[name] || name));
       chipEls.push([name, el]); chips.append(el);
     });
     paintChips();
@@ -536,7 +537,7 @@
     const total = counts.reduce((s, c) => s + c[2], 0);
     let acc = 0;
     const segs = total ? counts.filter((c) => c[2]).map(([, st, n]) => { const a = (acc / total) * 100; acc += n; return `${STATUS_COLOR[st]} ${a}% ${(acc / total) * 100}%`; }).join(", ") : "rgba(230,215,168,.18) 0 100%";
-    const chips = h("div", { class: "chips" }, ["All", ...CATEGORIES].map((s) => h("button", { class: "chip", "aria-pressed": String(ui.statsSection === s), onclick: () => { ui.statsSection = s; renderStats(); } }, s)));
+    const chips = h("div", { class: "chips" }, ["All", ...CATEGORIES].map((s) => h("button", { class: "chip", "aria-pressed": String(ui.statsSection === s), onclick: () => { ui.statsSection = s; renderStats(); } }, PLURAL[s] || s)));
     const legend = h("div", { class: "legend" }, counts.map(([label, status, n]) =>
       h("button", { style: `--c:${STATUS_COLOR[status]}`, onclick: () => statusDialog(label, status) }, h("span", {}, label), h("span", {}, String(n)))));
     view.append(h("section", { class: "panel" },
@@ -677,11 +678,12 @@
 
   // the veil that slides away when the page arrives (after the entrance light, if there is one)
   function lift() {
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches || document.querySelector(".veil") || document.documentElement.classList.contains("seen")) return;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches || document.querySelector(".veil-box") || document.documentElement.classList.contains("seen")) return;
     try { sessionStorage.setItem("pourlys.seen", "1"); } catch (e) {} // this tab has had its arrival
-    const veil = h("div", { class: "veil", "aria-hidden": "true" });
-    veil.addEventListener("animationend", () => veil.remove());
-    ($(".wrap") || document.body).append(veil); // inside the page layer, so the title can stay above it
+    // the veil slides inside a box that is exactly as big as the page and clips it, so it can never make the page longer or shorter
+    const veil = h("div", { class: "veil", "aria-hidden": "true" }), box = h("div", { class: "veil-box", "aria-hidden": "true" }, veil);
+    veil.addEventListener("animationend", () => box.remove());
+    ($(".wrap") || document.body).append(box); // inside the page layer, so the title can stay above it
   }
   if (document.documentElement.classList.contains("locked")) document.addEventListener("pourlys:unlocked", lift, { once: true });
   else lift();
