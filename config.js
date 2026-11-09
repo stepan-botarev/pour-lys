@@ -9,6 +9,7 @@ window.PL_CONFIG = {
     { id: "Master",       plural: "Masters", hint: "Practice-oriented master: film, screenwriting, photography, creative writing" },
     { id: "Residency",    plural: "Residencies", hint: "Artist, writer, film and photography residencies in Berlin" },
     { id: "Grant",        plural: "Grants", hint: "Fellowships, grants, awards and programmes" },
+    { id: "Open Call",    plural: "Open Calls", hint: "Open calls, journals and open stages for poetry, writing and photography" },
     { id: "Culture Job", plural: "Culture Jobs", hint: "Jobs in culture and research you can take with an unfinished PhD" },
     { id: "Cozy Job",     plural: "Cozy Jobs", hint: "Simple, pleasant jobs: barista, café, cinema, theatre" },
   ],
@@ -16,7 +17,7 @@ window.PL_CONFIG = {
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
   // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
   // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
-  defaultsVersion: 7,
+  defaultsVersion: 8,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
@@ -169,6 +170,51 @@ window.PL_CONFIG = {
       funding: "£2,000–12,000",
       category: "Grant", deadline: "",
       notes: "Lys lives in London, so she is eligible. The grant can pay for a Berlin stay or the project itself. Deadline: Round 25 not yet announced.",
+    },
+    {
+      title: "Fotografiska Emerging — Coming Together Open Call",
+      org: "Fotografiska Emerging",
+      url: "https://emerging.fotografiska.com/open-calls/coming-together",
+      location: "International, online; no relocation needed",
+      funding: "€300 for each of five selected artists, plus online features and promotion",
+      category: "Open Call", deadline: "2026-12-03",
+      notes: "Deadline 3 Dec 2026, 10:00 CET. Up to five images (one per submission) on togetherness: gatherings, belonging, a chosen community. A good fit for her personal, autobiographical Polaroids about the people around her. No entry fee is mentioned.",
+    },
+    {
+      title: "Fotografiska Emerging — Foto of the Day",
+      org: "Fotografiska Emerging",
+      url: "https://emerging.fotografiska.com/open-calls/5",
+      location: "International, online",
+      funding: "No money; selected photographs are featured on Fotografiska's website and social media",
+      category: "Open Call", deadline: "",
+      notes: "Rolling, with weekly selections. Free to submit; open to experimental, conceptual and personal photography, Polaroid included, with no formal training needed. A simple way to put her work in front of photography curators.",
+    },
+    {
+      title: "SAND — International Journal of Literature & Art",
+      org: "SAND Journal",
+      url: "https://sandjournal.com/submit/",
+      location: "Berlin; international submissions",
+      funding: "Pays contributors about €20–40 per piece; there is a free way to submit",
+      category: "Open Call", deadline: "",
+      notes: "Berlin-based English-language journal for poetry, fiction, flash fiction, creative nonfiction, translation and visual art. Submissions for SAND 30 are closed; the next period is not announced yet. Choose the free submission option.",
+    },
+    {
+      title: "Libken Space Grant — A Room of One's Own",
+      org: "Libken e.V.",
+      url: "https://libken.de/en/libken-space-grant/",
+      location: "Gerswalde, Brandenburg (about 1.5 hours from Berlin)",
+      funding: "Free studio apartment and workspace; no money, travel and food not covered",
+      category: "Residency", deadline: "",
+      notes: "A short free stay (from one week up to about two weeks) for artists, thinkers and activists. Apply with a one-page statement: why you need a room of your own and what you would work on. The last call (#8) closed on 10 June 2026; the next one is not announced yet. A room of one's own in a temporary home: close to her themes.",
+    },
+    {
+      title: "Berlin Spoken Word — weekly poetry open mic",
+      org: "Berlin Spoken Word",
+      url: "https://www.eventbrite.de/o/berlin-spoken-word-66352356833",
+      location: "Berlin (venue and dates on their Instagram, @berlinspokenword)",
+      funding: "Free to perform; no fee",
+      category: "Open Call", deadline: "",
+      notes: "One of Berlin's longest-running English-hosted open mics (since 2015), every week, all languages welcome: poetry, spoken word, storytelling, about five minutes each. No portfolio needed. For whenever she is in Berlin; check their Instagram for the next date, the event page had none listed in November.",
     },
   ],
 
