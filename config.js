@@ -207,6 +207,11 @@ window.PL_CONFIG = {
       title: "PhDs", emoji: "🎓", jobs: false,
       items: [
         { label: "H-Soz-Kult: all opportunities", key: true, url: "https://www.hsozkult.de/opportunity/page" },
+        { label: "Poetry", query: '(PhD OR Promotion OR Doktorand) (Lyrik OR Poesie OR poetry OR Poetik OR Dichtung) Berlin' },
+        { label: "Fiction", query: '(PhD OR Promotion OR Doktorand) (Prosa OR Erzählliteratur OR fiction OR Narratologie OR Roman) Berlin' },
+        { label: "Autofiction and life writing", query: '(PhD OR Promotion OR Doktorand) (Autofiktion OR Autofiction OR "life writing" OR Autobiografie OR Selbstschreiben) Berlin' },
+        { label: "Research: home, migration, transit", query: '(PhD OR Promotion OR Doktorand) ("temporary housing" OR Wohnen OR Migration OR Mobilität OR "domestic space" OR Prekarität) (Kulturwissenschaft OR "cultural studies" OR Kunst OR Fotografie) Berlin' },
+        { label: "Research: memory and the self", query: '(PhD OR Promotion OR Doktorand) (Erinnerung OR "memory studies" OR Subjektivierung OR Selbstdarstellung OR Körper) (Fotografie OR Literatur OR Kunst) Berlin' },
         { label: "Art", query: '("Promotion" OR PhD OR Doktorat) ("Bildende Kunst" OR "Künstlerische Forschung" OR "Artistic Research" OR Kunstwissenschaft) Berlin' },
         { label: "Film and media", query: '(PhD OR Promotion OR Doktorand) (Film OR Filmwissenschaft OR Medienwissenschaft OR "Film Studies") Berlin' },
         { label: "Writing", query: '(PhD OR Promotion OR Doktorand) ("Creative Writing" OR "Literarisches Schreiben" OR Literaturwissenschaft OR Komparatistik) Berlin' },
@@ -220,6 +225,10 @@ window.PL_CONFIG = {
     {
       title: "Masters", emoji: "🎬", jobs: false,
       items: [
+        { label: "Poetry", query: '(Master OR MFA OR Studiengang) (Lyrik OR poetry OR Poesie OR "Literarisches Schreiben") Berlin Bewerbung' },
+        { label: "Fiction", query: '(Master OR MFA OR Studiengang) (Prosa OR fiction OR Erzählen OR "Creative Writing" OR Roman) Berlin Bewerbung' },
+        { label: "Autofiction", query: '(Master OR MFA) (Autofiktion OR autofiction OR "life writing" OR "autobiographical writing") Berlin' },
+        { label: "Research-based art", query: '(Master OR MFA) ("artistic research" OR "Künstlerische Forschung" OR "research-based" OR "Art and Research") Berlin' },
         { label: "Film / directing", query: '(Master OR MFA OR "M.A.") (Film OR Regie OR Filmregie OR "Film Directing") Berlin Bewerbung' },
         { label: "Screenwriting", query: '(Master OR MFA OR Studiengang) (Drehbuch OR Screenwriting OR Dramaturgie OR Stoffentwicklung) Berlin' },
         { label: "Photography", query: '(Master OR MFA OR "M.A.") (Fotografie OR Photography OR "Fotografie und Medien") Berlin Bewerbung' },
@@ -265,6 +274,9 @@ window.PL_CONFIG = {
     {
       title: "Scholarships", emoji: "💸", jobs: false,
       items: [
+        { label: "Poetry grants", query: '(Stipendium OR grant OR "writing fellowship") (Lyrik OR poetry OR Poesie OR Lyriker) Berlin' },
+        { label: "Fiction and prose", query: '(Stipendium OR grant OR "writing fellowship") (Prosa OR fiction OR Roman OR Erzählung OR Autofiktion) Berlin' },
+        { label: "Research funding", query: '(Stipendium OR "research grant" OR Recherchestipendium) (Fotografie OR Literatur OR Kunst) (Recherche OR "artistic research" OR "Künstlerische Forschung") Berlin' },
         { label: "For a PhD", query: '(Promotionsstipendium OR "PhD scholarship" OR Doktorandenstipendium) (Kunst OR Film OR Kultur OR Geisteswissenschaften) Berlin' },
         { label: "Berlin state doctoral grant", query: 'NaFöG Stipendium "Land Berlin" Nachwuchsförderung Promotion' },
         { label: "DAAD", plain: true, query: 'site:daad.de (Stipendium OR scholarship) (Kunst OR Film OR Fotografie OR Writing OR "Fine Arts")' },
@@ -282,6 +294,10 @@ window.PL_CONFIG = {
     {
       title: "Residencies", emoji: "🏡", jobs: false,
       items: [
+        { label: "Poetry", query: '(Residency OR Aufenthaltsstipendium OR "Writer in Residence") (Lyrik OR poetry OR Poesie) Berlin' },
+        { label: "Fiction", query: '(Residency OR Aufenthaltsstipendium OR Schreibresidenz) (Prosa OR fiction OR Roman OR Erzählung) Berlin' },
+        { label: "Autofiction and life writing", query: '(Residency OR Aufenthaltsstipendium OR Schreibresidenz) (Autofiktion OR autofiction OR "life writing" OR Autobiografie) Berlin' },
+        { label: "Research residencies", query: '(Residency OR Residenz OR Stipendium) ("artistic research" OR "Künstlerische Forschung" OR Recherche OR "research-based") Berlin Kunst' },
         { label: "Art", query: '(Residency OR Residenz OR "Artist in Residence" OR Atelierstipendium) (Bildende Kunst OR "visual art" OR Kunst) Berlin "open call"' },
         { label: "Film", query: '(Residency OR Residenz OR "Artist in Residence") (Film OR Regie OR Drehbuch OR Filmemacher) Berlin "open call"' },
         { label: "Writing", query: '(Residency OR Aufenthaltsstipendium OR "Writer in Residence" OR Schreibresidenz) (Literatur OR "Creative Writing" OR Autoren) Berlin' },
