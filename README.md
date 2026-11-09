@@ -7,10 +7,10 @@ No server, no accounts. The list lives in the browser's `localStorage`; "Downloa
 ## What it does
 
 - **FINDS**: cards with status, category, deadline, funding, favorite ♥, interview prep 🎤, letter ✉. Filter by category, search, sort by date added / sent / fit score. "Awaiting response" turns into "No response" after 10 days.
-- **Categories** (instead of Quick Wins / Targets / Wild Cards): `PhD`, `Master`, `Academic Job`, `Cozy Job`.
+- **Categories** (instead of Quick Wins / Targets / Wild Cards): `PhD`, `Master`, `Culture Job`, `Cozy Job`.
 - **PROGRESS**: donut by status per category. No rounds.
 - **+ Add**: paste a listing, copy the generated instructions into any chatbot, paste its answer back; fields and prep notes fill themselves. Or fill by hand.
-- **Find (globe icon)**: Google searches for Berlin in five groups: PhDs · Masters · Academic Jobs · Cozy Jobs · Scholarships · Residencies. Filters: format, period, district, site. Chips opened today turn green.
+- **Find (globe icon)**: Google searches for Berlin in five groups: PhDs · Masters · Culture Jobs · Cozy Jobs · Scholarships · Residencies. Filters: format, period, district, site. Chips opened today turn green.
 
 Search chips, sites, districts and categories are in `config.js`.
 

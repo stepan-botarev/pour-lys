@@ -20,7 +20,7 @@
   ];
   const STATUS_DATE_LABEL = { "Awaiting response": "Sent", "No response": "Sent", "Rejected": "Rejected", "Invited": "Invited", "Offer": "Offer" };
   const STATUS_ORDER = ["Offer", "Invited", "Not yet sent", "Awaiting response", "No response", "Rejected"];
-  const JOB_CATEGORIES = new Set(["Academic Job", "Cozy Job"]); // interview prep only makes sense for jobs
+  const JOB_CATEGORIES = new Set(["Culture Job", "Cozy Job"]); // interview prep only makes sense for jobs
   const SENT = new Set(["Awaiting response", "No response"]);
   const ICON_PATHS = {
     mic: '<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21M8.5 21h7"/>',
@@ -38,7 +38,7 @@
     try {
       const d = JSON.parse(localStorage.getItem(KEY));
       if (d && Array.isArray(d.jobs)) {
-        const rename = { "Academic Jobs": "Academic Job", "Cozy Jobs": "Cozy Job" };
+        const rename = { "Academic Jobs": "Culture Job", "Academic Job": "Culture Job", "Cozy Jobs": "Cozy Job" };
         d.jobs.forEach((j) => { if (rename[j.category]) j.category = rename[j.category]; });
         return seed(d);
       }

@@ -9,7 +9,7 @@ window.PL_CONFIG = {
     { id: "Master",       plural: "Masters", hint: "Practice-oriented master: film, screenwriting, photography, creative writing" },
     { id: "Residency",    plural: "Residencies", hint: "Artist, writer, film and photography residencies in Berlin" },
     { id: "Grant",        plural: "Grants", hint: "Fellowships, grants, awards and programmes" },
-    { id: "Academic Job", plural: "Academic Jobs", hint: "Jobs you can take with an unfinished PhD" },
+    { id: "Culture Job", plural: "Culture Jobs", hint: "Jobs in culture and research you can take with an unfinished PhD" },
     { id: "Cozy Job",     plural: "Cozy Jobs", hint: "Simple, pleasant jobs: barista, café, cinema, theatre" },
   ],
 
@@ -163,8 +163,8 @@ window.PL_CONFIG = {
   employment: [
     { label: "All" },
     { label: "Study only", onlyGroups: ["PhDs", "Masters"] },
-    { label: "Working student / part-time", clause: '(Werkstudent OR Teilzeit OR "Working Student")', onlyGroups: ["Academic Jobs", "Cozy Jobs"] },
-    { label: "Mini-job", clause: "(Minijob OR geringfügig OR Aushilfe)", onlyGroups: ["Academic Jobs", "Cozy Jobs"] },
+    { label: "Working student / part-time", clause: '(Werkstudent OR Teilzeit OR "Working Student")', onlyGroups: ["Culture Jobs", "Cozy Jobs"] },
+    { label: "Mini-job", clause: "(Minijob OR geringfügig OR Aushilfe)", onlyGroups: ["Culture Jobs", "Cozy Jobs"] },
     { label: "Scholarships only", onlyGroups: ["Scholarships"] },
     { label: "Residencies only", onlyGroups: ["Residencies"] },
   ],
@@ -240,7 +240,7 @@ window.PL_CONFIG = {
       ],
     },
     {
-      title: "Academic Jobs", emoji: "💼", jobs: true,
+      title: "Culture Jobs", emoji: "💼", jobs: true,
       items: [
         { label: "University assistant jobs", query: '("Wissenschaftliche Hilfskraft" OR "Studentische Hilfskraft" OR "wissenschaftliche Mitarbeit") (Kunst OR Film OR Literatur OR Medien OR Fotografie) Berlin' },
         { label: "Teaching", query: '(Lehrbeauftragte OR Dozent OR Tutor OR Lehrkraft) (Film OR Fotografie OR "Kreatives Schreiben" OR Drehbuch OR Medien) Berlin' },
