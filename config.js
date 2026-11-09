@@ -16,13 +16,14 @@ window.PL_CONFIG = {
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
   // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
   // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
-  defaultsVersion: 5,
+  defaultsVersion: 6,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
     "https://www.geisteswissenschaften.fu-berlin.de/en/friedrichschlegel/foerderung",
     "https://www.udk-berlin.de/en/research/graduate-school/application/faq/",
     "https://www.filmuniversitaet.de/",
+    "https://www.zku-berlin.org/open-call/",
   ],
   defaults: [
     {
@@ -87,15 +88,6 @@ window.PL_CONFIG = {
       funding: "€20,000 per fellow, covering fee and production costs. Four fellowships; three are based in Luckenwalde and one is hosted by the Akademie der Künste in Berlin.",
       category: "Residency", deadline: "2026-12-01",
       notes: "International call for visual art, film, performance, sound, literature and new media. There is no German or Berlin-residence requirement. The residency runs mid-August to mid-November 2027, with at least 75% presence, a retreat in Warsaw and a symposium at the Akademie der Künste.",
-    },
-    {
-      title: "ZK/U – Center for Art and Urbanistics, Open Call",
-      org: "ZK/U Berlin",
-      url: "https://www.zku-berlin.org/open-call/",
-      location: "Moabit, Berlin",
-      funding: "Self-funded at €750–1,200 per month; applying is free",
-      category: "Residency", deadline: "2026-12-18",
-      notes: "A 2–6-month live-work studio focused on the city, urban life and transit. Results come in late February 2027 and stays can start from March 2027. Applicants send a CV and portfolio (one PDF, up to 12 pages), a project description (up to 3 pages) and 4 images. The residency also gives her a Berlin address, which the Senate grant for non-German-language literature requires. Note: she pays for it herself.",
     },
     {
       title: "UdK Graduate School Fellowship",
