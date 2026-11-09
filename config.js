@@ -16,7 +16,7 @@ window.PL_CONFIG = {
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
   // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
   // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
-  defaultsVersion: 6,
+  defaultsVersion: 7,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
@@ -151,6 +151,24 @@ window.PL_CONFIG = {
       funding: "No tuition, only the semester fee; the uni-assist application fee is €75",
       category: "Master", deadline: "",
       notes: "Taught in English over 4 semesters, and requires English at C1. Applicants need a BA with at least 60 ECTS in English studies, or a degree in comparative literature, cultural, film or theatre studies with at least 20 ECTS in English literature and culture. It also gives her a student visa and a base in Berlin. Link: DAAD listing (the official FU page is not verified). Deadline: around 31 May 2027 for non-EU applicants (unverified; the last window was 15 Apr – 31 May 2026).",
+    },
+    {
+      title: "Schloss Wiepersdorf Fellowship",
+      org: "Kulturstiftung Schloss Wiepersdorf",
+      url: "https://www.schloss-wiepersdorf.de/en/individual-and-collaborative-fellowships.html",
+      location: "Wiepersdorf, Brandenburg (about 1.5 hours from Berlin)",
+      funding: "€1,200 per month, plus a one-off €480 for materials. Room and board, a studio and visa costs are covered.",
+      category: "Residency", deadline: "",
+      notes: "A three-month residency for writers and visual artists, including photography. It is open internationally, and German or English is enough. Applicants need completed art training or a proven professional practice. Deadline: 15 Apr 2027 for 2028 (expected, based on the previous cycle; the window opens 15 Feb).",
+    },
+    {
+      title: "Developing Your Creative Practice (DYCP)",
+      org: "Arts Council England",
+      url: "https://www.artscouncil.org.uk/dycp",
+      location: "For England-based artists; the money can be used for research and residencies abroad",
+      funding: "£2,000–12,000",
+      category: "Grant", deadline: "",
+      notes: "Lys lives in London, so she is eligible. The grant can pay for a Berlin stay or the project itself. Deadline: Round 25 not yet announced.",
     },
   ],
 
