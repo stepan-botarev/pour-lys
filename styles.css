@@ -389,8 +389,12 @@ input.in[type="date"]::-webkit-calendar-picker-indicator { margin-right: 4px; cu
 .hero h1 { animation: titleRise 2.8s ease-in-out backwards; }
 html.seen .hero h1 { animation: none; }
 @keyframes titleRise { from { opacity: 0; } to { opacity: 1; } }
-.veil { position: absolute; left: calc(50% - 50vw); width: 100vw; top: -30vh; height: calc(100% + 100vh); z-index: 40; pointer-events: auto; will-change: transform;
-  /* it lies on the page itself (not fixed to the screen): phone browsers paint page content under their bars where fixed layers do not reach */
-  background: linear-gradient(180deg, rgba(15,20,32,0) 0, rgba(15,20,32,.78) 140px, #0f1420 300px, #0f1420 100%);
-  animation: veilSlip 5.6s cubic-bezier(.5,.05,.3,1) 2.4s forwards; }
-@keyframes veilSlip { from { transform: translateY(0); } to { transform: translateY(180vh); } }
+.veil { position: absolute; left: calc(50% - 50vw); width: 100vw; top: -30vh; height: 175vh; z-index: 40; pointer-events: auto; will-change: transform;
+  /* lies on the page itself (phone browsers paint page content under their bars, where fixed layers do not reach), just tall enough for that.
+     A solid block plus a small soft edge keeps the moving layer cheap, which is what keeps the slide smooth. */
+  animation: veilSlip 8s linear forwards; }
+.veil::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 300px;
+  background: linear-gradient(180deg, rgba(15,20,32,0) 0, rgba(15,20,32,.78) 140px, #0f1420 300px); }
+.veil::after { content: ""; position: absolute; left: 0; right: 0; top: 299px; bottom: 0; background: #0f1420; }
+/* it holds still for the first 2.4 s (already ready on its own layer), then slips away */
+@keyframes veilSlip { 0%, 30% { transform: translateY(0); animation-timing-function: cubic-bezier(.5,.05,.3,1); } 100% { transform: translateY(180vh); } }
