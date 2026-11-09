@@ -149,7 +149,9 @@ a { color: var(--resin); }
 .meta div { margin: 2px 0; }
 .meta b { color: var(--muted); font-weight: 400; }
 .meta a { color: #b7adff; text-decoration-color: rgba(183,173,255,.4); }
-.meta .past { color: var(--hot); }
+.meta .near { color: #ffc340; }
+.meta .soon { color: var(--hot); text-shadow: 0 0 10px rgba(255,90,54,.45); }
+.meta .past { color: var(--hot); opacity: .65; }
 .dates { border-top: 1px dashed rgba(230,215,168,.14); margin-top: 12px; padding-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; min-height: 30px; align-items: center; }
 .date-btn { cursor: pointer; background: transparent; border: 1px solid rgba(230,215,168,.2); border-radius: 999px; padding: 1px 10px; font-size: 11px; color: var(--muted); }
 .date-btn.on { background: var(--lumen); color: var(--ink); border-color: var(--lumen); }

@@ -115,7 +115,7 @@
     const d = parseDeadline(raw);
     if (!d) return { text: raw, past: false };
     const t = new Date(); t.setHours(0, 0, 0, 0);
-    return { text: `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`, past: d < t };
+    return { text: `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`, past: d < t, days: Math.round((d - t) / 864e5) };
   }
   function toISODate(text) { const d = parseDeadline(text); return d ? `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}` : ""; }
   function scoreTier(s) { return s == null ? "" : s > 85 ? "top" : s >= 70 ? "good" : s >= 60 ? "mid" : s >= 50 ? "low" : "bad"; }
@@ -255,7 +255,7 @@
     row("Location", esc(job.location || "Berlin"));
     if (job.url) row("Link", `<a href="${esc(job.url)}" target="_blank" rel="noopener noreferrer">${esc(prettyLink(job.url))} ↗</a>`);
     const dl = deadlineInfo(job);
-    if (dl) row("Deadline", `<span class="${dl.past ? "past" : ""}">${esc(dl.text)}</span>`);
+    if (dl) row("Deadline", `<span class="${dl.past ? "past" : dl.days != null && dl.days <= 14 ? "soon" : dl.days != null && dl.days <= 30 ? "near" : ""}">${esc(dl.text)}</span>`);
 
     const dates = h("div", { class: "dates" });
     if (job.createdAt) dates.append(h("button", { class: "date-btn" + (ui.sort === "added" ? " on" : ""), title: "Sort by date added", onclick: () => toggleSort("added") }, "Added " + shortDate(job.createdAt)));
