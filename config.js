@@ -17,7 +17,7 @@ window.PL_CONFIG = {
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
   // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
   // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
-  defaultsVersion: 9,
+  defaultsVersion: 10,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
@@ -251,6 +251,24 @@ window.PL_CONFIG = {
       funding: "Free to submit. Prose €50 per page (€375–1,250), poetry from €80 per poem, Featured Poet €600",
       category: "Open Call", deadline: "",
       notes: "Literary magazine for fiction, autofiction and other non-fiction, and poetry; one category per submission period. The next general window will be announced in early 2027. Featured Poet submissions are taken every November, so check the page now.",
+    },
+    {
+      title: "Dummy Award 2027 (formerly Kassel Dummy Award)",
+      org: "The PhotoBookMuseum, Cologne, with MAS Matbaa (Istanbul)",
+      url: "https://dummyaward.org/terms/",
+      location: "Remote; the physical dummy is posted to Cologne",
+      funding: "Entry fee €44. Main prize: the book is fully published, with 10% of the print run going to the author. Four more winners get a 25% production grant.",
+      category: "Grant", deadline: "2027-01-30",
+      notes: "Registration 3 Nov 2026 – 30 Jan 2027; the physical dummy must arrive in Cologne by 17 Feb 2027 (The PhotoBookMuseum, DUMMY AWARD / Frederic Lezmi, Körnerstr. 6-8, 50823 Köln). Open worldwide, unpublished work; text alongside the photos is allowed, so a Polaroid and autofiction book fits. About 50 shortlisted dummies tour internationally. The same dummy can also go to the Hong Kong Photobook Dummy Award (due 31 Jan).",
+    },
+    {
+      title: "Narrative Magazine – Photo Essays",
+      org: "Narrative Magazine",
+      url: "https://www.narrativemagazine.com/photography",
+      location: "Remote",
+      funding: "Pays $250–2,000 per photo essay; submission fee $20",
+      category: "Open Call", deadline: "",
+      notes: "5–20 previously unpublished images; captions or accompanying text are welcome (in the same file, numbered to match the photos). Rolling submissions; the page does not say whether it is open right now.",
     },
   ],
 
