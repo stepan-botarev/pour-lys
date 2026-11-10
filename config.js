@@ -17,7 +17,7 @@ window.PL_CONFIG = {
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
   // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
   // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
-  defaultsVersion: 11,
+  defaultsVersion: 13,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
@@ -25,6 +25,8 @@ window.PL_CONFIG = {
     "https://www.udk-berlin.de/en/research/graduate-school/application/faq/",
     "https://www.filmuniversitaet.de/",
     "https://www.zku-berlin.org/open-call/",
+    "https://www2.daad.de/deutschland/studienangebote/international-programmes/en/detail/3703/",
+    "https://www.jfki.fu-berlin.de/en/academics/ma/Bewerber/index.html",
   ],
   defaults: [
     {
@@ -271,15 +273,6 @@ window.PL_CONFIG = {
       notes: "5–20 previously unpublished images; captions or accompanying text are welcome (in the same file, numbered to match the photos). Rolling submissions; the page does not say whether it is open right now.",
     },
     {
-      title: "MA British Studies",
-      org: "Centre for British Studies, Humboldt-Universität zu Berlin",
-      url: "https://www2.daad.de/deutschland/studienangebote/international-programmes/en/detail/3703/",
-      location: "Berlin",
-      funding: "No tuition; semester contribution about €350; uni-assist fee for degrees from abroad",
-      category: "Master", deadline: "2027-05-31",
-      notes: "Taught in English, no German needed (English C1). The first degree can be in any subject, so this is the easiest of the English MAs to qualify for. Apply 2–31 May 2027 for the winter semester, via uni-assist. About 130 applications for 32 places; 4 semesters, with modules on culture and literature and a three-month work placement. Link is the DAAD listing: the HU page itself blocks automated reading.",
-    },
-    {
       title: "MA Anglophone Modernities in Literature and Culture",
       org: "Universität Potsdam",
       url: "https://www.uni-potsdam.de/en/anglophone-modernities/for-prospective-students/applying-to-study",
@@ -287,15 +280,6 @@ window.PL_CONFIG = {
       funding: "No tuition; semester fee (includes the Berlin–Brandenburg transport ticket); uni-assist check (VPD) €75 for non-EU degrees",
       category: "Master", deadline: "2027-06-01",
       notes: "Taught in English, no German needed. Needs a relevant BA with at least 40 credits in literary and cultural studies, and English at C1. Deadlines from the DAAD listing: 1 June 2027 for the winter semester (1 Dec 2026 for the summer semester, realistic only if she already holds a VPD, which takes 4–6 weeks). Apply through the PULS portal. Online Master's day at Potsdam: 12 Mar 2027. The same department runs the Cultures of Repair PhD (next call only in 2028).",
-    },
-    {
-      title: "MA North American Studies",
-      org: "John F. Kennedy Institute, Freie Universität Berlin",
-      url: "https://www.jfki.fu-berlin.de/en/academics/ma/Bewerber/index.html",
-      location: "Dahlem, Berlin",
-      funding: "No tuition, only a small semester fee",
-      category: "Master", deadline: "",
-      notes: "Taught in English; no German needed. Needs a BA in North American Studies or in history, cultural studies, literature, political science, sociology or economics (or at least 90 credits in one of them), and English at C1: a UK or Canadian passport counts as proof. Winter semester only; the JFKI FAQ gives 31 May each year, so confirm the 2027 date. No letters needed, a CV is welcome. Degrees from abroad go through uni-assist. Her Montreal background could carry a culture-and-literature track.",
     },
     {
       title: "Graduate School of North American Studies (GSNAS) — doctoral programme",
@@ -313,7 +297,7 @@ window.PL_CONFIG = {
       location: "Any German university (for example HU, FU, Potsdam)",
       funding: "About €992 per month plus allowances, up to 24 months (amount from a research report, to confirm); the DAAD does not pay tuition",
       category: "Grant", deadline: "2026-12-01",
-      notes: "For UK applicants: deadline 1 Dec 2026, selection March 2027, funding from October 2027. For a full Master's at a German university; needs a first degree. Visual and performing arts degrees are reportedly excluded (they have a separate DAAD art strand, closed for 2027/28), so confirm on the DAAD page. It pairs well with the English MAs above: British Studies, Anglophone Modernities, North American Studies. Apply for university admission separately.",
+      notes: "For UK applicants: deadline 1 Dec 2026, selection March 2027, funding from October 2027. For a full Master's at a German university; needs a first degree. Visual and performing arts degrees are reportedly excluded (they have a separate DAAD art strand, closed for 2027/28), so confirm on the DAAD page. It pairs well with a literature and culture MA taught in English, such as Anglophone Modernities in Potsdam. Apply for university admission separately.",
     },
     {
       title: "MA Solo/Dance/Authorship (SODA)",
@@ -332,6 +316,24 @@ window.PL_CONFIG = {
       funding: "Not announced yet. Public institutions, so expect a semester fee only; funding through positions or scholarships still to be decided.",
       category: "PhD", deadline: "",
       notes: "New since January 2026 (§ 35a of the Berlin higher education act): a structured three-year programme where the artistic work is part of the doctorate itself. No call has been published yet: watch the UdK and weißensee announcements through 2027. Needs an artistic Master's, or a university Master's plus proven artistic qualification. Language rules not published. The best structural match for a practice that refuses to choose between research, photography and fiction. Information from a research report, not yet checked on an official page.",
+    },
+    {
+      title: "Scholarship of the Study Foundation of the Berlin House of Representatives (2027/28)",
+      org: "Studienstiftung des Abgeordnetenhauses von Berlin",
+      url: "https://www.parlament-berlin.de/das-parlament/studienstiftung/richtlinien",
+      location: "Berlin (any state or state-recognised Berlin university or research institute)",
+      funding: "€1,100 per month for students and doctoral candidates (€1,630 with a doctorate), up to 10 months (1 Oct 2027 – 31 Jul 2028), plus a travel allowance of €200 within Europe or €600 outside it",
+      category: "Grant", deadline: "2026-12-15",
+      notes: "Deadline 15 Dec 2026; the date the file ARRIVES in Berlin counts. Only citizens of the USA, Great Britain, France and the former USSR states (not Canada). Needs at least a Bachelor's (first degree normally by age 25), usually under 35, clearly above-average results. Send CV with photo, a detailed study or research plan, a motivation letter, a commitment from a Berlin professor or institute head, two professors' references, all transcripts with grades and a grading explanation. Incomplete files are not processed. WARNING: the rules say the forms and attached documents must be in German, and nothing says English is accepted: ask the foundation before spending time on it. It would fund a Berlin year as an MA or PhD student, for example with one of the English MAs in this list.",
+    },
+    {
+      title: "MA Creative Technologies",
+      org: "Filmuniversität Babelsberg KONRAD WOLF",
+      url: "https://www.filmuniversitaet.de/en/studies/study-programs/master-programs/creative-technologies",
+      location: "Potsdam-Babelsberg",
+      funding: "No tuition (to confirm); semester fee about €398 (includes the transport ticket)",
+      category: "Master", deadline: "2027-05-18",
+      notes: "The only Filmuniversität master taught mainly in English; 4 semesters, 120 ECTS, winter semester start. No formal prerequisites on the programme page: they look for willingness to experiment. Application window about 1 Mar – 18 May 2027 (other pages say 12 Apr – 18 May); confirm. WARNING: the university's table of language requirements puts this programme in the group where applicants with foreign degrees need German B2, even though classes are in English: ask the programme office (Eva-Katharina Wicke) before applying. Practice-based and technical (XR, sound, VFX, creative coding), so a weak match for Polaroid and autofiction unless she wants to bring the work into an immersive or digital form.",
     },
   ],
 
