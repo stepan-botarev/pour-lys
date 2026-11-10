@@ -17,7 +17,7 @@ window.PL_CONFIG = {
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
   // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
   // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
-  defaultsVersion: 8,
+  defaultsVersion: 9,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
@@ -215,6 +215,42 @@ window.PL_CONFIG = {
       funding: "Free to perform; no fee",
       category: "Open Call", deadline: "",
       notes: "One of Berlin's longest-running English-hosted open mics (since 2015), every week, all languages welcome: poetry, spoken word, storytelling, about five minutes each. No portfolio needed. For whenever she is in Berlin; check their Instagram for the next date, the event page had none listed in November.",
+    },
+    {
+      title: "Hong Kong Photobook Dummy Award 2027",
+      org: "Hong Kong Photobook Festival",
+      url: "https://hkphotobookfest.org/?page_id=2279",
+      location: "Remote; the physical dummy is posted to Hong Kong",
+      funding: "Up to HKD 20,000 for the winner (to attend a photobook festival or self-publish); no application fee this year, she pays the postage",
+      category: "Grant", deadline: "2027-01-31",
+      notes: "The dummy must ARRIVE by 31 Jan 2027, 18:00 Hong Kong time (postmarks do not count), so post it early. No age or nationality limits, any language; the dummy must be made in 2024 or later, self-published or unpublished. A Polaroid and autofiction book dummy fits. Winning and shortlisted dummies are shown at the 2027 festival.",
+    },
+    {
+      title: "Weimar Poetry Film Award 2027",
+      org: "Poetryfilmtage Weimar / Literarische Gesellschaft Thüringen",
+      url: "https://poetryfilmtage.de/call-2027-weimar-poetry-film-award/",
+      location: "Remote submission",
+      funding: "€1,200 each for best animation and best video, €500 for new talent (student work), €250 audience prize",
+      category: "Grant", deadline: "2027-02-28",
+      notes: "Early bird 31 Dec 2026, final 28 Feb 2027. Any nationality and age; up to three films, each up to 15 minutes, made in 2024 or later. The poem text and entry materials in English or German. A Polaroid series with her voice reading the poem counts as a poetry film. Submit by email with the signed entry form (free); FilmFreeway charged a small fee in past years.",
+    },
+    {
+      title: "ZEBRA Poetry Film Festival – International Competition",
+      org: "Haus für Poesie",
+      url: "https://www.hausfuerpoesie.org/en/zebra-poetry-film-festival/ueber-das-festival",
+      location: "Berlin (silent green, Wedding); remote submission",
+      funding: "Several prizes; amounts not confirmed",
+      category: "Grant", deadline: "",
+      notes: "Films up to 12 minutes, any language with a German or English translation. The same poetry film as for Weimar can go here. Next call not announced; the last window was 1 Dec 2025 – 1 Feb 2026, so watch for one around December.",
+    },
+    {
+      title: "The Stinging Fly",
+      org: "The Stinging Fly, Dublin",
+      url: "https://stingingfly.org/submissions/",
+      location: "Remote",
+      funding: "Free to submit. Prose €50 per page (€375–1,250), poetry from €80 per poem, Featured Poet €600",
+      category: "Open Call", deadline: "",
+      notes: "Literary magazine for fiction, autofiction and other non-fiction, and poetry; one category per submission period. The next general window will be announced in early 2027. Featured Poet submissions are taken every November, so check the page now.",
     },
   ],
 
