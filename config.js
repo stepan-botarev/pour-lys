@@ -16,7 +16,7 @@ window.PL_CONFIG = {
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
   // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
   // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
-  defaultsVersion: 17,
+  defaultsVersion: 18,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
@@ -378,6 +378,15 @@ window.PL_CONFIG = {
       funding: "Not stated: no fee mentioned, and nothing about payment either",
       category: "Open Call", deadline: "",
       notes: "Open for submissions for work going into 2027, with no deadline in the post. For photographers, writers, designers, journalists, editors, artists and anyone in between, all backgrounds welcome. Email contact@clastgroup.com with your work, a short bio and high-res files. Clast is a London magazine and shop (articles, interviews, visual features), site clastmagazine.com; its pages do not list submission terms, so ask about rights and payment in the email. Fits her as a photographer and writer.",
+    },
+    {
+      title: "ZONE — 6th collective book open call",
+      org: "ZONE (photography-based collective books and zine)",
+      url: "https://www.thezonezine.com/issue/opencall/",
+      location: "Remote; open worldwide (online upload)",
+      funding: "€10 for up to 10 images (via PayPal); or pre-order the book at an early-bird price instead of paying the fee. Selected artists get an offset-printed place in the book and buy copies at 50% off. Unpaid",
+      category: "Open Call", deadline: "2026-11-30",
+      notes: "Single images for a book that works like an artist book: up to 10 images per submission, from one or several projects, judged individually. No theme, no limits on age or experience; mostly photography, but painting, illustration, sculpture, design and film stills are fine too. JPG, under 2 MB each, named “First name Last name 01.jpg”, and your Instagram name in the message; high-res files only if selected. Pay on the page, then fill in the upload form. Fees and pre-orders are not refunded. Selected artists are announced on 1 Feb 2027, the book comes out in spring 2027. Over 650 artists were published in the first five books. Their taste: works with an idea behind them, slow to expose themselves, unfinished or ‘cul-de-sac’ pieces are welcome, nothing that tries hard to look pretty.",
     },
   ],
 
