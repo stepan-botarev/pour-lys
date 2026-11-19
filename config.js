@@ -16,7 +16,7 @@ window.PL_CONFIG = {
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
   // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
   // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
-  defaultsVersion: 20,
+  defaultsVersion: 21,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
@@ -405,6 +405,15 @@ window.PL_CONFIG = {
       funding: "Fee unclear: the FilmFreeway listing seems to show none, but I could not open the page to confirm. No payment for filmmakers is mentioned",
       category: "Open Call", deadline: "2026-11-30",
       notes: "Last call for the next edition: submissions close 30 Nov 2026, through FilmFreeway. Experimental and moving-image work (the listing mentions a screening in February 2027, which I could not confirm). FilmFreeway blocked my access, so check the fee, film length, rules and dates on the page before submitting. Fits her if she has a short film, video piece or Polaroid-based moving image.",
+    },
+    {
+      title: "Magma 98 — the Doubt issue (poetry)",
+      org: "Magma Poetry, London",
+      url: "https://magmapoetry.com/submissions/",
+      location: "Remote (online via Submittable)",
+      funding: "£3 per submission (free for subscribers and people on benefits); no payment is mentioned, but poets get a copy of the issue",
+      category: "Open Call", deadline: "2026-11-30",
+      notes: "Closing 30 Nov 2026. Up to 4 unpublished poems per poet, in one document, for one issue only. Theme: doubt. Poems that explore doubt in the truth, something never quite accepted as fact, an uncertainty that stays; language for things that feel unknowable. Submit at magmapoetry.submittable.com/submit (emails are not read; post only from the UK). Simultaneous submissions are fine if you tell them at once about an acceptance elsewhere. You keep copyright; published poems may appear on their site. Edited by David Floyd, a second poet from the post and Katie Dunstan.",
     },
   ],
 
