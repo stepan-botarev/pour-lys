@@ -16,7 +16,7 @@ window.PL_CONFIG = {
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
   // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
   // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
-  defaultsVersion: 13,
+  defaultsVersion: 14,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
@@ -333,6 +333,15 @@ window.PL_CONFIG = {
       funding: "No tuition (to confirm); semester fee about €398 (includes the transport ticket)",
       category: "Master", deadline: "2027-05-18",
       notes: "The only Filmuniversität master taught mainly in English; 4 semesters, 120 ECTS, winter semester start. No formal prerequisites on the programme page: they look for willingness to experiment. Application window about 1 Mar – 18 May 2027 (other pages say 12 Apr – 18 May); confirm. WARNING: the university's table of language requirements puts this programme in the group where applicants with foreign degrees need German B2, even though classes are in English: ask the programme office (Eva-Katharina Wicke) before applying. Practice-based and technical (XR, sound, VFX, creative coding), so a weak match for Polaroid and autofiction unless she wants to bring the work into an immersive or digital form.",
+    },
+    {
+      title: "Channel — Issue 16 (Spring 2027) submissions",
+      org: "Channel Press, Ireland",
+      url: "https://www.channelpress.ie/submissions",
+      location: "Remote; international submissions welcome (by email)",
+      funding: "Free to submit; pays €35 per printed page (at least €60 for a one-page piece, at most €250 per piece)",
+      category: "Open Call", deadline: "2026-11-30",
+      notes: "Window 1–30 Nov 2026 (the next one is 1–31 May 2027, for the autumn issue). Poetry, fiction and non-fiction, in English or Irish; translations accepted. Up to four poems, one story and/or one non-fiction piece per author. Email submissions@channelpress.ie with the subject “Poetry/Fiction/Non-Fiction Submission for Channel”, one Word or PDF file with no name on it, a short bio in the email. Unpublished work only; simultaneous submissions are fine; no AI-written work. The theme is ecological entanglement: love or fear for the living world, or nature as setting, image or metaphor. So her poems or autofiction need that angle (bodies, rooms, plants, weather, transit) to fit.",
     },
   ],
 
