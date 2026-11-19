@@ -16,7 +16,7 @@ window.PL_CONFIG = {
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
   // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
   // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
-  defaultsVersion: 15,
+  defaultsVersion: 16,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
@@ -355,11 +355,11 @@ window.PL_CONFIG = {
     {
       title: "Nothing is made once… — open call and group show",
       org: "Elephant Vision Lab, at Koppel Project, London",
-      url: "https://www.instagram.com/p/DforTJzgAan/",
+      url: "https://elephantvisionlab.com",
       location: "London: Koppel Project, 157 Regent’s Park Road",
-      funding: "Selected artists get exhibition support, curatorial feedback, professional documentation and promotion. A fee is not mentioned; check the submission link",
+      funding: "Unpaid. Submitting is free, but a fee may be charged if the work is selected: the amount for this call is not confirmed (reportedly £60–£180 in their earlier calls). Selected artists get curatorial feedback, install support, documentation and promotion",
       category: "Open Call", deadline: "2026-11-29",
-      notes: "Deadline 29 Nov, 11:59pm. Exhibition 16–20 Dec 2026, private view 16 Dec, 6–8pm. For students, recent graduates and emerging artists, especially people with little or no experience of professional galleries. All disciplines, including photography, moving image, installation and writing, poetry and text-based work. Theme: nothing is made entirely anew; analogue, digital and hybrid practices, traces of what came before. Submit through the link in their Instagram bio. Elephant Vision Lab is a London artist duo (XinYue Ma and Alexander Collinson, established 2026) that runs open calls for students and graduates.",
+      notes: "Deadline 29 Nov, 11:59pm. Exhibition 16–20 Dec 2026, private view 16 Dec, 6–8pm. For students, recent graduates and emerging artists, especially people with little or no experience of professional galleries. All disciplines, including photography, moving image, installation and writing, poetry and text-based work. Theme: nothing is made entirely anew; analogue, digital and hybrid practices, traces of what came before. Submit through the link in their Instagram bio (the post is instagram.com/p/DforTJzgAan). Find out the fee before applying: check their CuratorSpace listing or the application form. Elephant Vision Lab is a London artist duo (XinYue Ma and Alexander Collinson, established 2026) that runs open calls for students and graduates.",
     },
     {
       title: "LIMINAL — open call for all mediums",
