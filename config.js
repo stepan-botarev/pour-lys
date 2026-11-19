@@ -16,7 +16,7 @@ window.PL_CONFIG = {
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
   // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
   // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
-  defaultsVersion: 21,
+  defaultsVersion: 22,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
@@ -414,6 +414,15 @@ window.PL_CONFIG = {
       funding: "£3 per submission (free for subscribers and people on benefits); no payment is mentioned, but poets get a copy of the issue",
       category: "Open Call", deadline: "2026-11-30",
       notes: "Closing 30 Nov 2026. Up to 4 unpublished poems per poet, in one document, for one issue only. Theme: doubt. Poems that explore doubt in the truth, something never quite accepted as fact, an uncertainty that stays; language for things that feel unknowable. Submit at magmapoetry.submittable.com/submit (emails are not read; post only from the UK). Simultaneous submissions are fine if you tell them at once about an acceptance elsewhere. You keep copyright; published poems may appear on their site. Edited by David Floyd, a second poet from the post and Katie Dunstan.",
+    },
+    {
+      title: "Women in Arts Magazine, Issue 02: Home — open call",
+      org: "Women in Arts Network (magazine)",
+      url: "https://www.instagram.com/p/Dfroo0so6l0/",
+      location: "Remote; open worldwide",
+      funding: "The post names no fee (check the form). One artist wins a $500 award, a 4-page spread and an interview; all selected artists are featured in print",
+      category: "Open Call", deadline: "2026-11-30",
+      notes: "Theme: Home. A place, a person, a memory, a language, a feeling of belonging; the home you came from, the one you left or the one you are building; literal or abstract. For women, women-identifying and non-binary artists aged 18+, from anywhere. Up to 3 works in any medium. Apply with the link in their Instagram bio (or comment “MAG” under the post). Fits her work on rented flats and temporary systems very directly. I could not find an official site or the application terms: the Women in Arts Network seems to be linked to the Arts to Hearts Project, whose earlier calls had small entry fees (about $3 for one listing), so check the fee and rights on the form first.",
     },
   ],
 
