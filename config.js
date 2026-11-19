@@ -16,7 +16,7 @@ window.PL_CONFIG = {
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
   // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
   // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
-  defaultsVersion: 19,
+  defaultsVersion: 20,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
@@ -396,6 +396,15 @@ window.PL_CONFIG = {
       funding: "Described as a paid opportunity (the amount is not stated); the post mentions no fee",
       category: "Open Call", deadline: "2026-11-30",
       notes: "They look for creatives of every discipline to collaborate on the second print issue: photographers, writers, poets, filmmakers, visual artists, illustrators, journalists, and “a whole lot more”, from anywhere in the world. Apply with the Google Form (link in their Instagram bio). I could not find an official site or the details behind the form, so check the pay, rights and what they need from you before sending. The link is the application form itself; the Instagram account is the one with the eye logo, post from 4 Nov.",
+    },
+    {
+      title: "London Experimental Film Festival — film submissions",
+      org: "London Experimental Film Festival, London",
+      url: "https://filmfreeway.com/londonexperimental",
+      location: "Remote submission via FilmFreeway; screenings in London",
+      funding: "Fee unclear: the FilmFreeway listing seems to show none, but I could not open the page to confirm. No payment for filmmakers is mentioned",
+      category: "Open Call", deadline: "2026-11-30",
+      notes: "Last call for the next edition: submissions close 30 Nov 2026, through FilmFreeway. Experimental and moving-image work (the listing mentions a screening in February 2027, which I could not confirm). FilmFreeway blocked my access, so check the fee, film length, rules and dates on the page before submitting. Fits her if she has a short film, video piece or Polaroid-based moving image.",
     },
   ],
 
