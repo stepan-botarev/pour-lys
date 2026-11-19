@@ -16,7 +16,7 @@ window.PL_CONFIG = {
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
   // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
   // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
-  defaultsVersion: 18,
+  defaultsVersion: 19,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
@@ -387,6 +387,15 @@ window.PL_CONFIG = {
       funding: "€10 for up to 10 images (via PayPal); or pre-order the book at an early-bird price instead of paying the fee. Selected artists get an offset-printed place in the book and buy copies at 50% off. Unpaid",
       category: "Open Call", deadline: "2026-11-30",
       notes: "Single images for a book that works like an artist book: up to 10 images per submission, from one or several projects, judged individually. No theme, no limits on age or experience; mostly photography, but painting, illustration, sculpture, design and film stills are fine too. JPG, under 2 MB each, named “First name Last name 01.jpg”, and your Instagram name in the message; high-res files only if selected. Pay on the page, then fill in the upload form. Fees and pre-orders are not refunded. Selected artists are announced on 1 Feb 2027, the book comes out in spring 2027. Over 650 artists were published in the first five books. Their taste: works with an idea behind them, slow to expose themselves, unfinished or ‘cul-de-sac’ pieces are welcome, nothing that tries hard to look pretty.",
+    },
+    {
+      title: "Undiscovered Magazine — creatives for the 2nd print issue",
+      org: "Undiscovered Magazine (print)",
+      url: "https://docs.google.com/forms/d/e/1FAIpQLSdf9si_-4_tW4yG8BXUJ0ImdWDjpTRyuH4F2N1nnS9WW-05-Q/viewform",
+      location: "Remote; creatives worldwide",
+      funding: "Described as a paid opportunity (the amount is not stated); the post mentions no fee",
+      category: "Open Call", deadline: "2026-11-30",
+      notes: "They look for creatives of every discipline to collaborate on the second print issue: photographers, writers, poets, filmmakers, visual artists, illustrators, journalists, and “a whole lot more”, from anywhere in the world. Apply with the Google Form (link in their Instagram bio). I could not find an official site or the details behind the form, so check the pay, rights and what they need from you before sending. The link is the application form itself; the Instagram account is the one with the eye logo, post from 4 Nov.",
     },
   ],
 
