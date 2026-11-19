@@ -16,7 +16,7 @@ window.PL_CONFIG = {
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
   // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
   // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
-  defaultsVersion: 14,
+  defaultsVersion: 15,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
@@ -343,6 +343,33 @@ window.PL_CONFIG = {
       category: "Open Call", deadline: "2026-11-30",
       notes: "Window 1–30 Nov 2026 (the next one is 1–31 May 2027, for the autumn issue). Poetry, fiction and non-fiction, in English or Irish; translations accepted. Up to four poems, one story and/or one non-fiction piece per author. Email submissions@channelpress.ie with the subject “Poetry/Fiction/Non-Fiction Submission for Channel”, one Word or PDF file with no name on it, a short bio in the email. Unpublished work only; simultaneous submissions are fine; no AI-written work. The theme is ecological entanglement: love or fear for the living world, or nature as setting, image or metaphor. So her poems or autofiction need that angle (bodies, rooms, plants, weather, transit) to fit.",
     },
+    {
+      title: "Fleurs du Mal — poetry submissions",
+      org: "Fleurs du Mal (literary magazine, with Bottega Collective)",
+      url: "https://www.instagram.com/fleursdumaljournal/",
+      location: "Remote (online submission form)",
+      funding: "Unclear: the call does not mention a fee or payment; check the form",
+      category: "Open Call", deadline: "",
+      notes: "New literary magazine, open for poetry on any topic or theme, prose poetry included. Up to 5 poems per submission, no maximum word count. Simultaneous submissions and previously published work are accepted. Full guidelines and the form are behind the link in their Instagram bio (I could not find an official website, so check fee, rights and deadline there). Different from the Dutch site fleursdumal.nl.",
+    },
+    {
+      title: "Nothing is made once… — open call and group show",
+      org: "Elephant Vision Lab, at Koppel Project, London",
+      url: "https://www.instagram.com/p/DforTJzgAan/",
+      location: "London: Koppel Project, 157 Regent’s Park Road",
+      funding: "Selected artists get exhibition support, curatorial feedback, professional documentation and promotion. A fee is not mentioned; check the submission link",
+      category: "Open Call", deadline: "2026-11-29",
+      notes: "Deadline 29 Nov, 11:59pm. Exhibition 16–20 Dec 2026, private view 16 Dec, 6–8pm. For students, recent graduates and emerging artists, especially people with little or no experience of professional galleries. All disciplines, including photography, moving image, installation and writing, poetry and text-based work. Theme: nothing is made entirely anew; analogue, digital and hybrid practices, traces of what came before. Submit through the link in their Instagram bio. Elephant Vision Lab is a London artist duo (XinYue Ma and Alexander Collinson, established 2026) that runs open calls for students and graduates.",
+    },
+    {
+      title: "LIMINAL — open call for all mediums",
+      org: "Irish-led art and writing publication (via Subfolio)",
+      url: "https://www.instagram.com/p/DfppXePEXfL/",
+      location: "Remote; open internationally",
+      funding: "Free to submit; unpaid, but they support artists beyond publication (award nominations, introductions to other creators)",
+      category: "Open Call", deadline: "",
+      notes: "Theme: thresholds, in-between states, crossings and transitions; neither here nor there, where we came from and where we are going. Open to all mediums (no generative AI) as long as the work can be photographed or printed in high quality. The Subfolio form went live on 16 Nov 2026 and stays open for one month or until they reach capacity, so roughly until mid-December; there is no exact date, so do not wait. The magazine’s own name and site are not shown in the post: follow the link in their Instagram bio.",
+    },
   ],
 
   // Google ignores words past ~32, so parts are added only while they fit.
@@ -358,6 +385,7 @@ window.PL_CONFIG = {
     { label: "Mini-job", clause: "(Minijob OR geringfügig OR Aushilfe)", onlyGroups: ["Culture Jobs", "Cozy Jobs"] },
     { label: "Scholarships only", onlyGroups: ["Scholarships"] },
     { label: "Residencies only", onlyGroups: ["Residencies"] },
+    { label: "Open calls only", onlyGroups: ["Open Calls"] },
   ],
 
   // "Site": site: limits the chips (not the ones marked plain) to a board or institution.
@@ -395,6 +423,40 @@ window.PL_CONFIG = {
   // jobs:true  → Format / District / exclusions apply.  plain:true (chip) → only the query, no filters.
   groups: [
     {
+      title: "Open Calls", emoji: "📣", jobs: false,
+      items: [
+        { label: "Poetry", query: '("open call" OR "call for submissions" OR "submissions open") (poetry OR poems OR Lyrik) (international OR remote OR Berlin) -fee' },
+        { label: "Fiction and autofiction", query: '("open call" OR "call for submissions") (fiction OR "short story" OR autofiction OR "life writing" OR "creative nonfiction") (international OR remote OR Berlin)' },
+        { label: "Photography", query: '("open call" OR "call for entries" OR "call for submissions") (photography OR photographers OR "analogue photography" OR Polaroid) ("free to enter" OR "no fee" OR Berlin OR London)' },
+        { label: "Art and group shows", query: '("open call" OR Ausschreibung) (exhibition OR "group show" OR Ausstellung) (emerging OR Nachwuchs) (Berlin OR London) "no fee"' },
+        { label: "Berlin open calls", query: '("open call" OR Ausschreibung OR "Call for Artists") (Berlin OR Brandenburg OR Potsdam) (Kunst OR Fotografie OR Literatur OR Film) 2026' },
+        { label: "Magazines and zines", query: '("open call" OR "call for submissions" OR "call for contributors") (magazine OR zine OR journal OR anthology) (art OR writing OR photography) unpaid OR paid "free to submit"' },
+        { label: "Film and video", query: '("open call" OR "call for entries") (short film OR "moving image" OR "artist film" OR video) ("free" OR "no fee") (Berlin OR international)' },
+        { label: "Awards and prizes", query: '(award OR prize OR Preis) (emerging OR Nachwuchs OR debut) (poetry OR fiction OR photography OR Literatur) ("no entry fee" OR "free to enter" OR kostenlos) Berlin OR international' },
+        { label: "Opportunity lists", plain: true, query: '(site:curatorspace.com OR site:artrabbit.com OR site:callforentry.org OR site:fastforward.photography) "open call" (Berlin OR London OR international)' },
+      ],
+    },
+    {
+      title: "Residencies", emoji: "🏡", jobs: false,
+      items: [
+        { label: "Poetry", query: '(Residency OR Aufenthaltsstipendium OR "Writer in Residence") (Lyrik OR poetry OR Poesie) Berlin' },
+        { label: "Fiction", query: '(Residency OR Aufenthaltsstipendium OR Schreibresidenz) (Prosa OR fiction OR Roman OR Erzählung) Berlin' },
+        { label: "Autofiction and life writing", query: '(Residency OR Aufenthaltsstipendium OR Schreibresidenz) (Autofiktion OR autofiction OR "life writing" OR Autobiografie) Berlin' },
+        { label: "Research residencies", query: '(Residency OR Residenz OR Stipendium) ("artistic research" OR "Künstlerische Forschung" OR Recherche OR "research-based") Berlin Kunst' },
+        { label: "Art", query: '(Residency OR Residenz OR "Artist in Residence" OR Atelierstipendium) (Bildende Kunst OR "visual art" OR Kunst) Berlin "open call"' },
+        { label: "Film", query: '(Residency OR Residenz OR "Artist in Residence") (Film OR Regie OR Drehbuch OR Filmemacher) Berlin "open call"' },
+        { label: "Writing", query: '(Residency OR Aufenthaltsstipendium OR "Writer in Residence" OR Schreibresidenz) (Literatur OR "Creative Writing" OR Autoren) Berlin' },
+        { label: "Photography", query: '(Residency OR Residenz OR "Artist in Residence") (Fotografie OR Photography) Berlin "open call"' },
+        { label: "Open calls", query: '("open call" OR Ausschreibung OR Bewerbung) (Residency OR Residenz OR Aufenthaltsstipendium) Berlin (Kunst OR Film OR Literatur OR Fotografie)' },
+        { label: "Funded", query: '(Residency OR Residenz) (Stipendium OR funded OR "with stipend" OR Honorar OR Unterkunft) Berlin (Kunst OR Film OR Literatur)' },
+        { label: "Bethanien artists' house", plain: true, query: 'site:bethanien.de (Residency OR Stipendium OR "open call")' },
+        { label: "Academy of Arts", plain: true, query: 'site:adk.de (Stipendium OR Residency OR Ausschreibung)' },
+        { label: "Literary Colloquium Berlin", plain: true, query: 'site:lcb.de (Stipendium OR Residenz OR Ausschreibung OR Aufenthalt)' },
+        { label: "Berlin Senate programs", plain: true, query: 'site:berlin.de (Arbeitsstipendium OR Atelierprogramm OR Residency OR Ausschreibung) Kultur' },
+        { label: "Residency directories", plain: true, query: '(site:transartists.org OR site:resartis.org OR site:artconnect.com) Berlin residency "open call"' },
+      ],
+    },
+    {
       title: "PhDs", emoji: "🎓", jobs: false,
       items: [
         { label: "H-Soz-Kult: all opportunities", key: true, url: "https://www.hsozkult.de/opportunity/page" },
@@ -431,6 +493,26 @@ window.PL_CONFIG = {
       ],
     },
     {
+      title: "Scholarships", emoji: "💸", jobs: false,
+      items: [
+        { label: "Poetry grants", query: '(Stipendium OR grant OR "writing fellowship") (Lyrik OR poetry OR Poesie OR Lyriker) Berlin' },
+        { label: "Fiction and prose", query: '(Stipendium OR grant OR "writing fellowship") (Prosa OR fiction OR Roman OR Erzählung OR Autofiktion) Berlin' },
+        { label: "Research funding", query: '(Stipendium OR "research grant" OR Recherchestipendium) (Fotografie OR Literatur OR Kunst) (Recherche OR "artistic research" OR "Künstlerische Forschung") Berlin' },
+        { label: "For a PhD", query: '(Promotionsstipendium OR "PhD scholarship" OR Doktorandenstipendium) (Kunst OR Film OR Kultur OR Geisteswissenschaften) Berlin' },
+        { label: "Berlin state doctoral grant", query: 'NaFöG Stipendium "Land Berlin" Nachwuchsförderung Promotion' },
+        { label: "DAAD", plain: true, query: 'site:daad.de (Stipendium OR scholarship) (Kunst OR Film OR Fotografie OR Writing OR "Fine Arts")' },
+        { label: "Foundations", query: '(Studienstiftung OR Cusanuswerk OR "Heinrich-Böll-Stiftung" OR "Rosa-Luxemburg-Stiftung" OR "Friedrich-Ebert-Stiftung") Promotionsstipendium Kunst' },
+        { label: "For a master", query: '(Stipendium OR scholarship) (Masterstudium OR "Master\'s degree") (Film OR Fotografie OR "Creative Writing" OR Kunst) Berlin' },
+        { label: "Artist grants", query: '(Arbeitsstipendium OR Atelierstipendium OR Künstlerstipendium OR "artist grant") Berlin (Film OR Fotografie OR Literatur OR Kunst)' },
+        { label: "Literature", query: '(Literaturstipendium OR Autorenstipendium OR "writing fellowship" OR Debütstipendium) Berlin' },
+        { label: "Screenplay and film", query: '(Drehbuchstipendium OR Stoffentwicklung OR Drehbuchförderung OR "screenwriting grant") Berlin Brandenburg' },
+        { label: "Photography", query: '(Fotostipendium OR "Förderung Fotografie" OR "photography grant") Berlin' },
+        { label: "For international students", query: '(Stipendium OR scholarship) ("international students" OR Ausländische OR Internationale) (Kunst OR Geisteswissenschaften) Berlin' },
+        { label: "Scholarship finder", plain: true, query: 'site:stipendienlotse.de (Film OR Fotografie OR Kunst OR Literatur)' },
+        { label: "Berlin film fund", plain: true, query: 'site:medienboard.de (Förderung OR Stipendium OR Drehbuch)' },
+      ],
+    },
+    {
       title: "Culture Jobs", emoji: "🎞️", jobs: true,
       items: [
         { label: "University assistant jobs", query: '("Wissenschaftliche Hilfskraft" OR "Studentische Hilfskraft" OR "wissenschaftliche Mitarbeit") (Kunst OR Film OR Literatur OR Medien OR Fotografie) Berlin' },
@@ -460,46 +542,6 @@ window.PL_CONFIG = {
         { label: "Photo assistant", query: '(Fotoassistenz OR "Photo Assistant" OR Fotografenassistent OR Studioassistenz) (Berlin) (freiberuflich OR Freelance OR Aushilfe OR Teilzeit)' },
         { label: "Product and food shoots", query: '(Produktfotograf OR Produktfotografie OR Foodfotograf OR "Product Photographer") (freiberuflich OR Freelance OR Auftrag) Berlin' },
         { label: "Photo editing remote", query: '(Bildbearbeitung OR Retusche OR "Photo Retoucher" OR Bildbearbeiter) (freiberuflich OR Freelance OR Remote) Berlin' },
-      ],
-    },
-    {
-      title: "Scholarships", emoji: "💸", jobs: false,
-      items: [
-        { label: "Poetry grants", query: '(Stipendium OR grant OR "writing fellowship") (Lyrik OR poetry OR Poesie OR Lyriker) Berlin' },
-        { label: "Fiction and prose", query: '(Stipendium OR grant OR "writing fellowship") (Prosa OR fiction OR Roman OR Erzählung OR Autofiktion) Berlin' },
-        { label: "Research funding", query: '(Stipendium OR "research grant" OR Recherchestipendium) (Fotografie OR Literatur OR Kunst) (Recherche OR "artistic research" OR "Künstlerische Forschung") Berlin' },
-        { label: "For a PhD", query: '(Promotionsstipendium OR "PhD scholarship" OR Doktorandenstipendium) (Kunst OR Film OR Kultur OR Geisteswissenschaften) Berlin' },
-        { label: "Berlin state doctoral grant", query: 'NaFöG Stipendium "Land Berlin" Nachwuchsförderung Promotion' },
-        { label: "DAAD", plain: true, query: 'site:daad.de (Stipendium OR scholarship) (Kunst OR Film OR Fotografie OR Writing OR "Fine Arts")' },
-        { label: "Foundations", query: '(Studienstiftung OR Cusanuswerk OR "Heinrich-Böll-Stiftung" OR "Rosa-Luxemburg-Stiftung" OR "Friedrich-Ebert-Stiftung") Promotionsstipendium Kunst' },
-        { label: "For a master", query: '(Stipendium OR scholarship) (Masterstudium OR "Master\'s degree") (Film OR Fotografie OR "Creative Writing" OR Kunst) Berlin' },
-        { label: "Artist grants", query: '(Arbeitsstipendium OR Atelierstipendium OR Künstlerstipendium OR "artist grant") Berlin (Film OR Fotografie OR Literatur OR Kunst)' },
-        { label: "Literature", query: '(Literaturstipendium OR Autorenstipendium OR "writing fellowship" OR Debütstipendium) Berlin' },
-        { label: "Screenplay and film", query: '(Drehbuchstipendium OR Stoffentwicklung OR Drehbuchförderung OR "screenwriting grant") Berlin Brandenburg' },
-        { label: "Photography", query: '(Fotostipendium OR "Förderung Fotografie" OR "photography grant") Berlin' },
-        { label: "For international students", query: '(Stipendium OR scholarship) ("international students" OR Ausländische OR Internationale) (Kunst OR Geisteswissenschaften) Berlin' },
-        { label: "Scholarship finder", plain: true, query: 'site:stipendienlotse.de (Film OR Fotografie OR Kunst OR Literatur)' },
-        { label: "Berlin film fund", plain: true, query: 'site:medienboard.de (Förderung OR Stipendium OR Drehbuch)' },
-      ],
-    },
-    {
-      title: "Residencies", emoji: "🏡", jobs: false,
-      items: [
-        { label: "Poetry", query: '(Residency OR Aufenthaltsstipendium OR "Writer in Residence") (Lyrik OR poetry OR Poesie) Berlin' },
-        { label: "Fiction", query: '(Residency OR Aufenthaltsstipendium OR Schreibresidenz) (Prosa OR fiction OR Roman OR Erzählung) Berlin' },
-        { label: "Autofiction and life writing", query: '(Residency OR Aufenthaltsstipendium OR Schreibresidenz) (Autofiktion OR autofiction OR "life writing" OR Autobiografie) Berlin' },
-        { label: "Research residencies", query: '(Residency OR Residenz OR Stipendium) ("artistic research" OR "Künstlerische Forschung" OR Recherche OR "research-based") Berlin Kunst' },
-        { label: "Art", query: '(Residency OR Residenz OR "Artist in Residence" OR Atelierstipendium) (Bildende Kunst OR "visual art" OR Kunst) Berlin "open call"' },
-        { label: "Film", query: '(Residency OR Residenz OR "Artist in Residence") (Film OR Regie OR Drehbuch OR Filmemacher) Berlin "open call"' },
-        { label: "Writing", query: '(Residency OR Aufenthaltsstipendium OR "Writer in Residence" OR Schreibresidenz) (Literatur OR "Creative Writing" OR Autoren) Berlin' },
-        { label: "Photography", query: '(Residency OR Residenz OR "Artist in Residence") (Fotografie OR Photography) Berlin "open call"' },
-        { label: "Open calls", query: '("open call" OR Ausschreibung OR Bewerbung) (Residency OR Residenz OR Aufenthaltsstipendium) Berlin (Kunst OR Film OR Literatur OR Fotografie)' },
-        { label: "Funded", query: '(Residency OR Residenz) (Stipendium OR funded OR "with stipend" OR Honorar OR Unterkunft) Berlin (Kunst OR Film OR Literatur)' },
-        { label: "Bethanien artists' house", plain: true, query: 'site:bethanien.de (Residency OR Stipendium OR "open call")' },
-        { label: "Academy of Arts", plain: true, query: 'site:adk.de (Stipendium OR Residency OR Ausschreibung)' },
-        { label: "Literary Colloquium Berlin", plain: true, query: 'site:lcb.de (Stipendium OR Residenz OR Ausschreibung OR Aufenthalt)' },
-        { label: "Berlin Senate programs", plain: true, query: 'site:berlin.de (Arbeitsstipendium OR Atelierprogramm OR Residency OR Ausschreibung) Kultur' },
-        { label: "Residency directories", plain: true, query: '(site:transartists.org OR site:resartis.org OR site:artconnect.com) Berlin residency "open call"' },
       ],
     },
   ],
