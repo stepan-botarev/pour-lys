@@ -16,7 +16,7 @@ window.PL_CONFIG = {
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
   // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
   // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
-  defaultsVersion: 22,
+  defaultsVersion: 23,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
@@ -423,6 +423,15 @@ window.PL_CONFIG = {
       funding: "The post names no fee (check the form). One artist wins a $500 award, a 4-page spread and an interview; all selected artists are featured in print",
       category: "Open Call", deadline: "2026-11-30",
       notes: "Theme: Home. A place, a person, a memory, a language, a feeling of belonging; the home you came from, the one you left or the one you are building; literal or abstract. For women, women-identifying and non-binary artists aged 18+, from anywhere. Up to 3 works in any medium. Apply with the link in their Instagram bio (or comment “MAG” under the post). Fits her work on rented flats and temporary systems very directly. I could not find an official site or the application terms: the Women in Arts Network seems to be linked to the Arts to Hearts Project, whose earlier calls had small entry fees (about $3 for one listing), so check the fee and rights on the form first.",
+    },
+    {
+      title: "Small World City — Issue 13 submissions",
+      org: "Small World City (online speculative magazine)",
+      url: "https://smallworldcity.com/submit",
+      location: "Remote (by email)",
+      funding: "Free to submit; unpaid according to Duotrope and ChillSubs",
+      category: "Open Call", deadline: "2026-12-15",
+      notes: "Deadline 15 Dec 2026 for Issue 13 (out 1 Jan); later work is considered for Issue 14 and beyond. Looking for speculative fiction, poetry, nonfiction, essays, philosophy, comics, art and hybrid texts: “a space for the otherworldly, the alternate and the not yet”. Send by email to smallworldcity@gmail.com with a subject like “[FICTION] First name Last name – TITLE”. Simultaneous submissions are fine, reprints are not. Careful: an older notice on their submit page said they were only considering work from Bangladeshi authors and people of colour; the new call says nothing of the kind, but check the guidelines before sending.",
     },
   ],
 
