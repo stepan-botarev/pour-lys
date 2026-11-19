@@ -16,7 +16,7 @@ window.PL_CONFIG = {
   // Starter entries: only free or funded, and none that needs German (checked 8 Nov 2026; see each link).
   // Bump defaultsVersion when this list changes: browsers then get new entries once, untouched
   // entries listed in removedDefaults are taken out, and untouched starter entries are refreshed.
-  defaultsVersion: 16,
+  defaultsVersion: 17,
   removedDefaults: [
     "https://kh-berlin.de/en/studies/applying-for-studies/ma-spatial-stategies",
     "https://www.srh-university.de/en/master/photography/v/",
@@ -369,6 +369,15 @@ window.PL_CONFIG = {
       funding: "Free to submit; unpaid, but they support artists beyond publication (award nominations, introductions to other creators)",
       category: "Open Call", deadline: "",
       notes: "Theme: thresholds, in-between states, crossings and transitions; neither here nor there, where we came from and where we are going. Open to all mediums (no generative AI) as long as the work can be photographed or printed in high quality. The Subfolio form went live on 16 Nov 2026 and stays open for one month or until they reach capacity, so roughly until mid-December; there is no exact date, so do not wait. The magazine’s own name and site are not shown in the post: follow the link in their Instagram bio.",
+    },
+    {
+      title: "Clast Magazine — 2027 open call",
+      org: "Clast Magazine, London",
+      url: "https://www.instagram.com/p/DfkTAcLm9yX/",
+      location: "Remote (by email); the magazine is London-based",
+      funding: "Not stated: no fee mentioned, and nothing about payment either",
+      category: "Open Call", deadline: "",
+      notes: "Open for submissions for work going into 2027, with no deadline in the post. For photographers, writers, designers, journalists, editors, artists and anyone in between, all backgrounds welcome. Email contact@clastgroup.com with your work, a short bio and high-res files. Clast is a London magazine and shop (articles, interviews, visual features), site clastmagazine.com; its pages do not list submission terms, so ask about rights and payment in the email. Fits her as a photographer and writer.",
     },
   ],
 
