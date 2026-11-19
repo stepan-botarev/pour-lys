@@ -488,15 +488,14 @@ window.PL_CONFIG = {
     {
       title: "Open Calls", emoji: "📣", jobs: false,
       items: [
-        { label: "Poetry", query: '("open call" OR "call for submissions" OR "submissions open") (poetry OR poems OR Lyrik) (international OR remote OR Berlin) -fee' },
-        { label: "Fiction and autofiction", query: '("open call" OR "call for submissions") (fiction OR "short story" OR autofiction OR "life writing" OR "creative nonfiction") (international OR remote OR Berlin)' },
-        { label: "Photography", query: '("open call" OR "call for entries" OR "call for submissions") (photography OR photographers OR "analogue photography" OR Polaroid) ("free to enter" OR "no fee" OR Berlin OR London)' },
-        { label: "Art and group shows", query: '("open call" OR Ausschreibung) (exhibition OR "group show" OR Ausstellung) (emerging OR Nachwuchs) (Berlin OR London) "no fee"' },
-        { label: "Berlin open calls", query: '("open call" OR Ausschreibung OR "Call for Artists") (Berlin OR Brandenburg OR Potsdam) (Kunst OR Fotografie OR Literatur OR Film) 2026' },
-        { label: "Magazines and zines", query: '("open call" OR "call for submissions" OR "call for contributors") (magazine OR zine OR journal OR anthology) (art OR writing OR photography) unpaid OR paid "free to submit"' },
-        { label: "Film and video", query: '("open call" OR "call for entries") (short film OR "moving image" OR "artist film" OR video) ("free" OR "no fee") (Berlin OR international)' },
-        { label: "Awards and prizes", query: '(award OR prize OR Preis) (emerging OR Nachwuchs OR debut) (poetry OR fiction OR photography OR Literatur) ("no entry fee" OR "free to enter" OR kostenlos) Berlin OR international' },
-        { label: "Opportunity lists", plain: true, query: '(site:curatorspace.com OR site:artrabbit.com OR site:callforentry.org OR site:fastforward.photography) "open call" (Berlin OR London OR international)' },
+        { label: "Poetry", query: '("open call" OR "call for submissions") (poetry OR poems OR Lyrik) (Berlin OR London OR remote)' },
+        { label: "Fiction and autofiction", query: '("open call" OR "call for submissions") (fiction OR "short story" OR autofiction OR "life writing" OR "creative nonfiction") (Berlin OR London OR remote)' },
+        { label: "Photography", query: '("open call" OR "call for entries" OR "call for submissions") (photography OR photographers OR Polaroid) ("free to enter" OR "no fee") (Berlin OR London OR remote)' },
+        { label: "Art and group shows", query: '("open call" OR Ausschreibung) (exhibition OR "group show" OR Ausstellung) (emerging OR Nachwuchs) (Berlin OR London OR remote)' },
+        { label: "Magazines and zines", query: '("open call" OR "call for submissions" OR "call for contributors") (magazine OR zine OR journal OR anthology) (art OR writing OR photography) (Berlin OR London OR remote)' },
+        { label: "Film and video", query: '("open call" OR "call for entries") ("short film" OR "moving image" OR "artist film" OR video) ("free" OR "no fee") (Berlin OR London OR remote)' },
+        { label: "Awards and prizes", query: '(award OR prize OR Preis) (emerging OR debut) (poetry OR fiction OR photography) ("no entry fee" OR "free to enter") (Berlin OR London OR remote)' },
+        { label: "Opportunity lists", plain: true, query: '(site:curatorspace.com OR site:artrabbit.com OR site:callforentry.org OR site:fastforward.photography) "open call" (Berlin OR London OR remote)' },
       ],
     },
     {
