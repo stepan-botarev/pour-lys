@@ -49,9 +49,16 @@
   }
   // Starter entries from config.js. Each list version is applied once per browser:
   // new entries are added, untouched entries that were dropped from the list are removed.
+  // d.offered remembers every starter URL this list has been given, so a deleted entry stays deleted.
   function seed(d) {
     const cfg = window.PL_CONFIG, version = cfg.defaultsVersion || 1;
-    if ((d.seeded || 0) >= version) return d;
+    const urls = (cfg.defaults || []).map((x) => x.url);
+    if ((d.seeded || 0) >= version) {
+      // lists saved before d.offered existed: whatever is current has already been offered
+      if (!d.offered) { d.offered = urls; try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {} }
+      return d;
+    }
+    const offered = new Set(d.offered || []);
     const removed = new Set(cfg.removedDefaults || []);
     d.jobs = d.jobs.filter((j) => !(removed.has(j.url) && j.status === "Not yet sent" && !j.prep && !j.letter));
     const untouched = (j) => j.status === "Not yet sent" && !j.prep && !j.letter;
@@ -60,10 +67,11 @@
     const have = new Set(d.jobs.map((j) => j.url));
     const t = new Date().toISOString();
     (cfg.defaults || []).forEach((x) => {
-      if (have.has(x.url)) return;
+      if (have.has(x.url) || offered.has(x.url)) return;
       d.jobs.push({ id: d.seq++, status: "Not yet sent", prep: "", favorite: false, ...x, createdAt: t, statusChangedAt: t });
     });
     d.seeded = version;
+    d.offered = [...new Set([...offered, ...urls])];
     try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) {}
     return d;
   }
@@ -524,7 +532,7 @@
         const d = JSON.parse(await inp.files[0].text());
         if (!d || !Array.isArray(d.jobs)) throw 0;
         if (!confirm(`Replace the current list with ${d.jobs.length} saved item(s)?`)) return;
-        db = { seq: d.seq || d.jobs.reduce((m, j) => Math.max(m, j.id), 0) + 1, jobs: d.jobs }; save(); render(); toast("Restored");
+        db = seed({ seq: d.seq || d.jobs.reduce((m, j) => Math.max(m, j.id), 0) + 1, jobs: d.jobs, seeded: d.seeded, offered: d.offered }); save(); render(); toast("Restored");
       } catch (e) { toast("That file is not a Pour Lys backup"); }
     } });
     inp.click();
